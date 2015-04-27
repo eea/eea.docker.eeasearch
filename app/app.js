@@ -1,25 +1,36 @@
 #!/usr/bin/env node
 
-var express = require('express');
-var path = require('path');
-var nconf = require('nconf');
 var searchServer = require('eea-searchserver')
+var express = require('express');
+var morgan = require('morgan');
+var nconf = require('nconf');
+var path = require('path');
+
 var routes = require('./routes');
 var managementCommands = require('./management/commands');
 
 var app = express();
 
+var env = process.env.NODE_ENV || 'dev'
+
 app.set('nconf', nconf);
 app.set('managementCommands', managementCommands);
 app.set('views', __dirname + '/views');
 app.set('view engine', 'jade');
+
+// Skip non-error codes in production
+var prodLogOpt = {'skip': function(req, res) { return res.statusCode < 400; }};
+var loggerFormat = env === 'dev' ? 'dev' : 'combined';
+var loggerOpt =    env === 'dev' ? {} : prodLogOpt;
+var logger = morgan(loggerFormat, loggerOpt);
+app.use(logger);
+
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/', searchServer.middleware.templateRequired, routes.index);
 app.get('/index', searchServer.middleware.templateRequired, routes.index);
 app.get('/api', searchServer.routes.elasticProxy);
 app.get('/invalidate_templates', searchServer.routes.invalidateTemplates);
-
 
 function checkError(err) {
     if (err) {
@@ -41,4 +52,3 @@ searchServer.Server(app, __dirname + '/settings.json', function(err, srv) {
         console.log("Ran command: " + process.argv[2]);
     });
 });
-

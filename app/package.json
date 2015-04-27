@@ -5,7 +5,8 @@
     "nconf": "*",
     "express": "*",
     "jade": "*",
-    "eea-searchserver": "*"    
+    "eea-searchserver": "*",
+    "morgan": "*"
   },
   "keywords": [
     "node",
