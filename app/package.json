@@ -1,0 +1,19 @@
+{
+  "name": "eea-eeasearch",
+  "description": "EEA Facetview Search application",
+  "dependencies" : {
+    "nconf": "*",
+    "express": "*",
+    "jade": "*",
+    "eea-searchserver": "*"    
+  },
+  "keywords": [
+    "node",
+    "express",
+    "EEA",
+    "Elastic"
+  ],
+  "author": "Mihai Bivol",
+  "license": "GPL-2.0",
+  "readmeFilename": "README.md"
+}

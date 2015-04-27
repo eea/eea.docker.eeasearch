@@ -1,0 +1,15 @@
+# Development docker-compose file with server auto-reload and
+# code mounted as a volume.
+app:
+    build: .
+    ports: # App accessible on http://localhost:3000
+        - 3000:3000
+    volumes: # Mount code as a volume for easy restart
+        - ./app/:/code/:ro
+    entrypoint: # Auto reload server on any change using nodemon
+        [nodemon,  /code/app.js]
+    command: runserver
+    environment: # Use current upstream staging instance
+        - elastic_host=centaurus-dev.eea.europa.eu
+        - elastic_path=/elasticsearch/
+        - elastic_port=80
