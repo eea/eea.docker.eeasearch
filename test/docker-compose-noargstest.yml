@@ -1,0 +1,3 @@
+# Docker compose file used for image no env set tests
+test2:
+    build: .

@@ -1,5 +1,5 @@
 # Docker compose file used for smoketest
-app:
+test1:
     build: .
     ports: # App accessible on http://localhost:3000
         - 3000:3000
