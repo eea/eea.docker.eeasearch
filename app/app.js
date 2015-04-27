@@ -4,6 +4,7 @@ var searchServer = require('eea-searchserver')
 var express = require('express');
 var morgan = require('morgan');
 var nconf = require('nconf');
+var crontab = require('node-crontab');
 var path = require('path');
 
 var routes = require('./routes');
@@ -37,6 +38,13 @@ function checkError(err) {
         process.stderr.write(err.message + '\n\n');
         process.exit(2);
     }
+}
+
+// Schedule sync as expressed in env variables
+var syncCrontab = process.env.SYNC_CRONTAB
+if (syncCrontab) {
+    crontab.scheduleJob(syncCrontab, managementCommands.sync);
+    console.log("Enabled sync crontab job: " + syncCrontab);
 }
 
 searchServer.Server(app, __dirname + '/settings.json', function(err, srv) {

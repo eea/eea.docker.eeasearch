@@ -7,6 +7,7 @@
     "express": "*",
     "jade": "*",
     "eea-searchserver": "*",
+    "node-crontab": "*",
     "morgan": "*"
   },
   "repository": {

@@ -42,3 +42,12 @@ docker-compose --rm run app help
 Note that any index creation commands require rights on the set elastic_backend
 
 For more information about the settings.yml file, please see https://github.com/eea/eea.searchserver.js/blob/master/README.md
+
+## Environment variables
+
+- NODE_ENV: 'production' or 'dev'. Depending on this, the container will log
+  only errors in Apache format for 'production' and all access logs for 'dev'.
+  __The image is built with NODE_ENV=production__
+- SYNC_CRONTAB: A valid crontab line (e.g. * * * * *) for scheduling sync jobs.
+  If not set, the app will never schedule sync jobs. In the image this variable
+  is not set.

@@ -10,6 +10,10 @@ COMPOSEFILE_2="./test/docker-compose-noargstest.yml"
 CONTAINERNAME_2="test_test2_1"
 TESTNAME_2="[No es_host set tests]"
 
+COMPOSEFILE_3="./test/docker-compose-crontab.yml"
+CONTAINERNAME_3="test_test3_1"
+TESTNAME_3="[Sync JOB Tests]"
+
 function print_test_header {
     printf "%-50s" "--> [TEST] $1 ..."
 }
@@ -78,5 +82,22 @@ docker ps -a | grep "^$CONTAINER" | grep -q "Exited"
 echo "[OK]"
 
 cleanup "$COMPOSEFILE_2" "$TESTNAME_2"
+
+# SYNC crontab job tests
+########################
+test_build_and_start "$COMPOSEFILE_3" "$TESTNAME_3"
+CONTAINER=$(get_container_id $CONTAINERNAME_3)
+
+# Test that container is running
+print_test_header "Image running with sync job enabled"
+docker ps | grep -q "^$CONTAINER"
+echo "[OK]"
+
+# Test that container logged that job was enabled
+print_test_header "Container logged sync job creation"
+docker logs $CONTAINER | grep -i -q "enabled sync crontab job" &> /dev/null
+echo "[OK]"
+
+cleanup "$COMPOSEFILE_3" "$TESTNAME_3"
 
 echo "--> [TEST] All tests passed!"

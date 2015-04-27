@@ -14,3 +14,4 @@ app:
         - elastic_path=/elasticsearch/
         - elastic_port=80
         - NODE_ENV=dev # Comment out to test prod environment
+        # - SYNC_CRONTAB=30 * * * * # Sync every 30 minutes

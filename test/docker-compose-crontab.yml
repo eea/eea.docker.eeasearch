@@ -1,0 +1,10 @@
+# Docker compose file used for testing SYNC_CRONTAB env var
+test3:
+    build: .
+    ports: # App accessible on http://localhost:3000
+        - 3000:3000
+    environment: # Use current upstream staging instance
+        - elastic_host=centaurus-dev.eea.europa.eu
+        - elastic_path=/elasticsearch/
+        - elastic_port=80
+        - SYNC_CRONTAB=30 * * * *
