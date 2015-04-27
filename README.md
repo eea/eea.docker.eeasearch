@@ -2,7 +2,7 @@
 
 ## Development
 1. Change code
-2. (Optionally) Change Dockerfile && ```docker-compose build```
+2. If you changed ```Dockerfile``` or ```app/package.json``` then ```docker-compose build```
 3. ```docker-compose up```
 4. Go to http://localhost:3000
 5. Before pushing to master make sure that ```./smoketest.sh``` passes
