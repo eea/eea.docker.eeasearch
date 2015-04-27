@@ -47,7 +47,7 @@ For more information about the settings.yml file, please see https://github.com/
 
 - NODE_ENV: 'production' or 'dev'. Depending on this, the container will log
   only errors in Apache format for 'production' and all access logs for 'dev'.
-  __The image is built with NODE_ENV=production__
+  __The image is built with NODE_ENV=production.__
 - SYNC_CRONTAB: A valid crontab line (e.g. * * * * *) for scheduling sync jobs.
-  If not set, the app will never schedule sync jobs. In the image this variable
-  is not set.
+  If not set, the app will never schedule sync jobs.
+  __In the image this variable is not set.__
