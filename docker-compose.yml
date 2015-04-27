@@ -7,7 +7,7 @@ app:
     volumes: # Mount code as a volume for easy restart
         - ./app/:/code/:ro
     entrypoint: # Auto reload server on any change using nodemon
-        [nodemon,  /code/app.js]
+        [nodemon, --watch, code/, /code/app.js]
     command: runserver
     environment: # Use current upstream staging instance
         - elastic_host=centaurus-dev.eea.europa.eu
