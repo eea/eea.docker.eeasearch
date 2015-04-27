@@ -1,5 +1,6 @@
 {
   "name": "eea-eeasearch",
+  "version": "0.0.1",
   "description": "EEA Facetview Search application",
   "dependencies" : {
     "nconf": "*",
@@ -7,6 +8,10 @@
     "jade": "*",
     "eea-searchserver": "*",
     "morgan": "*"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/eea/eea.docker.eeasearch.git"
   },
   "keywords": [
     "node",
