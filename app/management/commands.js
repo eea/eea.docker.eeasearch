@@ -7,65 +7,87 @@ function getOptions() {
     var nconf = require('nconf')
     var elastic = nconf.get('elastic');
     return {
-        'es_host': elastic.host + ":" + elastic.port + elastic.path
+        'es_host': elastic.host + ':' + elastic.port + elastic.path
     };
 }
 
 var syncReq = {
-    "type": "eeaRDF",
-    "eeaRDF": {
-        "endpoint": config.endpoint,
-        "indexType": "sync",
-        "syncConditions": config.syncConditions,
-        "graphSyncConditions": "FILTER (str(?graph) = concat(str(?resource), \"/@@rdf\"))",
-        "syncTimeProp": config.syncTimeProp,
-        "startTime": "",
-        "queryType": config.queryType,
-        "proplist": config.proplist,
-        "listtype": config.listtype,
-        "normProp": config.normProp,
-        "normMissing": config.normMissing,
-        "blackMap": config.blackMap,
-        "whiteMap": config.whiteMap,
-        "normObj": config.normObj,
-        "syncOldData": true
+    'type': 'eeaRDF',
+    'eeaRDF': {
+        'endpoint': config.endpoint,
+        'indexType': 'sync',
+        'syncConditions': config.syncConditions,
+        'graphSyncConditions': 'FILTER (str(?graph) = concat(str(?resource), \'/@@rdf\'))',
+        'syncTimeProp': config.syncTimeProp,
+        'startTime': '',
+        'queryType': config.queryType,
+        'proplist': config.proplist,
+        'listtype': config.listtype,
+        'normProp': config.normProp,
+        'normMissing': config.normMissing,
+        'blackMap': config.blackMap,
+        'whiteMap': config.whiteMap,
+        'normObj': config.normObj,
+        'syncOldData': true
     }
-    //TODO add river config data
 };
 
-var analyzerReq = analyzers.mappings;
+var analyzers = analyzers.mappings;
 
-var callback = function(err, statusCode, header, body) {
-    if (err) {
-        console.log(err.message);
-    } else {
-        console.log('Successfuly ran query');
-        console.log('ResponseCode: ', statusCode);
-        console.log(body);
-    }
+var callback = function(text) {
+    return function(err, statusCode, header, body) {
+        console.log(text);
+        if (err) {
+            console.log(err.message);
+        } else {
+            console.log('  Successfuly ran query');
+            console.log('  ResponseCode: ' + statusCode);
+            console.log('  ' + body);
+        }
+    };
 }
 
 function syncIndex() {
-    esAPI(getOptions())
-        .DELETE('_river/eeaSearch', callback)
-        .PUT('_river/eeaSearch', syncReq, callback).execute();
+    new esAPI(getOptions())
+        .DELETE('_river/eeaSearch', callback('Deleting river! (if it exists)'))
+        .PUT('_river/eeaSearch/_meta', syncReq, callback('Adding river!'))
+        .execute();
 }
 
 function removeRiver() {
-    esAPI(getOptions())
-        .DELETE('_river/eeaSearch', callback).execute();
+    new esAPI(getOptions())
+        .DELETE('_river/eeaSearch', callback('Deleting river! (if it exists)'))
+        .execute();
 }
 
 function removeData() {
-    console.log('not implemented');
+    var elastic = require('nconf').get('elastic');
+    new esAPI(getOptions())
+        .DELETE(elastic.index, callback('Deleting index! (if it exists)'))
+        .execute();
 }
 
 function reindex() {
-    console.log('not implemented');
+    var elastic = require('nconf').get('elastic');
+
+    new esAPI(getOptions())
+        .DELETE(elastic.index, callback('Deleting index! (if it exists)'))
+        .PUT(elastic.index, analyzers,
+             callback('Setting up new index and analyzers'))
+        .DELETE('_river/eeaSearch', callback('Deleting river! (if it exists)'))
+        .PUT('_river/eeaSearch/_meta', syncReq, callback('Adding river back'))
+        .execute();
 }
 
 function createIndex() {
-    console.log('not implemented');
+    var elastic = require('nconf').get('elastic');
+
+    new esAPI(getOptions())
+        .PUT(elastic.index, analyzers,
+             callback('Setting up new index and analyzers'))
+        .DELETE('_river/eeaSearch', callback('Deleting river! (if it exists)'))
+        .PUT('_river/eeaSearch/_meta', syncReq, callback('Adding river back'))
+        .execute();
 }
 
 function showHelp() {
