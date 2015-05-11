@@ -5,7 +5,7 @@ var analyzers = require('./river_config/analyzers.js');
 
 function getOptions() {
     var nconf = require('nconf')
-    var elastic = nconf.get('elastic');
+    var elastic = nconf.get()['elastic'];
     return {
         'es_host': elastic.host + ':' + elastic.port + elastic.path
     };

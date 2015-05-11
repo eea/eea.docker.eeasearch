@@ -49,7 +49,7 @@ if (syncCrontab) {
 
 searchServer.Server(app, __dirname + '/settings.json', function(err, srv) {
     checkError(err);
-    elastic = srv.nconf.get('elastic');
+    var elastic = srv.nconf.get()['elastic'];
     console.log("Running with Elastic Backend URL: http://" +
                 elastic.host + ":" + elastic.port + elastic.path +
                 elastic.index + "/" + elastic.type);
