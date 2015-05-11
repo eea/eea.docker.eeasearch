@@ -3,6 +3,9 @@ ENV NODE_ENV 'production'
 ADD ./app/package.json /tmp/package.json
 ADD ./README.md /tmp/README.md
 RUN cd /tmp && npm install && mv /tmp/node_modules /node_modules
+RUN npm install -g nodemon
+ADD ./eea-searchserver /tmp/eea-searchserver
+RUN npm install /tmp/eea-searchserver
 ADD ./app /code
-ENTRYPOINT ["/code/app.js"]
+ENTRYPOINT ["nodemon", "--watch", "code/", "/code/app.js"]
 CMD ["runserver"]
