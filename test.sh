@@ -2,6 +2,7 @@
 
 set -e
 
+echo "Note: Compatible only with docker-compose 1.1.0"
 COMPOSEFILE_1="./test/docker-compose-smoketest.yml"
 CONTAINERNAME_1="test_test1_1"
 TESTNAME_1="[Basic app tests]"
@@ -95,7 +96,7 @@ echo "[OK]"
 
 # Test that container logged that job was enabled
 print_test_header "Container logged sync job creation"
-docker logs $CONTAINER | grep -i -q "enabled sync crontab job" &> /dev/null
+docker logs $CONTAINER 2>&1 | grep -i -q "enabled sync crontab job" &> /dev/null
 echo "[OK]"
 
 cleanup "$COMPOSEFILE_3" "$TESTNAME_3"
