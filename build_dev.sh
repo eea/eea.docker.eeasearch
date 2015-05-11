@@ -24,7 +24,7 @@ function cleanup() {
 trap 'cleanup' INT
 
 rm -rf ./eea-searchserver && cp -r $SEARCHSERVER_DIR  ./eea-searchserver
-docker build -t "eeacms/eeasearch" -f Dockerfile.dev .
+docker build -t "eeacms/eeasearch:dev" -f Dockerfile.dev .
 
 cleanup
 echo "Done"

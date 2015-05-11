@@ -6,7 +6,7 @@
   1. Want to change something in [eea.searchserver.js](https://github.com/eea/eea.searchserver.js):
      ```./build_dev.sh $PATH_TO_EEA_SEARCHSERVER_JS_REPO```
   2. If you changed ```Dockerfile``` or ```app/package.json```:
-     ```docker build -t eeacms/eeasearch .``` and also make the changes in Dockerfile.dev.
+     ```docker build -t eeacms/eeasearch:dev .``` and also make the changes in Dockerfile.dev.
   3. If you changed only something in './app' : go to step 3.
   4. If step 3 is still running and last build was made with ```./build_dev.sh```:
      go to step 4 because the server will automatically restart inside the container
