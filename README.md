@@ -7,17 +7,14 @@
      ```./build_dev.sh $PATH_TO_EEA_SEARCHSERVER_JS_REPO```
   2. If you changed ```Dockerfile``` or ```app/package.json```:
      ```docker build -t eeacms/eeasearch .``` and also make the changes in Dockerfile.dev.
-  3. If you changed only something in './app' and the last build was made with ```./build_dev.sh```:
-     go to step 3.
-  4. __Note:__ ```Dockerfile.dev``` builds only with ```./build_dev.sh``` because it temporarely adds
+  3. If you changed only something in './app' : go to step 3.
+  4. If step 3 is still running and last build was made with ```./build_dev.sh```:
+     go to step 4 because the server will automatically restart inside the container
+  5. __Note:__ ```Dockerfile.dev``` builds only with ```./build_dev.sh``` because it temporarely adds
     eea.searchserver.js in the current directory.
 3. ```docker-compose up```
 4. Go to http://localhost:3000
-5. Before pushing to master make sure that ```./test.sh``` passes
-
-__Note:__ If you are only changing code in ```./app``` and the last build was made
-using ```./build_dev.sh```, the server will automatically restart
-so there's no need to restart/rebuild the container at every change in the code.
+5. Before pushing to master make sure that ```./test.sh``` passes.
 
 If you want to check that the image is built correctly, please comment out
 the ```volumes``` entry in ```docker-compose.yml```
