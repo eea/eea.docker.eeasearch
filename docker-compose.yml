@@ -10,5 +10,5 @@ app:
         - elastic_host=centaurus-dev.eea.europa.eu
         - elastic_path=/elasticsearch/
         - elastic_port=80
-        - NODE_ENV=dev # Comment out to test prod environment
+        - NODE_ENV=dev # Change to production if you want to test the app in production environment
         # - SYNC_CRONTAB=30 * * * * # Sync every 30 minutes
