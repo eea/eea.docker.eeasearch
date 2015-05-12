@@ -41,8 +41,9 @@ function checkError(err) {
 }
 
 // Schedule sync as expressed in env variables
+// only if running the server
 var syncCrontab = process.env.SYNC_CRONTAB
-if (syncCrontab) {
+if (syncCrontab && process.argv[2] == 'runserver') {
     crontab.scheduleJob(syncCrontab, managementCommands.sync);
     console.log("Enabled sync crontab job: " + syncCrontab);
 }
