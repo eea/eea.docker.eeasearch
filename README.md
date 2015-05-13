@@ -19,44 +19,53 @@
 If you want to check that the image is built correctly, please comment out
 the ```volumes``` entry in ```docker-compose.yml```
 
-## Production
-1. ```docker pull eeacms/eeasearch```
-2. Use any orchestration solution and make sure that the container
-   can ping the Elastic backend
-
 ## No Docker Development
 1. ```cd app```
 2. ```npm install```
 3. Set ```elastic_*``` env variables
 4. ```./app.js runserver```
 5. Go to http://localhost:3000
+
+## Production
+1. ```docker pull eeacms/eeasearch```
+2. Use any orchestration solution and make sure that the container
+   can ping the Elastic backend
+3. Pass commands and env variables to the image as explained in the Docker Usage section
   
-## Docker usage
+## Docker Usage
 
 Basic usage of the image is given by the following pattern:
 
-```
-docker-compose --rm run app $command
-```
-or
 ```
 docker run -e elastic_host=$YOUR_ELASTIC_HOST run eeacms/eeasearch $command
 ```
 
 To see the available commands run:
 ```
-docker-compose --rm run app help
+docker run -e elastic_host=$YOUR_ELASTIC_HOST run eeacms/eeasearch help
 ```
+
+Available commands:
+* create_index: create the index on elastic_host and start harvesting
+* reindex : recrate the index on the elastic_host and start harvesting
+* sync: sync the resources
+* remove_data: remove the ES index of this app
+* remove_river: stop the harvesting process by removing the river
+
+Environment variables:
+* elastic_host, elastic_port, elastic_path: the elasticsearch endpoint parameters
+  the elasticsearch endpoint will be interpreted as such: `http://$elastic_host:$elastic_port$elastic_path`
+ * by default, elastic_port is 9200
+ * by default, elastic_path is /
+* NODE_ENV: can be either ```dev``` or ```production```
+ * `dev` will do a more verbose logging
+ * `production` will log only erros in an APACHE format
+  * Assuming that the app will be proxied in production, the proxy app should contain the access logs 
+* SYNC_CRONTAB: A valid crontab line (e.g. * * * * *) for scheduling sync jobs.
+  If not set, the app will never schedule sync jobs.
+  __In the image this variable is not set.__
 
 Note that any index creation commands require rights on the set elastic_backend
 
 For more information about the settings.yml file, please see https://github.com/eea/eea.searchserver.js/blob/master/README.md
 
-## Environment variables
-
-- NODE_ENV: 'production' or 'dev'. Depending on this, the container will log
-  only errors in Apache format for 'production' and all access logs for 'dev'.
-  __The image is built with NODE_ENV=production.__
-- SYNC_CRONTAB: A valid crontab line (e.g. * * * * *) for scheduling sync jobs.
-  If not set, the app will never schedule sync jobs.
-  __In the image this variable is not set.__
