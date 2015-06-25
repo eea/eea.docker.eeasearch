@@ -10,7 +10,7 @@ var path = require('path');
 var routes = require('./routes');
 var managementCommands = require('./management/commands');
 
-var app = express();
+var app = searchServer.EEAFacetFramework.framework(app_home = __dirname);
 
 var env = process.env.NODE_ENV || 'dev'
 
@@ -28,10 +28,8 @@ app.use(logger);
 
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.get('/', searchServer.middleware.templateRequired, routes.index);
-app.get('/index', searchServer.middleware.templateRequired, routes.index);
-app.get('/api', searchServer.routes.elasticProxy);
-app.get('/invalidate_templates', searchServer.routes.invalidateTemplates);
+app.get('/', routes.index);
+app.get('/index', routes.index);
 
 function checkError(err) {
     if (err) {
