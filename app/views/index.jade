@@ -1,44 +1,13 @@
-doctype html
-html
-    head
-        meta(http-equiv="content-type", content="text/html; charset=UTF-8")
-        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+block title
+    title EEA Advanced search &mdash; Global catalogueXXX
 
-        title EEA Advanced search &mdash; Global catalogue
+block extrajavascripts
+    script(type="text/javascript", src="javascripts/eeasearch.facetview.js")
 
-        script(type="text/javascript", src="facetview/vendor/jquery/1.7.1/jquery-1.7.1.min.js")
-        script(type="text/javascript", src="facetview/vendor/linkify/1.0/jquery.linkify-1.0-min.js")
-        script(type="text/javascript", src="facetview/vendor/bootstrap/js/bootstrap.min.js")
-        script(src="facetview/vendor/dist/libs/jquery.js")
-        script(src="facetview/vendor/dist/jstree.min.js")
-        script(type="text/javascript", src="facetview/vendor/jquery-ui-1.8.18.custom/jquery-ui-1.8.18.custom.min.js")
+block extrastyles
+    link(rel="stylesheet", href="css/tiles.css")
 
-        script(type="text/javascript" src="facetview/jquery.facetview.js")
-        script(type="text/javascript", src="js/search.js")
-        script(src="http://cdn.jquerytools.org/1.2.6/full/jquery.tools.min.js")
-
-        link(rel="shortcut icon", type="image/x-icon", href="http://www.eea.europa.eu/favicon.ico")
-
-        link(rel="stylesheet", href="facetview/vendor/jquery-ui-1.8.18.custom/jquery-ui-1.8.18.custom.css")
-        link(rel="stylesheet", href="facetview/vendor/bootstrap/css/bootstrap.min.css")
-        link(rel="stylesheet", href="facetview/vendor/dist/themes/default/style.min.css")
-        link(rel="stylesheet", href="facetview/css/style.css")
-        link(rel="stylesheet", href="css/tiles.css")
-        link(rel="stylesheet", href="facetview/css/facetview.css")
-        link(rel="stylesheet", href="css/style.css")
-
-        != templateRender(headFile)
-
-    body(class="no-touch")
-        != templateRender(headerFile)
-        div(class="container")
-            div(class="content")
-                div(class="page-header")
-                    h1(style="dispaly:inline-block;") EEA Advanced search - Global catalogue
-                    div(class="facet-share")
-                        a(class="facetview-share")
-                            i(class="share-icon") Share this search
-                    div(class="facet-embed", style="display:inline-block; float:right")
-                div(class="facet-view-simple")
-
-        != templateRender(footerFile)
+block content
+    div(class="page-header")
+        h1(style="dispaly:inline-block;") EEA Advanced search - Global catalogue
+    div(class="facet-view-simple")

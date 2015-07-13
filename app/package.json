@@ -8,7 +8,8 @@
     "jade": "*",
     "eea-searchserver": "*",
     "node-crontab": "*",
-    "morgan": "*"
+    "morgan": "*",
+    "request": "*"
   },
   "repository": {
     "type": "git",
