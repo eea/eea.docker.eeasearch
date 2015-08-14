@@ -1,0 +1,193 @@
+{
+    "details_settings" : {
+        "sections": [
+        ]
+    },
+    "listing_settings" : {
+        "show_links": false
+    },
+    "fields_mapping": [
+        {
+            "name": "http://www.eea.europa.eu/portal_types#topic",
+            "listing": {
+                "visible": false
+            },
+            "csv_tsv": {
+                "title": "http://www.eea.europa.eu/portal_types#topic",
+                "visible": true,
+                "pos": 9
+            },
+            "details": {
+                "visible": false
+            }
+        },
+        {
+            "name": "http://purl.org/dc/terms/creator",
+            "listing": {
+                "visible": false
+            },
+            "csv_tsv": {
+                "title": "http://purl.org/dc/terms/creator",
+                "visible": true,
+                "pos": 0
+            },
+            "details": {
+                "visible": false
+            }
+        },
+        {
+            "name": "http://www.eea.europa.eu/ontologies.rdf#hasWorkflowState",
+            "listing": {
+                "visible": false
+            },
+            "csv_tsv": {
+                "title": "http://www.eea.europa.eu/ontologies.rdf#hasWorkflowState",
+                "visible": true,
+                "pos": 7
+            },
+            "details": {
+                "visible": false
+            }
+        },
+        {
+            "name": "http://www.eea.europa.eu/ontologies.rdf#objectProvides",
+            "listing": {
+                "visible": false
+            },
+            "csv_tsv": {
+                "title": "http://www.eea.europa.eu/ontologies.rdf#objectProvides",
+                "visible": true,
+                "pos": 8
+            },
+            "details": {
+                "visible": false
+            }
+        },
+        {
+            "name": "http://purl.org/dc/terms/modified",
+            "listing": {
+                "visible": false
+            },
+            "csv_tsv": {
+                "title": "http://purl.org/dc/terms/modified",
+                "visible": true,
+                "pos": 4
+            },
+            "details": {
+                "visible": false
+            }
+        },
+        {
+            "name": "http://purl.org/dc/terms/expires",
+            "listing": {
+                "visible": false
+            },
+            "csv_tsv": {
+                "title": "http://purl.org/dc/terms/expires",
+                "visible": true,
+                "pos": 2
+            },
+            "details": {
+                "visible": false
+            }
+        },
+        {
+            "name": "http://purl.org/dc/terms/issued",
+            "listing": {
+                "visible": false
+            },
+            "csv_tsv": {
+                "title": "http://purl.org/dc/terms/issued",
+                "visible": true,
+                "pos": 3
+            },
+            "details": {
+                "visible": false
+            }
+        },
+        {
+            "name": "http://purl.org/dc/terms/description",
+            "listing": {
+                "visible": false
+            },
+            "csv_tsv": {
+                "title": "http://purl.org/dc/terms/description",
+                "visible": true,
+                "pos": 1
+            },
+            "details": {
+                "visible": false
+            }
+        },
+        {
+            "name": "http://purl.org/dc/terms/title",
+            "listing": {
+                "visible": false
+            },
+            "csv_tsv": {
+                "title": "http://purl.org/dc/terms/title",
+                "visible": true,
+                "pos": 8
+            },
+            "details": {
+                "visible": false
+            }
+        },
+        {
+            "name": "http://purl.org/dc/terms/spatial",
+            "listing": {
+                "visible": false
+            },
+            "csv_tsv": {
+                "title": "http://purl.org/dc/terms/spatial",
+                "visible": true,
+                "pos": 5
+            },
+            "details": {
+                "visible": false
+            }
+        },
+        {
+            "name": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+            "listing": {
+                "visible": false
+            },
+            "csv_tsv": {
+                "title": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+                "visible": true,
+                "pos": 11
+            },
+            "details": {
+                "visible": false
+            }
+        },
+        {
+            "name": "language",
+            "listing": {
+                "visible": false
+            },
+            "csv_tsv": {
+                "title": "language",
+                "visible": true,
+                "pos": 12
+            },
+            "details": {
+                "visible": false
+            }
+        },
+        {
+            "name": "http://www.w3.org/1999/02/22-rdf-syntax-ns#about",
+            "listing": {
+                "visible": false
+            },
+            "csv_tsv": {
+                "title": "http://www.w3.org/1999/02/22-rdf-syntax-ns#about",
+                "visible": true,
+                "pos": 10
+            },
+            "details": {
+                "visible": false
+            }
+        }
+    ]
+}
