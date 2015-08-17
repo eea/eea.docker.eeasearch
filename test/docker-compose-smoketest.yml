@@ -1,6 +1,6 @@
 # Docker compose file used for smoketest
 test1:
-    build: .
+    build: ./..
     ports: # App accessible on http://localhost:3000
         - 3000:3000
     environment: # Use current upstream staging instance
