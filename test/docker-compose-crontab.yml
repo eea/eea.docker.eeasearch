@@ -1,6 +1,6 @@
 # Docker compose file used for testing SYNC_CRONTAB env var
 test3:
-    build: .
+    build: ./..
     ports: # App accessible on http://localhost:3000
         - 3000:3000
     environment: # Use current upstream staging instance

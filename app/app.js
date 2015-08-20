@@ -59,3 +59,7 @@ searchServer.Server(app, __dirname + '/settings.json', function(err, srv) {
         console.log("Ran command: " + process.argv[2]);
     });
 });
+
+exports.fieldsMapping = function(next){
+    next(require(path.join(__dirname, "mapping.json")));
+}

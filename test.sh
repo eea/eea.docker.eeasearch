@@ -2,7 +2,7 @@
 
 set -e
 
-echo "Note: Compatible only with docker-compose 1.1.0"
+echo "Starting test..."
 COMPOSEFILE_1="./test/docker-compose-smoketest.yml"
 CONTAINERNAME_1="test_test1_1"
 TESTNAME_1="[Basic app tests]"
