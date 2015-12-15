@@ -1,4 +1,4 @@
-FROM node
+FROM node:4.2.2
 ENV NODE_ENV 'dev'
 ADD ./app/package.json /tmp/package.json
 ADD ./README.md /tmp/README.md
