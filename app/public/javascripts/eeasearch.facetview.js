@@ -301,8 +301,16 @@ $(function($) {
       {'term': {'language': language}},
       {'term': {'http://www.eea.europa.eu/ontologies.rdf#hasWorkflowState':
                   'published'}},
-      {'range': {'http://purl.org/dc/terms/issued': {'lte': today}}},
-     // {'range': {'http://purl.org/dc/terms/expires': {'gte': today}}},
+      //{'range': {'http://purl.org/dc/terms/issued': {'lte': today}}},
+      {'constant_score': {
+        'filter': {
+          'or': [
+            {'missing': {'field': 'http://purl.org/dc/terms/issued'}},
+            {'range': {'http://purl.org/dc/terms/issued': {'lte': today}}}
+          ]
+        }}
+      },
+      // {'range': {'http://purl.org/dc/terms/expires': {'gte': today}}},
       {'constant_score': {
         'filter': {
           'or': [
