@@ -27,8 +27,6 @@ $(function($) {
         'Link' : [],
         'Data File' : [],
         'Assessment part' : [],
-        'Dataset' : [],
-        'Distribution' : [],
         'EEA Job Vacancy' : [],
         'Epub File' : [],
         'External Data Reference' : [],
@@ -301,20 +299,6 @@ $(function($) {
       {'term': {'language': language}},
       {'term': {'http://www.eea.europa.eu/ontologies.rdf#hasWorkflowState':
                   'published'}},
-      {'constant_score': {
-        'filter': {
-          'not':
-            {'term': {'http://www.w3.org/1999/02/22-rdf-syntax-ns#type': 'Distribution'}},
-          }
-        }
-      },
-      {'constant_score': {
-        'filter': {
-          'not':
-            {'term': {'http://www.w3.org/1999/02/22-rdf-syntax-ns#type': 'Dataset'}},
-          }
-        }
-      },
       //{'range': {'http://purl.org/dc/terms/issued': {'lte': today}}},
       {'constant_score': {
         'filter': {
