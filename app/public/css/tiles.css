@@ -23,7 +23,7 @@
       float: left;
       position: relative;
       width: 25%;
-      padding-bottom: 35%;
+      padding-bottom: 25%;
       max-width:168px;
     }
     .eea-tileInner {
@@ -56,7 +56,7 @@
     .eea-tileInner .eea-tileType {
       padding: 0.5em 0.5em 0.5em 10px;
       position: absolute;
-      top: 48%;
+      top: 40%;
       overflow: hidden;
       font-size: 80%;
       color: #999;
@@ -90,10 +90,14 @@
       }
       .eea-tile {
         width: 100%;
-        padding-bottom: 140%;
+        max-width: 100%;
+        padding-bottom: 100%;
       }
       .eea-tileInner .eea-titleTile {
         height:3em;
+      }
+      .eea-tileInner img{
+        max-width: 140px;
       }
     }
     @media only screen and (max-width : 650px) and (min-width : 481px) {
@@ -116,7 +120,7 @@
       }
       .eea-tile {
         width: 25%;
-        padding-bottom: 35%;
+        padding-bottom: 45%;
       }
       .eea-tileInner .eea-titleTile {
         height:3em;
@@ -131,7 +135,7 @@
       }
       .eea-tile {
         width: 25%;
-        padding-bottom: 35%;
+        padding-bottom: 30%;
       }
       .eea-tileInner .eea-titleTile {
         font-size:100%;
