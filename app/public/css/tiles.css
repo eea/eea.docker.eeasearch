@@ -24,6 +24,7 @@
       position: relative;
       width: 25%;
       padding-bottom: 35%;
+      max-width:168px;
     }
     .eea-tileInner {
       position: absolute;
