@@ -1,4 +1,4 @@
-FROM node:4.2.2
+FROM eeacms/node
 ENV NODE_ENV 'dev'
 ADD ./app/package.json /tmp/package.json
 ADD ./README.md /tmp/README.md
@@ -7,5 +7,5 @@ RUN npm install -g nodemon
 ADD ./eea-searchserver /tmp/eea-searchserver
 RUN npm install /tmp/eea-searchserver
 ADD ./app /code
-ENTRYPOINT ["nodemon", "--watch", "code/", "/code/app.js"]
-CMD ["runserver"]
+#ENTRYPOINT ["nodemon", "--watch", "code/", "/code/app.js"]
+USER node

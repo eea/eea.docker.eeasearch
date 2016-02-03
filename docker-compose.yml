@@ -1,7 +1,7 @@
 # Development docker-compose file with server auto-reload and
 # code mounted as a volume.
 app:
-    image: eeacms/eeasearch:dev
+    image: eeacms/eeasearch
     ports: # App accessible on http://localhost:3000
         - 3000:3000
     volumes: # Mount code as a volume for easy restart
