@@ -1,4 +1,4 @@
-FROM eeacms/node:v4.2.2-1.0
+FROM eeacms/node:v4.2.2-1.1
 ENV NODE_ENV 'dev'
 ADD ./app/package.json /tmp/package.json
 ADD ./README.md /tmp/README.md
