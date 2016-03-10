@@ -1,0 +1,36 @@
+{
+    "http": {
+        "port": 3000
+    },
+    "elastic": {
+        "index": "rdfdata",
+        "type": "resource"
+    },
+    "external_templates": {
+        "local_path": "/external_templates",
+        "host": "www.eea.europa.eu",
+        "head_path": "/templates/v2/getRequiredHead?jsdisable=all",
+        "header_path": "/templates/v2/getHeader?jsdisable=all",
+        "footer_path": "/templates/v2/getFooter"
+    },
+    "layout_vars": {
+        "head_title": "EEA Advanced search &mdash; Global catalogue &mdash; European Environment Agency",
+        "css_resources": {
+            "index_page": [
+                "css/tiles.css"
+            ]
+        },
+        "js_resources": {
+            "index_page": [
+                "javascripts/eeasearch.facetview.js"
+            ]
+        },
+        "site_title": "EEA Advanced search &mdash; Global catalogue",
+        "site_description": "",
+        "enableBreadcrumbs": false,
+        "breadcrumbs": "",
+        "dataprovencance_info_text": "",
+        "dataprovencance_info_url": "",
+        "further_info": ""
+    }
+}
