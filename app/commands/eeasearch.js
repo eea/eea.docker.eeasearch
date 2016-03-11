@@ -43,7 +43,7 @@ function getIndexFiles(settings) {
             'queryType': riverconfig.queryType,
             'proplist': riverconfig.proplist,
             'listtype': riverconfig.listtype,
-            'normProp': riverconfig.normProp,
+            'normProp': riverconfig.normalisedProperties,
             'normMissing': riverconfig.normMissing,
             'blackMap': riverconfig.blackMap,
             'whiteMap': riverconfig.whiteMap,
