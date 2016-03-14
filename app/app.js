@@ -6,7 +6,7 @@
 
 var path = require('path');
 var searchServer = require('eea-searchserver')
-var builtinRoutes = require('./routes/eeasearch');
+var builtinRoutes = searchServer.builtinRoutes;
 var managementCommands = require('./commands/eeasearch');
 
 options = {
