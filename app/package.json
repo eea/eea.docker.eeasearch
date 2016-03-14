@@ -9,7 +9,7 @@
     "eea-searchserver": "0.0.21",
     "node-crontab": "*",
     "morgan": "*",
-    "request": "*",
+    "request": "*"
   },
   "repository": {
     "type": "git",
