@@ -7,5 +7,6 @@ RUN npm install -g nodemon
 ADD ./eea-searchserver /tmp/eea-searchserver
 RUN npm install /tmp/eea-searchserver
 ADD ./app /code
+VOLUME /code/app/config
 #ENTRYPOINT ["nodemon", "--watch", "code/", "/code/app.js"]
 USER node
