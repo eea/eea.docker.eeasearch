@@ -19,7 +19,17 @@
   .eea-tile {
     float: left;
     padding: 10px;
+    width: 50%;
+  }
+}
+@media (min-width: 768px) {
+  .eea-tile {
     width: 33.33333%;
+  }
+}
+@media (min-width: 960px) {
+  .eea-tile {
+    width: 25%;
   }
 }
 
@@ -96,7 +106,7 @@
 .eea-tileTitle {
   margin: 0 0 .25em;
   line-height: 1.25;
-  font-size: 1.25em;
+  font-size: 1em;
   font-weight: normal;
   color: #00446A;
   word-wrap: break-word;
@@ -109,6 +119,11 @@
   .eea-tileTitle {
     height: 3.75em;
     overflow: hidden;   
+  }
+}
+@media (min-width: 768px) {
+  .eea-tileTitle {
+    font-size: 1.25em;
   }
 }
 
