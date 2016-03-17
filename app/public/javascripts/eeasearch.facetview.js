@@ -237,6 +237,15 @@ $(function($) {
           return templateItems[matched];
         })
       );
+      $result.find('img').load(function() {
+        aspectRatio = this.naturalWidth / this.naturalHeight;
+        if (aspectRatio >= 16 / 9) {
+          $(this).addClass('img-wider');
+        } else {
+          $(this).addClass('img-narrower');
+        }
+      });
+
       $results.append($result);
     }
 
