@@ -188,14 +188,14 @@ $(function($) {
           <div class="eea-tileBody">  
             <strong class="eea-tileType">{{ tile-type }}</strong>
             <h4 class="eea-tileTitle">{{ tile-title }}</h4>
-            <span class="eea-tileTopic">{{ tile-topic }}</span>
+            <span class="eea-tileTopic" title="{{ tile-topic }}">{{ tile-topic }}</span>
             <time class="eea-tileIssued" datetime="{{ tile-datestamp }}">{{ tile-date }}</time>
           </div>
         </a>
       </div>
     */
     var $results = $('<div class="eea-tiles"/>');
-    var template = '<div class="eea-tile"> <a class="eea-tileInner"title="{{ tile-title }}"href="{{ tile-url }}"> <div class="eea-tileThumb"> <img src="{{ thumb-url }}"> </div> <div class="eea-tileBody"> <strong class="eea-tileType">{{ tile-type }}</strong> <h4 class="eea-tileTitle">{{ tile-title }}</h4> <span class="eea-tileTopic">{{ tile-topic }}</span> <time class="eea-tileIssued" datetime="{{ tile-datestamp }}">{{ tile-date }}</time> </div> </a> </div> ';
+    var template = '<div class="eea-tile"> <a class="eea-tileInner"title="{{ tile-title }}"href="{{ tile-url }}"> <div class="eea-tileThumb"> <img src="{{ thumb-url }}"> </div> <div class="eea-tileBody"> <strong class="eea-tileType">{{ tile-type }}</strong> <h4 class="eea-tileTitle">{{ tile-title }}</h4> <span class="eea-tileTopic" title="{{ tile-topic }}">{{ tile-topic }}</span> <time class="eea-tileIssued" datetime="{{ tile-datestamp }}">{{ tile-date }}</time> </div> </a> </div> ';
 
 
     for (var i = 0; i < data.records.length; i++) {

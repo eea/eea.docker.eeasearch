@@ -53,8 +53,8 @@
   overflow: hidden;
   border-top-left-radius: 3px;
   border-top-right-radius: 3px;
-  background-color: #333;
-  /*   background-image: radial-gradient(circle, #555, #333);   */
+  /* background-color: #333; */
+  /* background-image: radial-gradient(circle, #555, #333); */
 }
 .eea-tileThumb::after {
   content: '';
@@ -136,7 +136,7 @@
 .eea-tileTopic {
   overflow: hidden;
   white-space: nowrap;
-  text-overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .eea-tileIssued {
