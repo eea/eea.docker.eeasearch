@@ -175,11 +175,34 @@ $(function($) {
     if (prependto.length == 2) {
       prependto = $(prependto[1]);
     }
+
+    // var template
+    /*
+      <div class="eea-tile">
+        <a class="eea-tileInner" 
+           title="{{ tile-title }}" 
+           href="{{ tile-url }}">
+            <div class="eea-tileThumb">
+              <img src="{{ thumb-url }}">
+            </div>
+          <div class="eea-tileBody">  
+            <strong class="eea-tileType">{{ tile-type }}</strong>
+            <h4 class="eea-tileTitle">{{ tile-title }}</h4>
+            <span class="eea-tileTopic">{{ tile-topic }}</span>
+            <time class="eea-tileIssued" datetime="{{ tile-datestamp }}">{{ tile-date }}</time>
+          </div>
+        </a>
+      </div>
+    */
+    var $results = $('<div class="eea-tiles"/>');
+    var template = '<div class="eea-tile"> <a class="eea-tileInner"title="{{ tile-title }}"href="{{ tile-url }}"> <div class="eea-tileThumb"> <img src="{{ thumb-url }}"> </div> <div class="eea-tileBody"> <strong class="eea-tileType">{{ tile-type }}</strong> <h4 class="eea-tileTitle">{{ tile-title }}</h4> <span class="eea-tileTopic">{{ tile-topic }}</span> <time class="eea-tileIssued" datetime="{{ tile-datestamp }}">{{ tile-date }}</time> </div> </a> </div> ';
+
+
     for (var i = 0; i < data.records.length; i++) {
       var element = data.records[i];
       var title = element['http://purl.org/dc/terms/title'];
       var url = element['http://www.w3.org/1999/02/22-rdf-syntax-ns#about'];
-      var date = element['http://purl.org/dc/terms/issued'];
+      var datestamp = element['http://purl.org/dc/terms/issued'];
       var types = element['http://www.w3.org/1999/02/22-rdf-syntax-ns#type'];
       if (!(types instanceof Array)) {
          types = [types];
@@ -188,41 +211,36 @@ $(function($) {
       if (!(topics instanceof Array)) {
          topics = [topics];
       }
-      if (date === undefined) {
-        date = element['http://purl.org/dc/terms/modified'];
-        if (date === undefined) {
-          date = element['http://purl.org/dc/terms/created'];
-          if (date === undefined) {
-             date = '';
+      if (datestamp === undefined) {
+        datestamp = element['http://purl.org/dc/terms/modified'];
+        if (datestamp === undefined) {
+          datestamp = element['http://purl.org/dc/terms/created'];
+          if (datestamp === undefined) {
+             datestamp = '';
           }
         }
       }
-      date = $.datepicker.formatDate('dd M yy', new Date(date));
+      date = $.datepicker.formatDate('dd M yy', new Date(datestamp));
+      
+      templateItems = {
+        '{{ tile-title }}': title,
+        '{{ tile-url }}': url,
+        '{{ thumb-url }}': url + '/image_mini',
+        '{{ tile-type }}': types[types.length - 1],
+        '{{ tile-topic }}': topics.join(', '),
+        '{{ tile-datestamp }}': datestamp,
+        '{{ tile-date }}': date,
+      };
 
-      var result = $('<div class="eea-tile"></div>');
-      var inner = $('<div class="eea-tileInner"></div>');
-      var aimg = $('<a href="' + url + '"></a>');
-      var atitle = $('<a href="' + url + '"></a>');
-      aimg.attr('title', title);
-      atitle.attr('title', title);
-
-      var img = $('<img src="' + url + '/image_mini" />');
-      var typelabel = $(
-        '<span class="eea-tileType">' + types[types.length - 1] + '</span>');
-      result.append(inner);
-      var titleinfo = $('<span class="eea-titleTile">' + title + '</span>');
-      aimg.append(img);
-      atitle.append(titleinfo);
-      inner.append(aimg);
-      inner.append(typelabel);
-      inner.append(atitle);
-      if (topics[0] !== undefined) {
-         inner.append($(
-          '<span class="eea-tileTopic">' + topics[0] + '</span>'));
-      }
-      inner.append($('<span class="eea-tileIssued">' + date + '</span>'));
-      prependto.before(result);
+      $result = $(
+        template.replace(/\{\{(.*?)\}\}/gi, function(matched){
+          return templateItems[matched];
+        })
+      );
+      $results.append($result);
     }
+
+    prependto.before( $results );
   }
 
   var url = $(location).attr('href');
