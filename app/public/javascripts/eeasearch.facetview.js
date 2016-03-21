@@ -282,7 +282,7 @@ $(function($) {
         '{{ tile-url }}': url,
         '{{ thumb-url }}': url + '/image_mini',
         '{{ tile-type }}': type,
-        '{{ tile-typeIcon }}': 'http://www.eea.europa.eu/portal_depiction/' + (contentTypes[type_class] || 'file') + '/image_icon',
+        '{{ tile-typeIcon }}': 'http://www.eea.europa.eu/portal_depiction/' + (contentTypes[type_class] || 'generic') + '/image_icon',
         '{{ tile-topic }}': topics.join(', '),
         '{{ tile-datestamp }}': datestamp,
         '{{ tile-date }}': date,
