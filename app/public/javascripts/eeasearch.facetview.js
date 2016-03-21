@@ -234,6 +234,7 @@ $(function($) {
         'image': 'generic',
         'video': 'cloudvideo',
         'report': 'report',
+        'publication': 'report',
         'dataset': 'data',
         'data': 'data',
         'daviz-visualization': 'davizvisualization',
@@ -255,16 +256,16 @@ $(function($) {
         'figure': 'eeafigurefile',
         'folder': 'folder',
         'gis-map-application': 'gis-application',
-        'methodology-reference': 'policydocumentreference',
+        'methodology-reference': 'generic',
         'organization': 'organisation',
         'policy-question': 'policyquestion',
-        'rationale-reference': 'policydocumentreference',
+        'rationale-reference': 'generic',
         'soer-key-fact': 'soerkeyfact',
         'soer-message': 'soermessage',
         'sparql': 'sparql',
-        'speech': 'helpcenter',
+        'speech': 'generic',
         'text': 'document',
-        'work-item': 'file'
+        'work-item': 'generic'
     };
       
       var type = types[0];
