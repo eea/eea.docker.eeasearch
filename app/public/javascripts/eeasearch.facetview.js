@@ -223,10 +223,6 @@ $(function($) {
         }
       }
       date = $.datepicker.formatDate('dd M yy', new Date(datestamp));
-      
-      type = types[types.length - 1];
-      typeClass = type.toLowerCase().replace(/\s/g, '-');
-
       // Map content type to icons
    var  contentTypes = {
         'highlight': 'highlight',
@@ -238,6 +234,7 @@ $(function($) {
         'image': 'generic',
         'video': 'cloudvideo',
         'report': 'report',
+        'dataset': 'data',
         'data': 'data',
         'daviz-visualization': 'davizvisualization',
         'indicator-specification': 'specification',
@@ -249,7 +246,6 @@ $(function($) {
         'link': 'link',
         'data-file': 'datafile',
         'assessment-part': 'assessmentpart',
-        'output-from-annual-management-plan': 'report',
         'file': 'file',
         'eea-job-vacancy': 'eeavacancy',
         'epub-file': 'epubfile',
@@ -270,6 +266,14 @@ $(function($) {
         'text': 'document',
         'work-item': 'file'
     };
+      
+      var type = types[0];
+      var typeClass = type.toLowerCase().replace(/\s/g, '-');
+      var alt_type  = types[types.length - 1];
+      var alt_typeClass = alt_type.toLowerCase().replace(/\s/g, '-');
+      type = contentTypes[typeClass] ? type : alt_type;
+      var type_class = contentTypes[typeClass] ? typeClass : alt_typeClass;
+
 
       
       templateItems = {
@@ -277,7 +281,7 @@ $(function($) {
         '{{ tile-url }}': url,
         '{{ thumb-url }}': url + '/image_mini',
         '{{ tile-type }}': type,
-        '{{ tile-typeIcon }}': 'http://www.eea.europa.eu/portal_depiction/' + (contentTypes[typeClass] || 'file') + '/image_icon',
+        '{{ tile-typeIcon }}': 'http://www.eea.europa.eu/portal_depiction/' + (contentTypes[type_class] || 'file') + '/image_icon',
         '{{ tile-topic }}': topics.join(', '),
         '{{ tile-datestamp }}': datestamp,
         '{{ tile-date }}': date,
