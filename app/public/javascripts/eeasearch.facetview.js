@@ -182,11 +182,11 @@ $(function($) {
         <a class="eea-tileInner" 
            title="{{ tile-title }}" 
            href="{{ tile-url }}">
-            <div class="eea-tileThumb" style="background-image: url({{ thumb-url }})">
-              <img src="{{ thumb-url }}">
-            </div>
+          <div class="eea-tileThumb" style="background-image: url({{ thumb-url }})">
+            <img src="{{ thumb-url }}">
+          </div>
           <div class="eea-tileBody">  
-            <strong class="eea-tileType">
+            <strong class="eea-tileType" style="background-image: url({{ tile-typeIcon }})">
               <span class="eea-tileTypeIcon eea-tileType-{{ tile-typeClass }}" title="{{ tile-type }}"></span> {{ tile-type }}
             </strong>
             <h4 class="eea-tileTitle">{{ tile-title }}</h4>
@@ -197,7 +197,7 @@ $(function($) {
       </div>
     */
     var $results = $('<div class="eea-tiles"/>');
-    var template = '<div class="eea-tile"> <a class="eea-tileInner"title="{{ tile-title }}"href="{{ tile-url }}"> <div class="eea-tileThumb" style="background-image: url({{ thumb-url }})"> <img src="{{ thumb-url }}"> </div> <div class="eea-tileBody"> <strong class="eea-tileType"> <span class="eea-tileTypeIcon eea-tileType-{{ tile-typeClass }}" title="{{ tile-type }}"></span> {{ tile-type }} </strong> <h4 class="eea-tileTitle">{{ tile-title }}</h4> <span class="eea-tileTopic" title="{{ tile-topic }}">{{ tile-topic }}</span> <time class="eea-tileIssued" datetime="{{ tile-datestamp }}">{{ tile-date }}</time> </div> </a> </div> ';
+    var template = '<div class="eea-tile"> <a class="eea-tileInner"title="{{ tile-title }}"href="{{ tile-url }}"> <div class="eea-tileThumb" style="background-image: url({{ thumb-url }})"> <img src="{{ thumb-url }}"> </div> <div class="eea-tileBody"> <strong class="eea-tileType" style="background-image: url({{ tile-typeIcon }})"> <span class="eea-tileTypeIcon eea-tileType-{{ tile-typeClass }}" title="{{ tile-type }}"></span> {{ tile-type }} </strong> <h4 class="eea-tileTitle">{{ tile-title }}</h4> <span class="eea-tileTopic" title="{{ tile-topic }}">{{ tile-topic }}</span> <time class="eea-tileIssued" datetime="{{ tile-datestamp }}">{{ tile-date }}</time> </div> </a> </div> ';
 
 
     for (var i = 0; i < data.records.length; i++) {
@@ -224,12 +224,32 @@ $(function($) {
       }
       date = $.datepicker.formatDate('dd M yy', new Date(datestamp));
       
+      type = types[types.length - 1];
+      typeClass = type.toLowerCase().replace(/\s/g, '-');
+
+      // Map content type to icons
+      var contentTypes = {
+        'external-data-reference': 'data',
+        'output-from-annual-management-plan': 'xxx',
+        'indicator-specification': 'xxx',
+        'indicator-assessment': 'xxx',
+        'highlight': 'xxx',
+        'file': 'document',
+        'eyewitness-story': 'xxx',
+        'page': 'document',
+        'press-release': 'xxx',
+        'report': 'xxx',
+        'speech': 'xxx',
+        'figure': 'xxx',
+        'folder': 'folder'
+      };
+      
       templateItems = {
         '{{ tile-title }}': title,
         '{{ tile-url }}': url,
         '{{ thumb-url }}': url + '/image_mini',
-        '{{ tile-type }}': types[types.length - 1],
-        '{{ tile-typeClass }}': types[types.length - 1].toLowerCase().replace(/\s/g, '-'),
+        '{{ tile-type }}': type,
+        '{{ tile-typeIcon }}': 'http://www.eea.europa.eu/portal_depiction/' + (contentTypes[typeClass] || 'file') + '/image_icon',
         '{{ tile-topic }}': topics.join(', '),
         '{{ tile-datestamp }}': datestamp,
         '{{ tile-date }}': date,

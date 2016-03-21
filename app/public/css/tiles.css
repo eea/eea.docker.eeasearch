@@ -86,98 +86,10 @@
   background-color: #fff;
   box-shadow: 0 0 2px rgba(0,0,0,.4);
   border-radius: 50%;
+  padding-left: 30px;
+  background-repeat: no-repeat;
+  background-position: center;
 }
-
-.eea-tileTypeIcon {
-  display: block;
-  text-align: center;
-  line-height: 30px;
-  color: #fff;
-}
-.eea-tileTypeIcon::before {
-  content: '';
-  display: block;
-  width: 30px;
-  height: 30px;
-  font-family: 'FontAwesome';
-  text-rendering: auto;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-/* eea-icon eea-icon-database */
-.eea-tileTypeIcon.eea-tileType-external-data-reference::before {
-  content: '\f1c0';
-  background-color: #D21242;
-}
-
-/* eea-icon eea-icon-bullhorn */
-.eea-tileTypeIcon.eea-tileType-output-from-annual-management-plan::before {
-  content: '\f0a1';
-  background-color: #93538E;
-}
-
-/* eea-icon eea-line-chart */
-.eea-tileTypeIcon.eea-tileType-indicator-specification::before {
-  content: '\f201';
-  background-color: #B3CC95;
-}
-
-/* eea-icon eea-line-chart */
-.eea-tileTypeIcon.eea-tileType-indicator-assessment::before {
-  content: '\f201';
-  background-color: #69A939;
-}
-
-/* eea-icon eea-star */
-.eea-tileTypeIcon.eea-tileType-highlight::before {
-  content: '\f005';
-  background-color: #BD2F2F;
-}
-
-/* eea-icon eea-file */
-.eea-tileTypeIcon.eea-tileType-file::before {
-  content: '\f15b';
-  background-color: #999999;
-}
-
-/* eea-icon eea-eye */
-.eea-tileTypeIcon.eea-tileType-eyewitness-story::before {
-  content: '\f06e';
-  background-color: #FF8CD6;
-}
-
-/* eea-icon eea-file-text */
-.eea-tileTypeIcon.eea-tileType-page::before {
-  content: '\f15c';
-  background-color: #333;
-}
-
-/* eea-icon eea-newspaper-o */
-.eea-tileTypeIcon.eea-tileType-press-release::before {
-  content: '\f1ea';
-  background-color: #FF976F;
-}
-
-
-/* eea-icon eea-book */
-.eea-tileTypeIcon.eea-tileType-report::before {
-  content: '\f02d';
-  background-color: #02947D;
-}
-
-/* eea-icon eea-microphone */
-.eea-tileTypeIcon.eea-tileType-speech::before {
-  content: '\f130';
-  background-color: #852AA2;
-}
-
-/* eea-icon eea-line-chart */
-.eea-tileTypeIcon.eea-tileType-figure::before {
-  content: '\f201';
-  background-color: #1995FF;
-}
-
 
 .eea-tileTitle {
   margin: 0;
