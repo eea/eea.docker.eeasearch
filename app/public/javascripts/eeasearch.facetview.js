@@ -228,21 +228,49 @@ $(function($) {
       typeClass = type.toLowerCase().replace(/\s/g, '-');
 
       // Map content type to icons
-      var contentTypes = {
-        'external-data-reference': 'data',
-        'output-from-annual-management-plan': 'xxx',
-        'indicator-specification': 'xxx',
-        'indicator-assessment': 'xxx',
-        'highlight': 'xxx',
-        'file': 'document',
-        'eyewitness-story': 'xxx',
+   var  contentTypes = {
+        'highlight': 'highlight',
+        'press-release': 'pressrelease',
+        'event': 'event',
+        'promotion': 'generic',
+        'article': 'highlight',
+        'eco-tip': 'ecotip',
+        'image': 'generic',
+        'video': 'cloudvideo',
+        'report': 'report',
+        'data': 'data',
+        'daviz-visualization': 'davizvisualization',
+        'indicator-specification': 'specification',
+        'indicator-factsheet': 'specification',
+        'indicator-assessment': 'assessment',
+        'infographic': 'interactive-data',
+        'briefing': 'fiche',
         'page': 'document',
-        'press-release': 'xxx',
-        'report': 'xxx',
-        'speech': 'xxx',
-        'figure': 'xxx',
-        'folder': 'folder'
-      };
+        'link': 'link',
+        'data-file': 'datafile',
+        'assessment-part': 'assessmentpart',
+        'output-from-annual-management-plan': 'report',
+        'file': 'file',
+        'eea-job-vacancy': 'eeavacancy',
+        'epub-file': 'epubfile',
+        'external-data-reference': 'externaldataspec',
+        'eyewitness-story': 'file',
+        'speech': 'file',
+        'figure': 'eeafigurefile',
+        'folder': 'folder',
+        'gis-map-application': 'gis-application',
+        'methodology-reference': 'policydocumentreference',
+        'organization': 'organisation',
+        'policy-question': 'policyquestion',
+        'rationale-reference': 'policydocumentreference',
+        'soer-key-fact': 'soerkeyfact',
+        'soer-message': 'soermessage',
+        'sparql': 'sparql',
+        'speech': 'helpcenter',
+        'text': 'document',
+        'work-item': 'file'
+    };
+
       
       templateItems = {
         '{{ tile-title }}': title,
