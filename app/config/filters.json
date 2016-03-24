@@ -1,0 +1,6 @@
+{
+    "english_stemmer": {
+          "type": "stemmer",
+          "language": "english"
+    }
+}

@@ -1,0 +1,11 @@
+{
+    "none" : {
+      "type" : "keyword",
+      "filter":  [ "lowercase" ]
+    },
+    "default" : {
+      "type" : "custom",
+      "tokenizer": "standard",
+      "filter":  [ "lowercase", "stop", "asciifolding", "english_stemmer" ]
+    }
+}
