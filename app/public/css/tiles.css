@@ -2,142 +2,142 @@
     .facetview_morefacetvals {
       display: none !important;
     }
-    .facetview_metadata{
-      clear: both;
-    }
-    .facetview_orderby{
-      width: 120px;
-    }
 
-    body {
-      margin: 0;
-      padding: 0;
-      background: #EEE;
-      font: 100% Verdana, Arial, Helvetica, sans-serif;
-    }
-    .eea-wrap {
-      overflow: hidden;
-      margin: 10px;
-    }
-    .eea-tile {
-      float: left;
-      position: relative;
-      width: 25%;
-      padding-bottom: 25%;
-      max-width:165px;
-    }
-    .eea-tileInner {
-      position: absolute;
-      left: 10px;
-      right: 10px;
-      top: 10px;
-      bottom: 10px;
-      overflow: hidden;
-      box-shadow: 0px 1px 2px #CCCCCC;
-    }
-    .eea-tileInner img {
-      display: block;
-      margin-left: auto;
-      margin-right: auto;
-      width: 100%;
-      padding-top: 0.8em;
-    }
-    .eea-tileInner .eea-titleTile {
-      margin-bottom: 0px;
-      overflow: hidden;
-      background: #fff;
-      padding: 0.3em 0.5em 0.3em 10px;
-      position:absolute;
-      top:55%;
-      height: 5em;
-      font-size: 110%;
-      line-height: 1.05em;
-    }
-    .eea-tileInner .eea-tileType {
-      padding: 0.5em 0.5em 0.5em 10px;
-      position: absolute;
-      top: 40%;
-      overflow: hidden;
-      font-size: 80%;
-      color: #999;
-      background: #fff;
-    }
-    .eea-tileInner .eea-tileTopic {
-      display: none;
-      position:absolute;
-      top:0px;
-      right:0px;
-      padding: 0.5em;
-      font-size: 100%;
-      max-width: 45%;
-      color: #999;
 
-    }
-    .eea-tileInner .eea-tileIssued {
-      position:absolute;
-      padding: 0.5em 0.5em 0.5em 10px;
-      bottom:0px;
-      left:0px;
-      font-size: 80%;
-      color: #999;
-      background: #fff;
-    }
+.eea-tiles::after,
+.eea-tile::after {
+  content: '';
+  display: table;
+  clear: both;
+}
 
-    @media only screen and (max-width : 480px) {
-      /* Smartphone view: 1 tile */
-      body {
-        font-size: 80%;
-      }
-      .eea-tile {
-        width: 100%;
-        max-width: 100%;
-        padding-bottom: 100%;
-      }
-      .eea-tileInner .eea-titleTile {
-        height:3em;
-      }
-      .eea-tileInner img{
-        max-width: 140px;
-      }
-    }
-    @media only screen and (max-width : 650px) and (min-width : 481px) {
-      /* Tablet view: 2 tiles */
-      body {
-       	font-size: 80%;
-      }
-      .eea-tile {
-        width: 50%;
-        padding-bottom: 70%;
-      }
-      .eea-tileInner .eea-titleTile {
-        height:3em;
-      }
-    }
-    @media only screen and (max-width : 1050px) and (min-width : 651px) {
-      /* Small desktop / ipad view: 2 tiles */
-      body {
-       	font-size: 80%;
-      }
-      .eea-tile {
-        width: 25%;
-        padding-bottom: 45%;
-      }
-      .eea-tileInner .eea-titleTile {
-        height:3em;
-        font-size:100%;
-        top:58%;
-      }
-    }
-    @media only screen and (max-width : 1290px) and (min-width : 1051px) {
-      /* Medium desktop: 4 tiles */
-      body {
-	font-size: 80%;
-      }
-      .eea-tile {
-        width: 25%;
-        padding-bottom: 30%;
-      }
-      .eea-tileInner .eea-titleTile {
-        font-size:100%;
-      }
-    }
+.eea-tile {
+  position: relative;
+  box-sizing: border-box;
+}
+@media (min-width: 320px) {
+  .eea-tile {
+    float: left;
+    padding: 10px;
+    width: 50%;
+  }
+}
+@media (min-width: 768px) {
+  .eea-tile {
+    width: 33.33333%;
+  }
+}
+@media (min-width: 960px) {
+  .eea-tile {
+    width: 25%;
+  }
+}
+
+.eea-tileInner {
+  display: block;
+  box-shadow: 0 1px 5px -1px rgba(0,0,0,.5);
+  border-radius: 3px;
+  background-color: #fff;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+  transition: color .1s, box-shadow .1s;
+}
+.eea-tileInner:hover,
+.eea-tileInner:focus {
+  box-shadow: 0 0 3px 1px rgb(55, 146, 218);
+}
+
+.eea-tileThumb {
+  position: relative;
+  overflow: hidden;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  background-size: cover;
+  background-repeat: none;
+}
+.eea-tileThumb::after {
+  content: '';
+  display: block;
+  /* 16:9 ratio */
+  padding-top: 56.25%;
+}
+.eea-tileThumb img {
+  display: none;
+}
+
+.eea-tileBody {
+  position: relative;
+  padding: 10px;
+  border-top: 1px solid #ddd;
+}
+
+.eea-tileType {
+  position: absolute;
+  bottom: 100%;
+  right: 8px;
+  margin-bottom: -6px;
+  z-index: 2;
+  display: block;
+  overflow: hidden;
+  width: 30px;
+  height: 30px;
+  font-size: 14px;
+  background-color: #fff;
+  box-shadow: 0 0 2px rgba(0,0,0,.4);
+  border-radius: 50%;
+  padding-left: 30px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.eea-tileTitle {
+  margin: 0;
+  line-height: 1.25;
+  font-size: 1em;
+  font-weight: normal;
+  color: #00446A;
+  word-wrap: break-word;
+}
+.eea-tileInner:hover .eea-tileTitle,
+.eea-tileInner:focus .eea-tileTitle {
+  color: #0044dd;
+}
+@media (min-width: 320px) {
+  .eea-tileTitle {
+    height: 4.5em;
+    overflow: hidden;
+    position: relative;
+  }
+  .eea-tileTitle::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: .75em;
+    background-image: linear-gradient(rgba(255,255,255, .5), #fff);
+    display: block;
+  }
+}
+@media (min-width: 768px) {
+  .eea-tileTitle {
+    font-size: 1.25em;
+  }
+}
+
+.eea-tileTopic,
+.eea-tileIssued {
+  display: block;
+  font-size: smaller;
+}
+
+.eea-tileTopic {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.eea-tileIssued {
+  color: gray;
+}

@@ -175,11 +175,36 @@ $(function($) {
     if (prependto.length == 2) {
       prependto = $(prependto[1]);
     }
+
+    // var template
+    /*
+      <div class="eea-tile">
+        <a class="eea-tileInner" 
+           title="{{ tile-title }}" 
+           href="{{ tile-url }}">
+          <div class="eea-tileThumb" style="background-image: url({{ thumb-url }})">
+            <img src="{{ thumb-url }}">
+          </div>
+          <div class="eea-tileBody">  
+            <strong class="eea-tileType" style="background-image: url({{ tile-typeIcon }})">
+              <span class="eea-tileTypeIcon eea-tileType-{{ tile-typeClass }}" title="{{ tile-type }}"></span> {{ tile-type }}
+            </strong>
+            <h4 class="eea-tileTitle">{{ tile-title }}</h4>
+            <span class="eea-tileTopic" title="{{ tile-topic }}">{{ tile-topic }}</span>
+            <time class="eea-tileIssued" datetime="{{ tile-datestamp }}">{{ tile-date }}</time>
+          </div>
+        </a>
+      </div>
+    */
+    var $results = $('<div class="eea-tiles"/>');
+    var template = '<div class="eea-tile"> <a class="eea-tileInner"title="{{ tile-title }}"href="{{ tile-url }}"> <div class="eea-tileThumb" style="background-image: url({{ thumb-url }})"> <img src="{{ thumb-url }}"> </div> <div class="eea-tileBody"> <strong class="eea-tileType" style="background-image: url({{ tile-typeIcon }})"> <span class="eea-tileTypeIcon eea-tileType-{{ tile-typeClass }}" title="{{ tile-type }}"></span> {{ tile-type }} </strong> <h4 class="eea-tileTitle">{{ tile-title }}</h4> <span class="eea-tileTopic" title="{{ tile-topic }}">{{ tile-topic }}</span> <time class="eea-tileIssued" datetime="{{ tile-datestamp }}">{{ tile-date }}</time> </div> </a> </div> ';
+
+
     for (var i = 0; i < data.records.length; i++) {
       var element = data.records[i];
       var title = element['http://purl.org/dc/terms/title'];
       var url = element['http://www.w3.org/1999/02/22-rdf-syntax-ns#about'];
-      var date = element['http://purl.org/dc/terms/issued'];
+      var datestamp = element['http://purl.org/dc/terms/issued'];
       var types = element['http://www.w3.org/1999/02/22-rdf-syntax-ns#type'];
       if (!(types instanceof Array)) {
          types = [types];
@@ -188,41 +213,99 @@ $(function($) {
       if (!(topics instanceof Array)) {
          topics = [topics];
       }
-      if (date === undefined) {
-        date = element['http://purl.org/dc/terms/modified'];
-        if (date === undefined) {
-          date = element['http://purl.org/dc/terms/created'];
-          if (date === undefined) {
-             date = '';
+      if (datestamp === undefined) {
+        datestamp = element['http://purl.org/dc/terms/modified'];
+        if (datestamp === undefined) {
+          datestamp = element['http://purl.org/dc/terms/created'];
+          if (datestamp === undefined) {
+             datestamp = '';
           }
         }
       }
-      date = $.datepicker.formatDate('dd M yy', new Date(date));
+      date = $.datepicker.formatDate('dd M yy', new Date(datestamp));
+      // Map content type to icons
+   var  contentTypes = {
+        'highlight': 'highlight',
+        'press-release': 'pressrelease',
+        'event': 'event',
+        'promotion': 'generic',
+        'article': 'highlight',
+        'eco-tip': 'ecotip',
+        'image': 'generic',
+        'video': 'cloudvideo',
+        'report': 'report',
+        'publication': 'report',
+        'dataset': 'data',
+        'data': 'data',
+        'daviz-visualization': 'davizvisualization',
+        'indicator-specification': 'specification',
+        'indicator-factsheet': 'specification',
+        'indicator-assessment': 'assessment',
+        'infographic': 'interactive-data',
+        'briefing': 'fiche',
+        'page': 'document',
+        'link': 'link',
+        'data-file': 'datafile',
+        'assessment-part': 'assessmentpart',
+        'file': 'file',
+        'eea-job-vacancy': 'eeavacancy',
+        'epub-file': 'epubfile',
+        'external-data-reference': 'externaldataspec',
+        'eyewitness-story': 'file',
+        'speech': 'file',
+        'figure': 'eeafigurefile',
+        'folder': 'folder',
+        'gis-map-application': 'gis-application',
+        'methodology-reference': 'generic',
+        'organization': 'organisation',
+        'policy-question': 'policyquestion',
+        'rationale-reference': 'generic',
+        'soer-key-fact': 'soerkeyfact',
+        'soer-message': 'soermessage',
+        'sparql': 'sparql',
+        'speech': 'generic',
+        'text': 'document',
+        'work-item': 'generic'
+    };
+      
+      var type = types[0];
+      var typeClass = type.toLowerCase().replace(/\s/g, '-');
+      var alt_type  = types[types.length - 1];
+      var alt_typeClass = alt_type.toLowerCase().replace(/\s/g, '-');
+      type = contentTypes[typeClass] ? type : alt_type;
+      var type_class = contentTypes[typeClass] ? typeClass : alt_typeClass;
 
-      var result = $('<div class="eea-tile"></div>');
-      var inner = $('<div class="eea-tileInner"></div>');
-      var aimg = $('<a href="' + url + '"></a>');
-      var atitle = $('<a href="' + url + '"></a>');
-      aimg.attr('title', title);
-      atitle.attr('title', title);
 
-      var img = $('<img src="' + url + '/image_mini" />');
-      var typelabel = $(
-        '<span class="eea-tileType">' + types[types.length - 1] + '</span>');
-      result.append(inner);
-      var titleinfo = $('<span class="eea-titleTile">' + title + '</span>');
-      aimg.append(img);
-      atitle.append(titleinfo);
-      inner.append(aimg);
-      inner.append(typelabel);
-      inner.append(atitle);
-      if (topics[0] !== undefined) {
-         inner.append($(
-          '<span class="eea-tileTopic">' + topics[0] + '</span>'));
-      }
-      inner.append($('<span class="eea-tileIssued">' + date + '</span>'));
-      prependto.before(result);
+      
+      templateItems = {
+        '{{ tile-title }}': title,
+        '{{ tile-url }}': url,
+        '{{ thumb-url }}': url + '/image_mini',
+        '{{ tile-type }}': type,
+        '{{ tile-typeIcon }}': 'http://www.eea.europa.eu/portal_depiction/' + (contentTypes[type_class] || 'generic') + '/image_icon',
+        '{{ tile-topic }}': topics.join(', '),
+        '{{ tile-datestamp }}': datestamp,
+        '{{ tile-date }}': date,
+      };
+
+      $result = $(
+        template.replace(/\{\{(.*?)\}\}/gi, function(matched){
+          return templateItems[matched];
+        })
+      );
+      $result.find('img').load(function() {
+        aspectRatio = this.naturalWidth / this.naturalHeight;
+        if (aspectRatio >= 16 / 9) {
+          $(this).addClass('img-wider');
+        } else {
+          $(this).addClass('img-narrower');
+        }
+      });
+
+      $results.append($result);
     }
+
+    prependto.before( $results );
   }
 
   var url = $(location).attr('href');
