@@ -271,10 +271,8 @@ $(function($) {
       var pos = types.length - 1;
       var type;
       var contentType = 'generic';
-      console.log(types);
       while(true){
         type = types[pos];
-        console.log(type);
         typeClass = type.toLowerCase().replace(/\s/g, '-');
         if (contentTypes[typeClass]){
           contentType = contentTypes[typeClass];
