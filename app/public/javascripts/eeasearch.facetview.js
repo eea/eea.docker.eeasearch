@@ -267,22 +267,31 @@ $(function($) {
         'text': 'document',
         'work-item': 'generic'
     };
-      
-      var type = types[0];
-      var typeClass = type.toLowerCase().replace(/\s/g, '-');
-      var alt_type  = types[types.length - 1];
-      var alt_typeClass = alt_type.toLowerCase().replace(/\s/g, '-');
-      type = contentTypes[typeClass] ? type : alt_type;
-      var type_class = contentTypes[typeClass] ? typeClass : alt_typeClass;
 
+      var pos = types.length - 1;
+      var type;
+      var contentType = 'generic';
+      console.log(types);
+      while(true){
+        type = types[pos];
+        console.log(type);
+        typeClass = type.toLowerCase().replace(/\s/g, '-');
+        if (contentTypes[typeClass]){
+          contentType = contentTypes[typeClass];
+          break;
+        }
+        pos--;
+        if (pos < 0){
+          break;
+        }
+      }
 
-      
       templateItems = {
         '{{ tile-title }}': title,
         '{{ tile-url }}': url,
         '{{ thumb-url }}': url + '/image_mini',
         '{{ tile-type }}': type,
-        '{{ tile-typeIcon }}': 'http://www.eea.europa.eu/portal_depiction/' + (contentTypes[type_class] || 'generic') + '/image_icon',
+        '{{ tile-typeIcon }}': 'http://www.eea.europa.eu/portal_depiction/' + (contentType) + '/image_icon',
         '{{ tile-topic }}': topics.join(', '),
         '{{ tile-datestamp }}': datestamp,
         '{{ tile-date }}': date,
