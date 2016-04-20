@@ -135,7 +135,7 @@ function showHelp() {
 }
 
 module.exports = {
-    'sync': syncIndex,
+    'sync_index': syncIndex,
     'remove_river': removeRiver,
     'remove_data': removeData,
     'reindex': reindex,
