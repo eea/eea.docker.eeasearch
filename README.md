@@ -48,7 +48,7 @@ docker run -e elastic_host=$YOUR_ELASTIC_HOST run eeacms/eeasearch help
 Available commands:
 * create_index: create the index on elastic_host and start harvesting
 * reindex : recrate the index on the elastic_host and start harvesting
-* sync: sync the resources
+* sync_index: sync the resources
 * remove_data: remove the ES index of this app
 * remove_river: stop the harvesting process by removing the river
 

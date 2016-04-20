@@ -123,7 +123,7 @@ function showHelp() {
     console.log('List of available commands:');
     console.log(' runserver: Run the app web server');
     console.log('');
-    console.log(' sync: Get changes from the semantic DB into the ES index');
+    console.log(' sync_index: Get changes from the semantic DB into the ES index');
     console.log(' create_index: Setup Elastic index and trigger indexing');
     console.log(' reindex: Remove data and recreate index');
     console.log('');
