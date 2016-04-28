@@ -36,6 +36,13 @@
   .eea-tile:nth-of-type(2n) {
     padding-right: 0;
   }
+  .eea-section.eea-right-section {
+      background-color: #FFF;
+  }
+  .eea-section.right-column-area {
+      padding: 3em;
+      margin-top: 3em;
+  }
 }
 @media (min-width: 768px) {
   .eea-tile {
