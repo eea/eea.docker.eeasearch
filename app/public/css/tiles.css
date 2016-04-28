@@ -22,6 +22,21 @@
     width: 50%;
   }
 }
+
+@media (max-width: 375px) {
+  .eea-tile {
+    width: 100%;
+    padding: 10px 0;
+  }
+}
+@media (max-width: 767px) {
+  .eea-tile:nth-child(odd) {
+    padding-left: 0;
+  }
+  .eea-tile:nth-of-type(2n) {
+    padding-right: 0;
+  }
+}
 @media (min-width: 768px) {
   .eea-tile {
     width: 33.33333%;
