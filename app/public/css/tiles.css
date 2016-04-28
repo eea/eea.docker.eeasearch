@@ -59,7 +59,7 @@
   .eea-tile:nth-of-type(4n + 1) {
       padding-left: 0;
   }
-  .eea-section-trigger {
+  #content .eea-section-trigger {
       display: none;
   }
 }
