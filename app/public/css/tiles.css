@@ -13,13 +13,37 @@
 
 .eea-tile {
   position: relative;
-  box-sizing: border-box;
+  box-sizing: content-box;
 }
-@media (min-width: 320px) {
+@media (min-width: 380px) {
   .eea-tile {
     float: left;
     padding: 10px;
-    width: 50%;
+    width: 48.5%;
+  }
+}
+
+
+@media (min-width: 381px) and (max-width: 767px) {
+  .eea-tile {
+    float: left;
+    padding: 10px;
+    width: 47%;
+  }
+  .eea-tile:nth-child(odd) {
+    padding-left: 0;
+  }
+  .eea-tile:nth-of-type(2n) {
+    padding-right: 0;
+  }
+}
+
+@media (min-width: 560px) and (max-width: 767px) {
+
+  .eea-tile {
+    float: left;
+    padding: 10px;
+    width: 48%;
   }
 }
 
@@ -29,13 +53,8 @@
     padding: 10px 0;
   }
 }
+
 @media (max-width: 767px) {
-  .eea-tile:nth-child(odd) {
-    padding-left: 0;
-  }
-  .eea-tile:nth-of-type(2n) {
-    padding-right: 0;
-  }
   .eea-section.eea-right-section {
       background-color: #FFF;
   }
@@ -44,14 +63,22 @@
       margin-top: 3em;
   }
 }
-@media (min-width: 768px) {
+
+@media (min-width: 768px) and (max-width: 959px){
   .eea-tile {
-    width: 33.33333%;
+    width: 30.5%;
+  }
+
+  .eea-tile:nth-of-type(3n) {
+    padding-right: 0;
+  }
+  .eea-tile:nth-of-type(3n + 1) {
+    padding-left: 0;
   }
 }
 @media (min-width: 960px) {
   .eea-tile {
-    width: 25%;
+    width: 23%;
   }
   .eea-tile:nth-of-type(4n) {
       padding-right: 0;
