@@ -64,7 +64,13 @@
   }
 }
 
-@media (min-width: 768px) and (max-width: 959px){
+@media (min-width: 768px) and (max-width: 800px) {
+  .eea-tile {
+    width: 45%;
+  }
+}
+
+@media (min-width: 800px) and (max-width: 959px){
   .eea-tile {
     width: 30.5%;
   }
