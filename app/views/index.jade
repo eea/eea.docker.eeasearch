@@ -6,8 +6,9 @@ block extrajavascripts
         script(type='text/javascript', src=script)
 
 block extrastyles
-    each style in css_resources.index_page
-        link(rel='stylesheet', href=style)
+    if (css_resources.index_page)
+      each style in css_resources.index_page
+          link(rel='stylesheet', href=style)
 
 block content
     if (enableBreadcrumbs)
