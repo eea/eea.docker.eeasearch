@@ -10,7 +10,10 @@
     "node-crontab": "*",
     "morgan": "*",
     "request": "*",
-    "nodemon": "*"
+    "underscore": "*",
+    "nodemon": "*",
+    "sync-request": "*",
+    "dateformat": "*"
   },
   "repository": {
     "type": "git",
