@@ -34,8 +34,7 @@ if (typeof layout_vars === 'undefined') {
 }
 
 exports.index = function(req, res){
-  var options = {title: 'PAM',
-                field_base: field_base};
+  var options = {title: 'search'};
 
   options = _.extend(options, layout_vars);
   options.getIndexCreationDate = getIndexCreationDate;
