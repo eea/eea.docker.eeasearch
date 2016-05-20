@@ -85,11 +85,12 @@ function removeData(settings) {
 
 function syncIndex(settings) {
     var esAPI = require('eea-searchserver').esAPI;
+    var elastic = require('nconf').get()['elastic'];
     var config = getIndexFiles(settings);
     new esAPI(getOptions())
         .DELETE('_river/eeaSearch', callback('Deleting river! (if it exists)'))
         .PUT('_river/eeaSearch/_meta', config.syncReq, callback('Adding river!'))
-        .PUT('_river/eeaSearch/last_update', {'updated_at': Date.now() }, callback('River updated'))
+        .PUT(elastic.index + '/status/last_update', {'updated_at': Date.now() }, callback('River updated'))
         .execute();
 }
 
@@ -104,7 +105,7 @@ function reindex(settings) {
              callback('Setting up new index and analyzers'))
         .DELETE('_river/eeaSearch', callback('Deleting river! (if it exists)'))
         .PUT('_river/eeaSearch/_meta', config.syncReq, callback('Adding river back'))
-        .PUT('_river/eeaSearch/last_update', {'updated_at': Date.now() }, callback('River updated'))
+        .PUT(elastic.index + '/status/last_update', {'updated_at': Date.now() }, callback('River updated'))
         .execute();
 }
 
@@ -118,7 +119,7 @@ function createIndex(settings) {
              callback('Setting up new index and analyzers'))
         .DELETE('_river/eeaSearch', callback('Deleting river! (if it exists)'))
         .PUT('_river/eeaSearch/_meta', config.syncReq, callback('Adding river back'))
-        .PUT('_river/eeaSearch/last_update', {'updated_at': Date.now() }, callback('River updated'))
+        .PUT(elastic.index + '/status/last_update', {'updated_at': Date.now() }, callback('River updated'))
         .execute();
 }
 
