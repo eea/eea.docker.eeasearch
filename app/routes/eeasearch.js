@@ -12,7 +12,7 @@ function getIndexCreationDate() {
     var request = require('sync-request');
     var dateFormat = require('dateformat');
     var elastic = nconf.get()['elastic'];
-    var indexed_url = 'http://' + elastic.host + ':' + elastic.port + elastic.path + 'river/eeaSearch/last_update';
+    var indexed_url = 'http://' + elastic.host + ':' + elastic.port + elastic.path + '_river/eeaSearch/last_update';
     console.log(indexed_url);
     var creation_date = 'unknown';
     var res;

@@ -70,7 +70,7 @@ var callback = function(text) {
 function removeRiver() {
     var esAPI = require('eea-searchserver').esAPI;
     new esAPI(getOptions())
-        .DELETE('river/eeaSearch', callback('Deleting river! (if it exists)'))
+        .DELETE('_river/eeaSearch', callback('Deleting river! (if it exists)'))
         .execute();
 }
 
@@ -87,9 +87,9 @@ function syncIndex(settings) {
     var esAPI = require('eea-searchserver').esAPI;
     var config = getIndexFiles(settings);
     new esAPI(getOptions())
-        .DELETE('river/eeaSearch', callback('Deleting river! (if it exists)'))
-        .PUT('river/eeaSearch/_meta', config.syncReq, callback('Adding river!'))
-        .PUT('river/eeaSearch/last_update', {'updated_at': Date.now() }, callback('River updated'))
+        .DELETE('_river/eeaSearch', callback('Deleting river! (if it exists)'))
+        .PUT('_river/eeaSearch/_meta', config.syncReq, callback('Adding river!'))
+        .PUT('_river/eeaSearch/last_update', {'updated_at': Date.now() }, callback('River updated'))
         .execute();
 }
 
@@ -102,9 +102,9 @@ function reindex(settings) {
         .DELETE(elastic.index, callback('Deleting index! (if it exists)'))
         .PUT(elastic.index, config.analyzers,
              callback('Setting up new index and analyzers'))
-        .DELETE('river/eeaSearch', callback('Deleting river! (if it exists)'))
-        .PUT('river/eeaSearch/_meta', config.syncReq, callback('Adding river back'))
-        .PUT('river/eeaSearch/last_update', {'updated_at': Date.now() }, callback('River updated'))
+        .DELETE('_river/eeaSearch', callback('Deleting river! (if it exists)'))
+        .PUT('_river/eeaSearch/_meta', config.syncReq, callback('Adding river back'))
+        .PUT('_river/eeaSearch/last_update', {'updated_at': Date.now() }, callback('River updated'))
         .execute();
 }
 
@@ -116,9 +116,9 @@ function createIndex(settings) {
     new esAPI(getOptions())
         .PUT(elastic.index, config.analyzers,
              callback('Setting up new index and analyzers'))
-        .DELETE('river/eeaSearch', callback('Deleting river! (if it exists)'))
-        .PUT('river/eeaSearch/_meta', config.syncReq, callback('Adding river back'))
-        .PUT('river/eeaSearch/last_update', {'updated_at': Date.now() }, callback('River updated'))
+        .DELETE('_river/eeaSearch', callback('Deleting river! (if it exists)'))
+        .PUT('_river/eeaSearch/_meta', config.syncReq, callback('Adding river back'))
+        .PUT('_river/eeaSearch/last_update', {'updated_at': Date.now() }, callback('River updated'))
         .execute();
 }
 
