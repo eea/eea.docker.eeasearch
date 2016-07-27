@@ -50,22 +50,6 @@ $(function($) {
           'http://purl.org/dc/terms/spatial' : []
         };
 
-  function getToday() {
-    var d = new Date();
-    var month = d.getMonth() + 1;
-    var day = d.getDate();
-
-    var output = [
-      d.getFullYear(),
-      '-',
-      (month < 10 ? '0' : ''),
-      month,
-      '-',
-      (day < 10 ? '0' : ''),
-      day].join('');
-    return output;
-  }
-
   function hide_unused_options(blackList, whiteList) {
     var filters = $('a.facetview_filterchoice');
     for (var filter in filters) {
@@ -91,45 +75,6 @@ $(function($) {
           $(thisFilter.parentNode).remove();
         }
       }
-    }
-  }
-
-  function add_EEA_settings() {
-    //Accordion settings
-    $('#facetview_trees')
-        .addClass('eea-accordion-panels collapsed-by-default non-exclusive');
-    $('.facetview_filter').addClass('eea-accordion-panel');
-    $('.facetview_showtree').addClass('notoc eea-icon-right-container');
-    $('.facetview_arrow_right').addClass('eea-icon eea-icon-right');
-    //Remove results button
-    $('.facetview_howmany').hide();
-    //Remove facetview help
-    $('.facetview_learnmore').hide();
-    //Remove share button
-    $('.facetview_sharesave').hide();
-    //replace share icon
-    $('.icon-share-alt').addClass('eea-icon eea-icon-share-alt');
-    $('.eea-icon-share-alt').removeClass('icon-share-alt');
-    $('.share-icon').addClass('eea-icon eea-icon-share-alt');
-    //replace remove icon
-    $('.icon-remove').addClass('eea-icon eea-icon-times');
-    $('.eea-icon-times').removeClass('icon-remove');
-    //change pagination
-    $('.pagination').addClass('paginator listingBar');
-    //Change top pagination
-    var results = $($('.pagination').find('.active')[0]).text(); //x-y of z
-    var split = results.split(' of ');
-    if (split.length === 2) {
-      var html = [
-        '<span>Results ',
-        split[0],
-        ' of <strong>',
-        split[1],
-        '</strong></span>'
-        ].join('');
-    $('.top-pagination').html(html);
-    } else {
-      $('.top-pagination').html('');
     }
   }
 
