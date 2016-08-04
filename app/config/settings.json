@@ -16,9 +16,7 @@
     "layout_vars": {
         "head_title": "EEA Advanced search &mdash; Global catalogue &mdash; European Environment Agency",
         "css_resources": {
-            "index_page": [
-                "css/search_tiles.css"
-            ]
+            "index_page": []
         },
         "js_resources": {
             "index_page": [

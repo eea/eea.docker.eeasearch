@@ -19,6 +19,17 @@
             },
             "details": {
                 "visible": false
+            },
+            "facet": {
+                "visible": true,
+                "title": "Topic",
+                "pos": 2,
+                "type": "facet",
+                "size": 100,
+                "min_size": 10,
+                "order": "term",
+                "operator": "AND",
+                "facet_display_options": ["sort", "checkbox"]
             }
         },
         {
@@ -145,6 +156,17 @@
             },
             "details": {
                 "visible": false
+            },
+            "facet": {
+                "visible": true,
+                "title": "Country",
+                "pos": 3,
+                "type": "facet",
+                "size": 100,
+                "min_size": 10,
+                "order": "term",
+                "operator": "AND",
+                "facet_display_options": ["sort", "checkbox"]
             }
         },
         {
@@ -159,6 +181,17 @@
             },
             "details": {
                 "visible": false
+            },
+            "facet": {
+                "visible": true,
+                "title": "Content type",
+                "pos": 1,
+                "type": "facet",
+                "size": 50000,
+                "min_size": 10,
+                "order": "term",
+                "operator": "OR",
+                "facet_display_options": ["sort", "checkbox"]
             }
         },
         {
