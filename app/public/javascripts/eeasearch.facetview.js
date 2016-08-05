@@ -183,6 +183,7 @@ jQuery(document).ready(function($) {
       from: 0,
       size: 20
     },
+    display_type_options: ['card'],
     display_type: 'card'
   });
 
