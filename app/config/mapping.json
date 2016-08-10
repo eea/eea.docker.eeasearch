@@ -8,6 +8,59 @@
     },
     "fields_mapping": [
         {
+            "name": "_id",
+            "listing": {
+                "title": "Title",
+                "visible" : true,
+                "pos" : 0,
+                "display": {
+                    "pre": "<a href=\"",
+                    "field": "http://www.w3.org/1999/02/22-rdf-syntax-ns#about",
+                    "post": "\">"
+                }
+            },
+            "details": {
+                "visible": false
+            },
+            "facet": {
+                "visible": false
+            },
+            "csv_tsv": {
+                "visible": false
+            }
+        },
+        {
+            "name": "http://purl.org/dc/terms/title",
+            "listing": {
+                "title": "",
+                "visible" : true,
+                "pos" : 1,
+                "display": {
+                    "pre": "",
+                    "field": "http://purl.org/dc/terms/title",
+                    "post": "</td>"
+                }
+            },
+            "csv_tsv": {
+                "title": "http://purl.org/dc/terms/title",
+                "visible": true,
+                "pos": 8
+            },
+            "details": {
+                "visible": false
+            },
+            "card": {
+                "field": "title",
+                "default": "",
+                "visible": true
+            },
+            "list": {
+                "field": "title",
+                "default": "",
+                "visible": true
+            }
+        },
+        {
             "name": "http://www.eea.europa.eu/portal_types#topic",
             "listing": {
                 "title": "Topic",
@@ -162,32 +215,6 @@
             },
             "list": {
                 "field": "description",
-                "default": "",
-                "visible": true
-            }
-        },
-        {
-            "name": "http://purl.org/dc/terms/title",
-            "listing": {
-                "title": "Title",
-                "visible" : true,
-                "pos" : 1
-            },
-            "csv_tsv": {
-                "title": "http://purl.org/dc/terms/title",
-                "visible": true,
-                "pos": 8
-            },
-            "details": {
-                "visible": false
-            },
-            "card": {
-                "field": "title",
-                "default": "",
-                "visible": true
-            },
-            "list": {
-                "field": "title",
                 "default": "",
                 "visible": true
             }
