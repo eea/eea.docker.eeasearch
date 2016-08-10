@@ -10,7 +10,9 @@
         {
             "name": "http://www.eea.europa.eu/portal_types#topic",
             "listing": {
-                "visible": false
+                "title": "Topic",
+                "visible" : true,
+                "pos" : 5
             },
             "csv_tsv": {
                 "title": "http://www.eea.europa.eu/portal_types#topic",
@@ -30,12 +32,24 @@
                 "order": "term",
                 "operator": "AND",
                 "facet_display_options": ["sort", "checkbox"]
+            },
+            "card": {
+                "field": "topics",
+                "default": "",
+                "visible": true
+            },
+            "list": {
+                "field": "topics",
+                "default": "",
+                "visible": true
             }
         },
         {
             "name": "http://purl.org/dc/terms/creator",
             "listing": {
-                "visible": false
+                "title": "Creator",
+                "visible" : true,
+                "pos" : 4
             },
             "csv_tsv": {
                 "title": "http://purl.org/dc/terms/creator",
@@ -105,7 +119,9 @@
         {
             "name": "http://purl.org/dc/terms/issued",
             "listing": {
-                "visible": false
+                "title": "Issued",
+                "visible" : true,
+                "pos" : 6
             },
             "csv_tsv": {
                 "title": "http://purl.org/dc/terms/issued",
@@ -114,6 +130,16 @@
             },
             "details": {
                 "visible": false
+            },
+            "card": {
+                "field": "datestamp",
+                "default": "",
+                "visible": true
+            },
+            "list": {
+                "field": "datestamp",
+                "default": "",
+                "visible": true
             }
         },
         {
@@ -128,12 +154,24 @@
             },
             "details": {
                 "visible": false
+            },
+            "card": {
+                "field": "description",
+                "default": "",
+                "visible": true
+            },
+            "list": {
+                "field": "description",
+                "default": "",
+                "visible": true
             }
         },
         {
             "name": "http://purl.org/dc/terms/title",
             "listing": {
-                "visible": false
+                "title": "Title",
+                "visible" : true,
+                "pos" : 1
             },
             "csv_tsv": {
                 "title": "http://purl.org/dc/terms/title",
@@ -142,12 +180,24 @@
             },
             "details": {
                 "visible": false
+            },
+            "card": {
+                "field": "title",
+                "default": "",
+                "visible": true
+            },
+            "list": {
+                "field": "title",
+                "default": "",
+                "visible": true
             }
         },
         {
             "name": "http://purl.org/dc/terms/spatial",
             "listing": {
-                "visible": false
+                "title": "Country",
+                "visible" : true,
+                "pos" : 2
             },
             "csv_tsv": {
                 "title": "http://purl.org/dc/terms/spatial",
@@ -172,7 +222,9 @@
         {
             "name": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
             "listing": {
-                "visible": false
+                "title": "Content type",
+                "visible" : true,
+                "pos" : 3
             },
             "csv_tsv": {
                 "title": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
@@ -192,6 +244,16 @@
                 "order": "term",
                 "operator": "OR",
                 "facet_display_options": ["sort", "checkbox"]
+            },
+            "card": {
+                "field": "types",
+                "default": "",
+                "visible": true
+            },
+            "list": {
+                "field": "types",
+                "default": "",
+                "visible": true
             }
         },
         {
@@ -220,6 +282,16 @@
             },
             "details": {
                 "visible": false
+            },
+            "card": {
+                "field": "url",
+                "default": "",
+                "visible": true
+            },
+            "list": {
+                "field": "url",
+                "default": "",
+                "visible": true
             }
         }
     ]
