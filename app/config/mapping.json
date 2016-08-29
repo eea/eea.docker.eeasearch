@@ -8,9 +8,64 @@
     },
     "fields_mapping": [
         {
+            "name": "_id",
+            "listing": {
+                "title": "Title",
+                "visible" : true,
+                "pos" : 0,
+                "display": {
+                    "pre": "<a href=\"",
+                    "field": "http://www.w3.org/1999/02/22-rdf-syntax-ns#about",
+                    "post": "\">"
+                }
+            },
+            "details": {
+                "visible": false
+            },
+            "facet": {
+                "visible": false
+            },
+            "csv_tsv": {
+                "visible": false
+            }
+        },
+        {
+            "name": "http://purl.org/dc/terms/title",
+            "listing": {
+                "title": "",
+                "visible" : true,
+                "pos" : 1,
+                "display": {
+                    "pre": "",
+                    "field": "http://purl.org/dc/terms/title",
+                    "post": "</td>"
+                }
+            },
+            "csv_tsv": {
+                "title": "http://purl.org/dc/terms/title",
+                "visible": true,
+                "pos": 8
+            },
+            "details": {
+                "visible": false
+            },
+            "card": {
+                "field": "title",
+                "default": "",
+                "visible": true
+            },
+            "list": {
+                "field": "title",
+                "default": "",
+                "visible": true
+            }
+        },
+        {
             "name": "http://www.eea.europa.eu/portal_types#topic",
             "listing": {
-                "visible": false
+                "title": "Topic",
+                "visible" : true,
+                "pos" : 5
             },
             "csv_tsv": {
                 "title": "http://www.eea.europa.eu/portal_types#topic",
@@ -19,12 +74,35 @@
             },
             "details": {
                 "visible": false
+            },
+            "facet": {
+                "visible": true,
+                "title": "Topic",
+                "pos": 2,
+                "type": "facet",
+                "size": 100,
+                "min_size": 10,
+                "order": "term",
+                "operator": "AND",
+                "facet_display_options": ["sort", "checkbox"]
+            },
+            "card": {
+                "field": "topics",
+                "default": "",
+                "visible": true
+            },
+            "list": {
+                "field": "topics",
+                "default": "",
+                "visible": true
             }
         },
         {
             "name": "http://purl.org/dc/terms/creator",
             "listing": {
-                "visible": false
+                "title": "Creator",
+                "visible" : true,
+                "pos" : 4
             },
             "csv_tsv": {
                 "title": "http://purl.org/dc/terms/creator",
@@ -94,7 +172,9 @@
         {
             "name": "http://purl.org/dc/terms/issued",
             "listing": {
-                "visible": false
+                "title": "Issued",
+                "visible" : true,
+                "pos" : 6
             },
             "csv_tsv": {
                 "title": "http://purl.org/dc/terms/issued",
@@ -103,6 +183,16 @@
             },
             "details": {
                 "visible": false
+            },
+            "card": {
+                "field": "datestamp",
+                "default": "",
+                "visible": true
+            },
+            "list": {
+                "field": "datestamp",
+                "default": "",
+                "visible": true
             }
         },
         {
@@ -117,26 +207,24 @@
             },
             "details": {
                 "visible": false
-            }
-        },
-        {
-            "name": "http://purl.org/dc/terms/title",
-            "listing": {
-                "visible": false
             },
-            "csv_tsv": {
-                "title": "http://purl.org/dc/terms/title",
-                "visible": true,
-                "pos": 8
+            "card": {
+                "field": "description",
+                "default": "",
+                "visible": true
             },
-            "details": {
-                "visible": false
+            "list": {
+                "field": "description",
+                "default": "",
+                "visible": true
             }
         },
         {
             "name": "http://purl.org/dc/terms/spatial",
             "listing": {
-                "visible": false
+                "title": "Country",
+                "visible" : true,
+                "pos" : 2
             },
             "csv_tsv": {
                 "title": "http://purl.org/dc/terms/spatial",
@@ -145,12 +233,25 @@
             },
             "details": {
                 "visible": false
+            },
+            "facet": {
+                "visible": true,
+                "title": "Country",
+                "pos": 3,
+                "type": "facet",
+                "size": 100,
+                "min_size": 10,
+                "order": "term",
+                "operator": "AND",
+                "facet_display_options": ["sort", "checkbox"]
             }
         },
         {
             "name": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
             "listing": {
-                "visible": false
+                "title": "Content type",
+                "visible" : true,
+                "pos" : 3
             },
             "csv_tsv": {
                 "title": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
@@ -159,6 +260,27 @@
             },
             "details": {
                 "visible": false
+            },
+            "facet": {
+                "visible": true,
+                "title": "Content type",
+                "pos": 1,
+                "type": "facet",
+                "size": 50000,
+                "min_size": 10,
+                "order": "term",
+                "operator": "OR",
+                "facet_display_options": ["sort", "checkbox"]
+            },
+            "card": {
+                "field": "types",
+                "default": "",
+                "visible": true
+            },
+            "list": {
+                "field": "types",
+                "default": "",
+                "visible": true
             }
         },
         {
@@ -187,6 +309,16 @@
             },
             "details": {
                 "visible": false
+            },
+            "card": {
+                "field": "url",
+                "default": "",
+                "visible": true
+            },
+            "list": {
+                "field": "url",
+                "default": "",
+                "visible": true
             }
         }
     ]
