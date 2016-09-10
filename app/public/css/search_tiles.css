@@ -3,3 +3,13 @@
     display: none !important;
 }
 
+.eea-tileThumb.eea-tileThumb-default {
+    background-size: 50%;
+    background-position: center;
+}
+
+.eea-tileType {
+    right: 5%;
+    bottom: 15%;
+    background-size: 100%;
+}

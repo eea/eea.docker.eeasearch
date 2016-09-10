@@ -197,7 +197,7 @@ $(function($) {
       </div>
     */
     var $results = $('<div class="eea-tiles"/>');
-    var template = '<div class="eea-tile"> <a class="eea-tileInner"title="{{ tile-title }}"href="{{ tile-url }}"> <div class="eea-tileThumb" style="background-image: url({{ thumb-url }})"> <img src="{{ thumb-url }}"> </div> <div class="eea-tileBody"> <strong class="eea-tileType" style="background-image: url({{ tile-typeIcon }})"> <span class="eea-tileTypeIcon eea-tileType-{{ tile-typeClass }}" title="{{ tile-type }}"></span> {{ tile-type }} </strong> <h4 class="eea-tileTitle">{{ tile-title }}</h4> <span class="eea-tileTopic" title="{{ tile-topic }}">{{ tile-topic }}</span> <time class="eea-tileIssued" datetime="{{ tile-datestamp }}">{{ tile-date }}</time> </div> </a> </div> ';
+    var template = '<div class="eea-tile"> <a class="eea-tileInner"title="{{ tile-title }}"href="{{ tile-url }}"> <div class="eea-tileThumb {{ extra_css }}" style="background-image: url({{ thumb-url }})"> <img src="{{ thumb-url }}"> </div> <div class="eea-tileBody"> <strong class="eea-tileType" style="background-image: url({{ tile-typeIcon }})"> <span class="eea-tileTypeIcon eea-tileType-{{ tile-typeClass }}" title="{{ tile-type }}"></span> {{ tile-type }} </strong> <h4 class="eea-tileTitle">{{ tile-title }}</h4> <span class="eea-tileTopic" title="{{ tile-topic }}">{{ tile-topic }}</span> <time class="eea-tileIssued" datetime="{{ tile-datestamp }}">{{ tile-date }}</time> </div> </a> </div> ';
 
 
     for (var i = 0; i < data.records.length; i++) {
@@ -284,6 +284,10 @@ $(function($) {
         }
       }
 
+      extra_css = 'eea-tileThumb-default';
+      if (url.indexOf('/themes/') >= 0) {
+          extra_css = '';
+      }
       templateItems = {
         '{{ tile-title }}': title,
         '{{ tile-url }}': url,
@@ -293,6 +297,7 @@ $(function($) {
         '{{ tile-topic }}': topics.join(', '),
         '{{ tile-datestamp }}': datestamp,
         '{{ tile-date }}': date,
+        '{{ extra_css }}': extra_css,
       };
 
       $result = $(
