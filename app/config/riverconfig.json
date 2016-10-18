@@ -35,7 +35,8 @@
     "http://www.eea.europa.eu/portal_workflow/plone_workflow/states/published": "published",
     "http://www.eea.europa.eu/portal_workflow/linguaflow/states/published": "published",
     "http://www.eea.europa.eu/portal_workflow/eea_default_workflow/states/published": "published",
-    "http://www.eea.europa.eu/portal_workflow/eea_data_workflow/states/published": "published"
+    "http://www.eea.europa.eu/portal_workflow/eea_data_workflow/states/published": "published",
+    "http://www.eea.europa.eu/portal_workflow/eea_soer_workflow/states/published": "published"
   },
   "//": "Do not index these values for a given properties",
   "blackMap": {
@@ -115,7 +116,8 @@
     "http://www.eea.europa.eu/portal_workflow/plone_workflow/states/published": "published",
     "http://www.eea.europa.eu/portal_workflow/linguaflow/states/published": "published",
     "http://www.eea.europa.eu/portal_workflow/eea_default_workflow/states/published": "published",
-    "http://www.eea.europa.eu/portal_workflow/eea_data_workflow/states/published": "published"
+    "http://www.eea.europa.eu/portal_workflow/eea_data_workflow/states/published": "published",
+    "http://www.eea.europa.eu/portal_workflow/eea_soer_workflow/states/published": "published"
   },
   "//": "Normalise missing properties with the given values",
   "normMissing": {
@@ -147,7 +149,6 @@
     "{?resource a <http://www.eea.europa.eu/portal_types/ExternalDataSpec#ExternalDataSpec>} UNION ",
     "{?resource a <http://www.eea.europa.eu/portal_types/EyewitnessStory#EyewitnessStory>} UNION ",
     "{?resource a <http://www.eea.europa.eu/portal_types/FactSheetDocument#FactSheetDocument>} UNION ",
-    "{?resource a <http://www.eea.europa.eu/portal_types/File#File>} UNION ",
     "{?resource a <http://www.eea.europa.eu/portal_types/GIS%20Application#GISApplication>} UNION ",
     "{?resource a <http://www.eea.europa.eu/portal_types/Highlight#Highlight>} UNION ",
     "{?resource a <http://www.eea.europa.eu/portal_types/Image#Image>} UNION ",

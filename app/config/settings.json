@@ -14,7 +14,7 @@
         "footer_path": "/templates/v2/getFooter"
     },
     "layout_vars": {
-        "head_title": "EEA Advanced search &mdash; Global catalogue &mdash; European Environment Agency",
+        "head_title": "EEA &mdash; Global catalogue &mdash; European Environment Agency",
         "css_resources": {
             "index_page": []
         },
@@ -23,7 +23,7 @@
                 "javascripts/eeasearch.facetview.js"
             ]
         },
-        "site_title": "EEA Advanced search &mdash; Global catalogue",
+        "site_title": "EEA &mdash; Global catalogue",
         "site_description": "",
         "enableBreadcrumbs": false,
         "breadcrumbs": "",
