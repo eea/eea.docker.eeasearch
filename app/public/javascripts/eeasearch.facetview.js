@@ -112,10 +112,28 @@ function add_iframe() {
 
 jQuery(document).ready(function($) {
   var url = $(location).attr('href');
-  var position = url.indexOf('/search/');
-  var language = url[position - 3] === '/' ?
-      url.substring(position - 2, position) :
-      'en';
+  var language = 'en';
+  if (url.split("?source=").length === 2){
+    var source_str = decodeURIComponent(url.split("?source=")[1]);
+    var source_query = JSON.parse(source_str);
+    if (source_query.hasOwnProperty("query")) {
+        source_query = source_query.query;
+        if (source_query.hasOwnProperty("bool")) {
+            var source_bool = source_query.bool;
+            if (source_bool.hasOwnProperty("must")) {
+                source_must = source_bool.must;
+                for (var i = 0; i < source_must.length; i++){
+                    if (source_must[i].hasOwnProperty("term")) {
+                        var source_term = source_must[i].term;
+                        if (source_term.hasOwnProperty("language")){
+                            language = source_term.language;
+                        }
+                    }
+                }
+            }
+        }
+    }
+  }
   var today = getToday();
   eea_facetview('.facet-view-simple', 
   {
