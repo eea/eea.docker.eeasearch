@@ -86,30 +86,48 @@ function build_hierarchy(facets) {
     return hierarchy;
 }
 
+function find_language(key, obj){
+    if (key === 'language'){
+        return {found:true, language:obj}
+    }
+    if ($.isArray(obj)){
+        for (var i = 0; i< obj.length; i++){
+            var found = find_language(key, obj[i]);
+            if (found.found){
+                return found;
+            }
+        }
+    }
+    else{
+        if (typeof obj === 'object'){
+            var keys = [];
+            jQuery.each(obj, function(obj_key, obj_value){
+                keys.push(obj_key)
+            });
+            for (var i = 0; i < keys.length; i++){
+                var found = find_language(keys[i], obj[keys[i]]);
+                console.log(found)
+                if (found.found){
+                    return found;
+                }
+            }
+        }
+    }
+    return {found:false};
+}
 jQuery(document).ready(function($) {
   var url = $(location).attr('href');
   var language = 'en';
   if (url.split("?source=").length === 2){
     var source_str = decodeURIComponent(url.split("?source=")[1]);
     var source_query = JSON.parse(source_str);
-    if (source_query.hasOwnProperty("query")) {
-        source_query = source_query.query;
-        if (source_query.hasOwnProperty("bool")) {
-            var source_bool = source_query.bool;
-            if (source_bool.hasOwnProperty("must")) {
-                source_must = source_bool.must;
-                for (var i = 0; i < source_must.length; i++){
-                    if (source_must[i].hasOwnProperty("term")) {
-                        var source_term = source_must[i].term;
-                        if (source_term.hasOwnProperty("language")){
-                            language = source_term.language;
-                        }
-                    }
-                }
-            }
-        }
+    debugger;
+    var lang_obj = find_language("root", source_query);
+    if (lang_obj.found){
+        language = lang_obj.language;
     }
   }
+
   var today = getToday();
 
   var appHierarchy = build_hierarchy(buildFacets(eea_mapping.facets).facets);
