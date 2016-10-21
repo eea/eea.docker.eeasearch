@@ -2,51 +2,6 @@ var blackList = {
   'http://www.w3.org/1999/02/22-rdf-syntax-ns#type' : []};
 
 var whiteList = false;
-var appHierarchy = {
-  'http://www.w3.org/1999/02/22-rdf-syntax-ns#type' :
-    [{
-      'Highlight' : [],
-      'Press Release' : [],
-      'Event' : [],
-      'Promotion' : [],
-      'Article' : [],
-      'Eco-Tip' : [],
-      'Image' : [],
-      'Video' : [],
-      'Report' : [],
-      'Data' : [],
-      'Data Visualization' : [],
-      'Indicator Specification' : [],
-      'Indicator factsheet' : [],
-      'Indicator assessment' : [],
-      'Infographic' : [],
-      'Briefing' : [],
-      'Page': [],
-      'Link' : [],
-      'Data File' : [],
-      'Assessment part' : [],
-      'EEA Job Vacancy' : [],
-      'Epub File' : [],
-      'External Data Reference' : [],
-      'Eyewitness story' : [],
-      'Figure' : [],
-      'File' : [],
-      'Folder' : [],
-      'GIS Map Application' : [],
-      'Methodology Reference' : [],
-      'Organization' : [],
-      'Policy Question' : [],
-      'Rationale Reference' : [],
-      'SOER Key fact' : [],
-      'SOER Message' : [],
-      'SPARQL' : [],
-      'Speech' : [],
-      'Text' : [],
-      'Work Item' : []
-      }],
-        'http://www.eea.europa.eu/portal_types#topic' : [],
-        'http://purl.org/dc/terms/spatial' : []
-      };
 
 function hide_unused_options(blackList, whiteList) {
   var filters = $('a.facetview_filterchoice');
@@ -110,13 +65,72 @@ function add_iframe() {
   }
 }
 
+function build_hierarchy(facets) {
+    var hierarchy = {};
+    for (var i = 0; i < facets.length; i++){
+        var key = facets[i].field
+        var new_item = [];
+        for (var j = 0; j < eea_mapping.facets.length; j++){
+            if (eea_mapping.facets[j].name === key){
+                if (eea_mapping.facets[j].values_whitelist !== undefined){
+                    var values = {}
+                    for (var k = 0; k < eea_mapping.facets[j].values_whitelist.length; k++){
+                        values[eea_mapping.facets[j].values_whitelist[k]] = []
+                    }
+                    new_item.push(values);
+                }
+            }
+        }
+        hierarchy[key] = new_item;
+    }
+    return hierarchy;
+}
+
+function find_language(key, obj){
+    if (key === 'language'){
+        return {found:true, language:obj}
+    }
+    if ($.isArray(obj)){
+        for (var i = 0; i< obj.length; i++){
+            var found = find_language(key, obj[i]);
+            if (found.found){
+                return found;
+            }
+        }
+    }
+    else{
+        if (typeof obj === 'object'){
+            var keys = [];
+            jQuery.each(obj, function(obj_key, obj_value){
+                keys.push(obj_key)
+            });
+            for (var i = 0; i < keys.length; i++){
+                var found = find_language(keys[i], obj[keys[i]]);
+                console.log(found)
+                if (found.found){
+                    return found;
+                }
+            }
+        }
+    }
+    return {found:false};
+}
 jQuery(document).ready(function($) {
   var url = $(location).attr('href');
-  var position = url.indexOf('/search/');
-  var language = url[position - 3] === '/' ?
-      url.substring(position - 2, position) :
-      'en';
+  var language = 'en';
+  if (url.split("?source=").length === 2){
+    var source_str = decodeURIComponent(url.split("?source=")[1]);
+    var source_query = JSON.parse(source_str);
+    debugger;
+    var lang_obj = find_language("root", source_query);
+    if (lang_obj.found){
+        language = lang_obj.language;
+    }
+  }
+
   var today = getToday();
+
+  var appHierarchy = build_hierarchy(buildFacets(eea_mapping.facets).facets);
   eea_facetview('.facet-view-simple', 
   {
     search_url: './api',
