@@ -78,7 +78,7 @@
             "facet": {
                 "visible": true,
                 "title": "Topic",
-                "pos": 2,
+                "pos": 1,
                 "type": "facet",
                 "size": 100,
                 "min_size": 10,
@@ -237,7 +237,7 @@
             "facet": {
                 "visible": true,
                 "title": "Country",
-                "pos": 3,
+                "pos": 2,
                 "type": "facet",
                 "size": 100,
                 "min_size": 10,
@@ -264,7 +264,7 @@
             "facet": {
                 "visible": true,
                 "title": "Content type",
-                "pos": 1,
+                "pos": 3,
                 "type": "facet",
                 "size": 50000,
                 "min_size": 10,
