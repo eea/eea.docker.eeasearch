@@ -121,7 +121,6 @@ jQuery(document).ready(function($) {
   if (url.split("?source=").length === 2){
     var source_str = decodeURIComponent(url.split("?source=")[1]);
     var source_query = JSON.parse(source_str);
-    debugger;
     var lang_obj = find_language("root", source_query);
     if (lang_obj.found){
         language = lang_obj.language;
