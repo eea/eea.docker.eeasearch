@@ -8,12 +8,13 @@ function getOptions() {
     };
 }
 
-function getIndexFiles(settings) {
+function getIndexFiles(settings, riverconfig) {
 
   var analyzers = require(path.join(settings.app_dir, settings.extraAnalyzers));
   var filters = require(path.join(settings.app_dir, settings.filterAnalyzers));
   var datamappings = require(path.join(settings.app_dir, settings.dataMapping));
-  var riverconfig = require(path.join(settings.app_dir, '/config/riverconfig.json'));
+//  var riverconfig = require(path.join(settings.app_dir, '/config/riverconfig_1.json'));
+//  var riverconfig_2 = require(path.join(settings.app_dir, '/config/riverconfig_2.json'));
 
   var mappings = {
     'settings': {
@@ -39,6 +40,7 @@ function getIndexFiles(settings) {
             'syncConditions': riverconfig.syncConditions.join(''),
             'graphSyncConditions': 'FILTER (str(?graph) = concat(str(?resource), \'/@@rdf\'))',
             'syncTimeProp': riverconfig.syncTimeProp,
+//            'startTime': '1970-01-01T00:00:00',
             'startTime': '',
             'queryType': riverconfig.queryType,
             'proplist': riverconfig.proplist,
@@ -48,7 +50,9 @@ function getIndexFiles(settings) {
             'blackMap': riverconfig.blackMap,
             'whiteMap': riverconfig.whiteMap,
             'normObj': riverconfig.normObj,
-            'syncOldData': true
+            'syncOldData': true,
+            'domain': 'eea1'
+//            'syncOldData': false
         }
     }
   }
@@ -76,7 +80,8 @@ function removeRiver() {
 
 function removeData(settings) {
     var esAPI = require('eea-searchserver').esAPI;
-    var config = getIndexFiles(settings);
+    var riverconfig = require(path.join(settings.app_dir, '/config/riverconfig_1.json'));
+    var config = getIndexFiles(settings, riverconfig);
     var elastic = require('nconf').get()['elastic'];
     new esAPI(getOptions())
         .DELETE(elastic.index, callback('Deleting index! (if it exists)'))
@@ -86,7 +91,8 @@ function removeData(settings) {
 function syncIndex(settings) {
     var esAPI = require('eea-searchserver').esAPI;
     var elastic = require('nconf').get()['elastic'];
-    var config = getIndexFiles(settings);
+    var riverconfig = require(path.join(settings.app_dir, '/config/riverconfig_1.json'));
+    var config = getIndexFiles(settings, riverconfig);
     new esAPI(getOptions())
         .DELETE('_river/eeaSearch', callback('Deleting river! (if it exists)'))
         .PUT('_river/eeaSearch/_meta', config.syncReq, callback('Adding river!'))
@@ -97,7 +103,8 @@ function syncIndex(settings) {
 function reindex(settings) {
     var esAPI = require('eea-searchserver').esAPI;
     var elastic = require('nconf').get()['elastic'];
-    var config = getIndexFiles(settings);
+    var riverconfig = require(path.join(settings.app_dir, '/config/riverconfig_1.json'));
+    var config = getIndexFiles(settings, riverconfig);
 
     new esAPI(getOptions())
         .DELETE(elastic.index, callback('Deleting index! (if it exists)'))
@@ -112,13 +119,20 @@ function reindex(settings) {
 function createIndex(settings) {
     var esAPI = require('eea-searchserver').esAPI;
     var elastic = require('nconf').get()['elastic'];
-    var config = getIndexFiles(settings);
+    var riverconfig_1 = require(path.join(settings.app_dir, '/config/riverconfig_1.json'));
+    var riverconfig_2 = require(path.join(settings.app_dir, '/config/riverconfig_2.json'));
+    var config_1 = getIndexFiles(settings, riverconfig_1);
+    var config_2 = getIndexFiles(settings, riverconfig_2);
+//    config_2.syncReq.syncOldData = false;
+    config_2.syncReq.domain = 'eea2';
 
     new esAPI(getOptions())
-        .PUT(elastic.index, config.analyzers,
+        .PUT(elastic.index, config_1.analyzers,
              callback('Setting up new index and analyzers'))
-        .DELETE('_river/eeaSearch', callback('Deleting river! (if it exists)'))
-        .PUT('_river/eeaSearch/_meta', config.syncReq, callback('Adding river back'))
+        .DELETE('_river/eeaSearch1', callback('Deleting river! (if it exists)'))
+        .PUT('_river/eeaSearch1/_meta', config_1.syncReq, callback('Adding river back'))
+        .DELETE('_river/eeaSearch2', callback('Deleting river! (if it exists)'))
+        .PUT('_river/eeaSearch2/_meta', config_2.syncReq, callback('Adding river back'))
         .PUT(elastic.index + '/status/last_update', {'updated_at': Date.now() }, callback('River updated'))
         .execute();
 }

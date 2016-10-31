@@ -243,7 +243,25 @@
                 "min_size": 10,
                 "order": "term",
                 "operator": "AND",
-                "facet_display_options": ["sort", "checkbox"]
+                "facet_display_options": ["sort", "checkbox"],
+                "values_limit": true
+            }
+        },
+        {
+            "name": "domain",
+            "listing": {
+                "title": "domain",
+                "visible" : true,
+                "pos" : 6
+            },
+            "csv_tsv": {
+                "visible": true
+            },
+            "details": {
+                "visible": false
+            },
+            "facet": {
+                "visible": false
             }
         },
         {
