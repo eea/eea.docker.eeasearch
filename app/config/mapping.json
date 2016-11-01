@@ -289,6 +289,8 @@
                               "Briefing",
                               "Page",
                               "Link",
+                              "Legislation Instrument",
+                              "Reporting Obligation",
                               "Data File",
                               "Assessment part",
                               "EEA Job Vacancy",
@@ -321,6 +323,54 @@
                 "field": "types",
                 "default": "",
                 "visible": true
+            }
+        },
+        {
+            "name": "http://www.eea.europa.eu/ontologies.rdf#objectProvides",
+            "listing": {
+                "title": "Content type 2",
+                "visible" : true,
+                "pos" : 3
+            },
+            "csv_tsv": {
+                "title": "http://www.eea.europa.eu/ontologies.rdf#objectProvides",
+                "visible": true,
+                "pos": 11
+            },
+            "details": {
+                "visible": false
+            },
+            "facet": {
+                "visible": true,
+                "title": "Content type 2",
+                "pos": 5,
+                "type": "facet",
+                "size": 50000,
+                "min_size": 10,
+                "order": "term",
+                "operator": "OR",
+                "values_whitelist": [
+                             "Article",
+                             "News",
+                             "News (Event)",
+                             "Image",
+                             "Video",
+                             "Web page",
+                             "Map (interactive)",
+                             "Infographic",
+                             "Data visualisation",
+                             "Data (at EEA)",
+                             "Topic/subtopic site",
+                             "Graph (image)",
+                             "Map (image)",
+                             "Microdata (file)",
+                             "Data provider (organisation)",
+                             "Catalogue (search application)",
+                             "Indicator assessment",
+                             "Data (external links)",
+                             "Key message"
+                          ],
+                "facet_display_options": ["sort", "checkbox"]
             }
         },
         {
