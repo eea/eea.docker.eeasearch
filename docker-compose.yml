@@ -1,14 +1,28 @@
-# Development docker-compose file with server auto-reload and
-# code mounted as a volume.
-app:
-    image: eeacms/eeasearch
-    ports: # App accessible on http://localhost:3000
-        - 3000:3000
-    volumes: # Mount code as a volume for easy restart
-        - ./app/:/code/:ro
-    environment: # Use current upstream staging instance
-        - elastic_host=centaurus-dev.eea.europa.eu
-        - elastic_path=/elasticsearch/
-        - elastic_port=80
-        - NODE_ENV=dev # Change to production if you want to test the app in production environment
-        # - SYNC_CRONTAB=30 * * * * # Sync every 30 minutes
+# NOTE: this is a docker-compose example for development purposes
+# adjust the variable as needed, for example the elastic_host
+# for production see rancher catalog entry https://github.com/eea/eea.rancher.catalog/tree/master/templates/elastic-app-eeasearch
+eeasearch:
+  environment:
+    VERSION_INFO: eeacms/eeasearch:master
+    elastic_host: 10.201.1.92
+    elastic_port: '9200'
+    AUTO_INDEXING: 'false'
+  log_driver: ''
+  labels:
+    io.rancher.scheduler.affinity:host_label: ${host_labels}
+    io.rancher.scheduler.affinity:container_label_soft_ne: io.rancher.stack_service.name=$${stack_name}/$${service_name}
+    io.rancher.container.hostname_override: container_name
+    io.rancher.sidekicks: autosync,reindex,ide
+  log_opt: {}
+  build: ./eea.docker.eeasearch/
+  volumes:
+    - ./eea.docker.eeasearch/app/:/code/:z
+  ports:
+    - '9999:3000'
+  entrypoint:
+    - /node_modules/.bin/nodemon
+    - --watch
+    - code/
+    - /code/app.js
+  command:
+    - runserver

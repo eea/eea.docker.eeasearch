@@ -27,11 +27,19 @@ the ```volumes``` entry in ```docker-compose.yml```
 5. Go to http://localhost:3000
 
 ## Production
+
+### Deploy via Rancher
+
+The application is available in the [EEA Rancher Catalog](https://github.com/eea/eea.rancher.catalog/tree/master/templates/elastic-app-eeasearch).
+
+### Other
+
 1. ```docker pull eeacms/eeasearch```
 2. Use any orchestration solution and make sure that the container
    can ping the Elastic backend
 3. Pass commands and env variables to the image as explained in the Docker Usage section
-  
+
+
 ## Docker Usage
 
 Basic usage of the image is given by the following pattern:
