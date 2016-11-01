@@ -14,9 +14,9 @@ eeasearch:
     io.rancher.container.hostname_override: container_name
     io.rancher.sidekicks: autosync,reindex,ide
   log_opt: {}
-  build: ./eea.docker.eeasearch/
+  build: .
   volumes:
-    - ./eea.docker.eeasearch/app/:/code/:z
+    - ./app/:/code/:z
   ports:
     - '9999:3000'
   entrypoint:
