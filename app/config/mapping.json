@@ -248,14 +248,31 @@
             }
         },
         {
-            "name": "domain",
+            "name": "cluster_id",
             "listing": {
-                "title": "domain",
+                "title": "cluster_id",
                 "visible" : true,
                 "pos" : 6
             },
             "csv_tsv": {
-                "visible": true
+                "visible": false
+            },
+            "details": {
+                "visible": false
+            },
+            "facet": {
+                "visible": false
+            }
+        },
+        {
+            "name": "cluster_name",
+            "listing": {
+                "title": "cluster_name",
+                "visible" : true,
+                "pos" : 6
+            },
+            "csv_tsv": {
+                "visible": false
             },
             "details": {
                 "visible": false
