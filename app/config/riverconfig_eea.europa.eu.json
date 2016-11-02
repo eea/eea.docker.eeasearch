@@ -209,5 +209,6 @@
     "{?resource a <http://rod.eionet.europa.eu/schema.rdf#Instrument>} UNION ",
     "{?resource a <http://rod.eionet.europa.eu/schema.rdf#Obligation>}"
   ],
+  "graphSyncConditions": ["FILTER (str(?graph) = concat(str(?resource), '/@@rdf'))"],
   "syncTimeProp": "http://cr.eionet.europa.eu/ontologies/contreg.rdf#lastRefreshed"
 }

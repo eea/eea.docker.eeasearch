@@ -30,5 +30,14 @@
         "dataprovencance_info_text": "",
         "dataprovencance_info_url": "",
         "further_info": ""
+    },
+    "river_configs": {
+        "configs": [
+            {
+                "id": "eea.europa.eu",
+                "cluster_name": "European Environment Agency",
+                "config_file": "riverconfig_eea.europa.eu.json"
+            }
+        ]
     }
 }
