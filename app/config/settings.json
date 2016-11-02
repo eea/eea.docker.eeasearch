@@ -37,6 +37,16 @@
                 "id": "eea.europa.eu",
                 "cluster_name": "European Environment Agency",
                 "config_file": "riverconfig_eea.europa.eu.json"
+            },
+            {
+                "id": "instruments",
+                "cluster_name": "instruments",
+                "config_file": "riverconfig_instruments.json"
+            },
+            {
+                "id": "obligationss",
+                "cluster_name": "obligations",
+                "config_file": "riverconfig_obligations.json"
             }
         ]
     }
