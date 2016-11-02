@@ -3,6 +3,28 @@ var blackList = {
 
 var whiteList = false;
 
+var predefined_filters = [];
+var predefined_filters_expired = [];
+
+function add_control_for_expired() {
+  $(".facetview_include_expired").remove();
+  var checkbox = $('<div class="facetview_include_expired"><span>Include expired content </span><input type="checkbox" id="include_expired" value=""></div>');
+  checkbox.insertAfter(".facetview_display_type");
+  var original_predefined_filters = $('.facet-view-simple').facetview.options.predefined_filters;
+  if (original_predefined_filters.length === 3){
+    $("#include_expired").prop("checked", true);
+  }
+  $("#include_expired").change(function() {
+    var tmp_predefined_filters = [];
+    tmp_predefined_filters = tmp_predefined_filters.concat(predefined_filters);
+    if(! this.checked){
+        tmp_predefined_filters = tmp_predefined_filters.concat(predefined_filters_expired);
+    }
+    $('.facet-view-simple').facetview.options.predefined_filters = tmp_predefined_filters;
+    $('.facet-view-simple').facetview.dosearch();
+  });
+}
+
 function hide_unused_options(blackList, whiteList) {
   var filters = $('a.facetview_filterchoice');
   for (var filter in filters) {
@@ -106,7 +128,6 @@ function find_language(key, obj){
             });
             for (var i = 0; i < keys.length; i++){
                 var found = find_language(keys[i], obj[keys[i]]);
-                console.log(found)
                 if (found.found){
                     return found;
                 }
@@ -118,6 +139,7 @@ function find_language(key, obj){
 jQuery(document).ready(function($) {
   var url = $(location).attr('href');
   var language = 'en';
+  var hide_expired = true;
   if (url.split("?source=").length === 2){
     var source_str = decodeURIComponent(url.split("?source=")[1]);
     var source_query = JSON.parse(source_str);
@@ -125,11 +147,44 @@ jQuery(document).ready(function($) {
     if (lang_obj.found){
         language = lang_obj.language;
     }
+    if ((source_str.indexOf('{"missing":{"field":"http://purl.org/dc/terms/expires"}}')) === -1){
+        hide_expired = false;
+    }
   }
 
   var today = getToday();
 
+  predefined_filters = [
+      {'term': {'language': language}},
+      {'term': {'http://www.eea.europa.eu/ontologies.rdf#hasWorkflowState':
+                  'published'}},
+      {'constant_score': {
+        'filter': {
+          'or': [
+            {'missing': {'field': 'http://purl.org/dc/terms/issued'}},
+            {'range': {'http://purl.org/dc/terms/issued': {'lte': today}}}
+          ]
+        }}
+      }];
+
+  predefined_filters_expired = [
+      {'constant_score': {
+        'filter': {
+          'or': [
+            {'missing': {'field': 'http://purl.org/dc/terms/expires'}},
+            {'range': {'http://purl.org/dc/terms/expires': {'gte': today}}}
+          ]
+        }}
+      }
+    ];
+
+
   var appHierarchy = build_hierarchy(buildFacets(eea_mapping.facets).facets);
+  var tmp_predefined_filters = [];
+  tmp_predefined_filters = tmp_predefined_filters.concat(predefined_filters);
+  if (hide_expired){
+    tmp_predefined_filters = tmp_predefined_filters.concat(predefined_filters_expired);
+  }
   eea_facetview('.facet-view-simple', 
   {
     search_url: './api',
@@ -154,29 +209,7 @@ jQuery(document).ready(function($) {
     querystr_filtered_chars: ':?',
     no_results_message: 'Your search did not return any results',
     add_undefined: true,
-    predefined_filters: [
-      {'term': {'language': language}},
-      {'term': {'http://www.eea.europa.eu/ontologies.rdf#hasWorkflowState':
-                  'published'}},
-      //{'range': {'http://purl.org/dc/terms/issued': {'lte': today}}},
-      {'constant_score': {
-        'filter': {
-          'or': [
-            {'missing': {'field': 'http://purl.org/dc/terms/issued'}},
-            {'range': {'http://purl.org/dc/terms/issued': {'lte': today}}}
-          ]
-        }}
-      },
-      // {'range': {'http://purl.org/dc/terms/expires': {'gte': today}}},
-      {'constant_score': {
-        'filter': {
-          'or': [
-            {'missing': {'field': 'http://purl.org/dc/terms/expires'}},
-            {'range': {'http://purl.org/dc/terms/expires': {'gte': today}}}
-          ]
-        }}
-      }
-    ],
+    predefined_filters: tmp_predefined_filters,
     hierarchy: appHierarchy,
     pager_on_top: true,
     permanent_filters: true,
@@ -185,6 +218,7 @@ jQuery(document).ready(function($) {
       replaceNumbers();
     },
     post_search_callback: function() {
+      add_control_for_expired();
       hide_unused_options(blackList, whiteList);
       add_EEA_settings();
       viewReady();
