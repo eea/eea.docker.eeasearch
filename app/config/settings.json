@@ -14,7 +14,7 @@
         "footer_path": "/templates/v2/getFooter"
     },
     "layout_vars": {
-        "head_title": "EEA &mdash; Global catalogue &mdash; European Environment Agency",
+        "head_title": "Global catalogue of the European Environment Agency (EEA)",
         "css_resources": {
             "index_page": []
         },
@@ -23,12 +23,12 @@
                 "javascripts/eeasearch.facetview.js"
             ]
         },
-        "site_title": "EEA &mdash; Global catalogue",
-        "site_description": "",
-        "enableBreadcrumbs": false,
-        "breadcrumbs": "",
-        "dataprovencance_info_text": "",
-        "dataprovencance_info_url": "",
-        "further_info": ""
+        "site_title": "Global catalogue of the European Environment Agency (EEA)",
+        "site_description": "<p style='font-size: 150%;font-style: italic;color: gray;'>Instant search over 20 years of EEA's knowledge</p>",
+        "enableBreadcrumbs": true,
+        "breadcrumbs": "EEA Global Catalogue",
+        "dataprovencance_info_text": "Semantic Data Service (SDS)",
+        "dataprovencance_info_url": "http://semantic.eea.europa.eu",
+        "further_info": "The content of this website has been created thanks to the open data approach and contribution of many organisations part of EEA's network (Eionet)."
     }
 }
