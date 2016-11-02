@@ -1,4 +1,12 @@
  {
+    "cluster_id": {
+      "type" : "string",
+      "analyzer" : "none"
+    },
+    "cluster_name": {
+      "type" : "string",
+      "analyzer" : "none"
+    },
     "language" : {
       "type" : "string",
       "analyzer" : "none"
