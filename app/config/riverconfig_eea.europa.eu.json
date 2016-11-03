@@ -137,6 +137,7 @@
     "Products.EEAContentTypes.content.interfaces.IInteractiveMap": "Map (interactive)",
     "eea.aoamap.browser.interfaces.IMapViewParent": "Map (interactive)",
     "Products.eeawebapplication.interface.IEEAWebApplication": "Topic/subtopic site",
+    "eea.themecentre.interfaces.IThemeCentre": "Topic/subtopic site",
     "eea.app.visualization.subtypes.interfaces.IVisualizationEnabled": "Data visualisation",
     "eea.dataservice.interfaces.IDataset":"Data (at EEA)",
     "eea.dataservice.interfaces.IEEAFigureGraph": "Graph (image)",
@@ -162,7 +163,6 @@
     "eea.soercontent.content.interfaces.IFiche": "Briefing (all)",
     "eea.soercontent.content.interfaces.ISoerContent":"Briefing (SOER)",
     "eea.sparql.interfaces.ISparql":"Data table (via SPARQL)",
-    "eea.themecentre.interfaces.IThemeCentre": "Topic site",
     "plone.app.layout.navigation.interfaces.INavigationRoot": "Website main section"
   },
   "//": "Normalise missing properties with the given values",

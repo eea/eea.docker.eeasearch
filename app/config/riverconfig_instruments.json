@@ -24,7 +24,9 @@
     "http://www.eea.europa.eu/ontologies.rdf#objectProvides"
   ],
   "listtype": "white",
+   "//": "Normalise Properties uris, imitate owl:sameAs or when you want to use a property instead of another",
   "normProp": {
+    "http://rod.eionet.europa.eu/schema.rdf#lastUpdate" : "http://purl.org/dc/terms/issued"
   },
   "//": "Normalise the properties to the given value",
   "normalisedProperties": {
@@ -170,6 +172,7 @@
     "http://purl.org/dc/terms/spatial": "Other",
     "http://www.eea.europa.eu/portal_types#topic": "Various other issues",
     "http://www.eea.europa.eu/ontologies.rdf#hasWorkflowState": "published",
+    "http://purl.org/dc/terms/issued": "2000-01-01",
     "http://purl.org/dc/terms/title": "Title n/a"
   },
   "//": "Sync conditions",
