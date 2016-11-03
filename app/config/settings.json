@@ -30,5 +30,19 @@
         "dataprovencance_info_text": "Semantic Data Service (SDS)",
         "dataprovencance_info_url": "http://semantic.eea.europa.eu",
         "further_info": "The content of this website has been created thanks to the open data approach and contribution of many organisations part of EEA's network (Eionet)."
+    },
+    "river_configs": {
+        "configs": [
+            {
+                "id": "rod_instruments",
+                "cluster_name": "reportnet",
+                "config_file": "riverconfig_instruments.json"
+            },
+            {
+                "id": "rod_obligations",
+                "cluster_name": "reportnet",
+                "config_file": "riverconfig_obligations.json"
+            }
+        ]
     }
 }

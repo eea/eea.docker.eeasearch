@@ -306,6 +306,8 @@
                               "Policy Question",
                               "Policy Document",
                               "Rationale Reference",
+                              "Reporting Obligation",
+                              "Legislation Instrument",
                               "SOER Key fact",
                               "SOER Message",
                               "SPARQL",
@@ -413,6 +415,23 @@
                 "field": "url",
                 "default": "",
                 "visible": true
+            }
+        },
+        {
+            "name": "cluster_name",
+            "listing": {
+                "visible": false
+            },
+            "facet": {
+                "visible": true,
+                "title": "Domain",
+                "pos": 6,
+                "type": "facet",
+                "size": 100,
+                "min_size": 10,
+                "order": "term",
+                "operator": "AND",
+                "facet_display_options": ["sort", "checkbox"]
             }
         }
     ]
