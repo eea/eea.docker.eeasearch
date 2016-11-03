@@ -2,3 +2,35 @@
     float:right;
     line-height:24px;
 }
+
+#facetview_results td {
+  position: relative;
+  overflow: hidden;
+  height: 60px;
+}
+
+.ribbon-wrapper-expired {
+  width: 85px;
+  height: 88px;
+  overflow: hidden;
+  position: absolute;
+  top: -6px;
+  right: -23px;
+}
+
+.ribbon-expired {
+  font: bold 8px Sans-Serif;
+  color: #002c56;
+  text-align: center;
+  -webkit-transform: rotate(45deg);
+  -moz-transform:    rotate(45deg);
+  -ms-transform:     rotate(45deg);
+  -o-transform:      rotate(45deg);
+  position: relative;
+  padding: 7px 0;
+  left: -20px;
+  top: 15px;
+  width: 120px;
+  background-color: #efdc1e;
+}
+

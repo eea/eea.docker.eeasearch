@@ -6,7 +6,34 @@ var whiteList = false;
 var predefined_filters = [];
 var predefined_filters_expired = [];
 
-function add_control_for_expired() {
+function add_titles(){
+    var records = $('.facet-view-simple').facetview.options.data.records;
+    for (var i = 0; i < records.length; i++){
+        var id = records[i]['http://www.w3.org/1999/02/22-rdf-syntax-ns#about'];
+        var element = $("a[href='"+id+"']");
+        var title = element.text();
+        element.attr("title", title);
+    }
+}
+
+function mark_expired(){
+    var records = $('.facet-view-simple').facetview.options.data.records;
+    for (var i = 0; i < records.length; i++){
+        if ((records[i]['http://purl.org/dc/terms/expires'] !== undefined) && (records[i]['http://purl.org/dc/terms/expires'] !== '')){
+            console.log(records[i]['http://purl.org/dc/terms/expires']);
+            var expire_date_stamp = Date.parse(records[i]['http://purl.org/dc/terms/expires']);
+            var now_stamp = Date.now();
+            if (now_stamp >= expire_date_stamp){
+                console.log("expired");
+                var id = records[i]['http://www.w3.org/1999/02/22-rdf-syntax-ns#about'];
+                $('<div class="ribbon-wrapper-expired"><div class="ribbon-expired">ARCHIVED</div></div>')
+                    .insertBefore("a[href='"+id+"']");
+            }
+        }
+    }
+}
+
+function add_control_for_expired(){
   $(".facetview_include_expired").remove();
   var checkbox = $('<div class="facetview_include_expired"><span>Include expired content </span><input type="checkbox" id="include_expired" value=""></div>');
   checkbox.insertAfter(".facetview_display_type");
@@ -224,6 +251,8 @@ jQuery(document).ready(function($) {
       viewReady();
       replaceNumbers();
       add_iframe();
+      add_titles();
+      mark_expired();
     },
     linkify: false,
     paging: {
