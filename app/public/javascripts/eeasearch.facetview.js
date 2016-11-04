@@ -8,6 +8,10 @@ var predefined_filters_expired = [];
 
 function add_titles(){
     var records = $('.facet-view-simple').facetview.options.data.records;
+    var display_type = $('.facet-view-simple').facetview.options.display_type;
+    if (display_type !== 'tabular'){
+        return;
+    }
     for (var i = 0; i < records.length; i++){
         var id = records[i]['http://www.w3.org/1999/02/22-rdf-syntax-ns#about'];
         var element = $("a[href='"+id+"']");
@@ -16,18 +20,54 @@ function add_titles(){
     }
 }
 
+function add_ribbon(id, message, ribbon_class){
+   var display_type = $('.facet-view-simple').facetview.options.display_type;
+    var ribbon = $('<div class="ribbon-wrapper"><div class="ribbon">' + message + '</div></div>');
+    if (display_type === 'tabular'){
+        $("a[href='"+id+"']").closest("td").addClass(ribbon_class);
+        $("a[href='"+id+"']").closest("td").addClass("ribbon-parent");
+        ribbon
+            .insertBefore("a[href='"+id+"']");
+    }
+    if (display_type === 'card'){
+        $("a[href='"+id+"']").addClass(ribbon_class);
+        $("a[href='"+id+"']").addClass("ribbon-parent");
+        ribbon
+            .appendTo("a[href='"+id+"']");
+    }
+    if (display_type === 'list'){
+        $("a[href='"+id+"']").closest(".tileItem").addClass(ribbon_class);
+        $("a[href='"+id+"']").closest(".tileItem").addClass("ribbon-parent");
+        ribbon
+            .insertBefore("a[href='"+id+"']");
+    }
+}
+
+function mark_recent(){
+    debugger;
+    var records = $('.facet-view-simple').facetview.options.data.records;
+    for (var i = 0; i < records.length; i++){
+        if ((records[i]['http://purl.org/dc/terms/issued'] !== undefined) && (records[i]['http://purl.org/dc/terms/issued'] !== '')){
+            var issued_date_stamp = Date.parse(records[i]['http://purl.org/dc/terms/issued']);
+            var now_stamp = Date.now();
+            var days = (now_stamp - issued_date_stamp)/1000/60/60/24;
+            if (days < 30){
+                var id = records[i]['http://www.w3.org/1999/02/22-rdf-syntax-ns#about'];
+                add_ribbon(id, "NEW", "recent");
+            }
+        }
+    }
+}
+
 function mark_expired(){
     var records = $('.facet-view-simple').facetview.options.data.records;
     for (var i = 0; i < records.length; i++){
         if ((records[i]['http://purl.org/dc/terms/expires'] !== undefined) && (records[i]['http://purl.org/dc/terms/expires'] !== '')){
-            console.log(records[i]['http://purl.org/dc/terms/expires']);
             var expire_date_stamp = Date.parse(records[i]['http://purl.org/dc/terms/expires']);
             var now_stamp = Date.now();
             if (now_stamp >= expire_date_stamp){
-                console.log("expired");
                 var id = records[i]['http://www.w3.org/1999/02/22-rdf-syntax-ns#about'];
-                $('<div class="ribbon-wrapper-expired"><div class="ribbon-expired">ARCHIVED</div></div>')
-                    .insertBefore("a[href='"+id+"']");
+                add_ribbon(id, "ARCHIVED", "expired");
             }
         }
     }
@@ -253,6 +293,7 @@ jQuery(document).ready(function($) {
       add_iframe();
       add_titles();
       mark_expired();
+      mark_recent();
     },
     linkify: false,
     paging: {
