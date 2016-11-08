@@ -36,6 +36,9 @@ function getIndexFiles(settings, riverconfig, cluster_id, cluster_name) {
       riverconfig.proplist.push("cluster_name");
       riverconfig.normMissing["cluster_name"] = cluster_name;
   }
+  if (riverconfig.graphSyncConditions === undefined){
+    riverconfig.graphSyncConditions = [];
+  }
   return {
     analyzers: mappings,
     syncReq: {
