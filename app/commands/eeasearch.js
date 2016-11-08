@@ -9,7 +9,7 @@ function getOptions() {
     };
 }
 
-function getIndexFiles(settings, riverconfig, cluster_id, cluster_name) {
+function getIndexFiles(settings, elastic, riverconfig, cluster_id, cluster_name) {
   var analyzers = require(path.join(settings.app_dir, settings.extraAnalyzers));
   var filters = require(path.join(settings.app_dir, settings.filterAnalyzers));
   var datamappings = require(path.join(settings.app_dir, settings.dataMapping));
@@ -59,6 +59,10 @@ function getIndexFiles(settings, riverconfig, cluster_id, cluster_name) {
             'whiteMap': riverconfig.whiteMap,
             'normObj': riverconfig.normObj,
             'syncOldData': true,
+        },
+        'index': {
+            'index': elastic.index,
+            'type': elastic.type,
         }
     }
   }
@@ -119,7 +123,7 @@ function createIndex(settings) {
 
     for (var i = 0; i < river_configs.configs.length; i++){
         var riverconfig = require(path.join(settings.app_dir, '/config/', river_configs.configs[i].config_file));
-        var config = getIndexFiles(settings, riverconfig, river_configs.configs[i].id, river_configs.configs[i].cluster_name);
+        var config = getIndexFiles(settings, elastic, riverconfig, river_configs.configs[i].id, river_configs.configs[i].cluster_name);
         config.syncReq.eeaRDF.startTime = startTime;
         var river_name = "_river/" + river_configs.configs[i].id;
         var river_meta = river_name+"/_meta";
