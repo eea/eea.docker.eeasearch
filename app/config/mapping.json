@@ -434,6 +434,41 @@
                 "operator": "AND",
                 "facet_display_options": ["sort", "checkbox"]
             }
+        },
+        {
+            "name": "year",
+            "listing": {
+                "visible": false
+            },
+            "facet": {
+                "visible": true,
+                "title": "Year",
+                "pos": 7,
+                "type": "facet",
+                "size": 100,
+                "min_size": 10,
+                "order": "term",
+                "operator": "AND",
+                "facet_display_options": ["sort", "checkbox"]
+            }
+        },
+        {
+            "name": "language",
+            "listing": {
+                "visible": false
+            },
+            "facet": {
+                "visible": true,
+                "title": "Language",
+                "pos": 8,
+                "type": "facet",
+                "size": 100,
+                "min_size": 10,
+                "order": "term",
+                "operator": "AND",
+                "facet_display_options": ["sort", "checkbox"],
+                "default_values": ["en"]
+            }
         }
     ]
 }

@@ -7,5 +7,9 @@
       "type" : "custom",
       "tokenizer": "standard",
       "filter":  [ "lowercase", "stop", "asciifolding", "english_stemmer" ]
+    },
+    "date2year" : {
+      "type" : "pattern",
+      "pattern" : "[-](.*)"
     }
 }

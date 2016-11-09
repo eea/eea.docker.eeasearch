@@ -44,7 +44,6 @@ function add_ribbon(id, message, ribbon_class){
 }
 
 function mark_recent(){
-    debugger;
     var records = $('.facet-view-simple').facetview.options.data.records;
     for (var i = 0; i < records.length; i++){
         if ((records[i]['http://purl.org/dc/terms/issued'] !== undefined) && (records[i]['http://purl.org/dc/terms/issued'] !== '')){
@@ -78,7 +77,7 @@ function add_control_for_expired(){
   var checkbox = $('<div class="facetview_include_expired"><span>Include expired content </span><input type="checkbox" id="include_expired" value=""></div>');
   checkbox.insertAfter(".facetview_display_type");
   var original_predefined_filters = $('.facet-view-simple').facetview.options.predefined_filters;
-  if (original_predefined_filters.length === 3){
+  if (original_predefined_filters.length === 2){
     $("#include_expired").prop("checked", true);
   }
   $("#include_expired").change(function() {
@@ -222,7 +221,7 @@ jQuery(document).ready(function($) {
   var today = getToday();
 
   predefined_filters = [
-      {'term': {'language': language}},
+//      {'term': {'language': language}},
       {'term': {'http://www.eea.europa.eu/ontologies.rdf#hasWorkflowState':
                   'published'}},
       {'constant_score': {
@@ -302,5 +301,6 @@ jQuery(document).ready(function($) {
     },
     display_type: 'card'
   });
+$("#language").closest(".facetview_filter").find(".facetview_tree").find("li[title='en']").find(".jstree-checkbox").click()
 
 });

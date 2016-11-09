@@ -46,3 +46,8 @@ div.tileItem.ribbon-parent {
 #facetview_results td.ribbon-parent {
   height: 60px;
 }
+
+/* For now disable the tree icons on facets, as hierarchy is not working */
+.jstree-default .jstree-leaf>.jstree-ocl {
+    display:none;
+}
