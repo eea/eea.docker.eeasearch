@@ -174,45 +174,12 @@ function build_hierarchy(facets) {
     return hierarchy;
 }
 
-function find_language(key, obj){
-    if (key === 'language'){
-        return {found:true, language:obj}
-    }
-    if ($.isArray(obj)){
-        for (var i = 0; i< obj.length; i++){
-            var found = find_language(key, obj[i]);
-            if (found.found){
-                return found;
-            }
-        }
-    }
-    else{
-        if (typeof obj === 'object'){
-            var keys = [];
-            jQuery.each(obj, function(obj_key, obj_value){
-                keys.push(obj_key)
-            });
-            for (var i = 0; i < keys.length; i++){
-                var found = find_language(keys[i], obj[keys[i]]);
-                if (found.found){
-                    return found;
-                }
-            }
-        }
-    }
-    return {found:false};
-}
 jQuery(document).ready(function($) {
   var url = $(location).attr('href');
-  var language = 'en';
   var hide_expired = true;
   if (url.split("?source=").length === 2){
     var source_str = decodeURIComponent(url.split("?source=")[1]);
     var source_query = JSON.parse(source_str);
-    var lang_obj = find_language("root", source_query);
-    if (lang_obj.found){
-        language = lang_obj.language;
-    }
     if ((source_str.indexOf('{"missing":{"field":"http://purl.org/dc/terms/expires"}}')) === -1){
         hide_expired = false;
     }
@@ -221,7 +188,6 @@ jQuery(document).ready(function($) {
   var today = getToday();
 
   predefined_filters = [
-//      {'term': {'language': language}},
       {'term': {'http://www.eea.europa.eu/ontologies.rdf#hasWorkflowState':
                   'published'}},
       {'constant_score': {
@@ -299,8 +265,9 @@ jQuery(document).ready(function($) {
       from: 0,
       size: 20
     },
-    display_type: 'card'
+    display_type: 'card',
+    highlight_results: true,
+    highlight_whitelist: ["http://purl.org/dc/terms/title"],
+    highlight_blacklist: []
   });
-$("#language").closest(".facetview_filter").find(".facetview_tree").find("li[title='en']").find(".jstree-checkbox").click()
-
 });
