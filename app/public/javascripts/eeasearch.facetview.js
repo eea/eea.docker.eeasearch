@@ -266,8 +266,8 @@ jQuery(document).ready(function($) {
       size: 20
     },
     display_type: 'card',
-    highlight_results: true,
-    highlight_whitelist: ["http://purl.org/dc/terms/title"],
-    highlight_blacklist: []
+    highlight_enabled: eea_mapping.highlights.enabled,
+    highlight_whitelist: eea_mapping.highlights.whitelist,
+    highlight_blacklist: eea_mapping.highlights.blacklist
   });
 });

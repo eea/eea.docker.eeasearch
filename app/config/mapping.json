@@ -6,6 +6,11 @@
     "listing_settings" : {
         "show_links": false
     },
+    "highlights": {
+        "enabled": true,
+        "whitelist": ["http://purl.org/dc/terms/title"],
+        "blacklist": []
+    },
     "fields_mapping": [
         {
             "name": "_id",
