@@ -64,53 +64,51 @@
         },
         "defaultContentType" : "generic",
         "images": {
+            "fallback_thumb" : "",
+            "fallback_icon" : "",
             "rules": [
                 {
-                    "rule": "startswith",
+                    "rule": "startsWith",
                     "operator": "",
                     "field": "http://www.w3.org/1999/02/22-rdf-syntax-ns#about",
                     "value": "http://www.eea.europa.eu",
                     "thumb_template": {
-                        "template": "{url}/image_preview",
-                        "fields": {
-                            "url":{
+                        "template": "${url}/image_preview",
+                        "variables": [{
+                                "name": "url",
                                 "type" : "field",
                                 "field" : "http://www.w3.org/1999/02/22-rdf-syntax-ns#about"
-                            }
-                        }
+                        }]
                     },
                     "icon_template": {
-                        "template": "http://www.eea.europa.eu/portal_depiction/{contentType}/image_thumb",
-                        "fields": {
-                            "contentType": {
+                        "template": "http://www.eea.europa.eu/portal_depiction/${contentType}/image_thumb",
+                        "variables": [{
+                                "name": "contentType",
                                 "type" : "variable",
                                 "variable" : "contentType"
-                            }
-                        }
+                        }]
                     }
                 },
                 {
-                    "rule": "startswith",
+                    "rule": "startsWith",
                     "operator": "not",
                     "field": "http://www.w3.org/1999/02/22-rdf-syntax-ns#about",
                     "value": "http://www.eea.europa.eu",
                     "thumb_template": {
-                        "template": "http://www.eea.europa.eu/portal_depiction/{contentType}/image_preview",
-                        "fields": {
-                            "contentType":{
-                                "type" : "variable",
-                                "field" : "contentType"
-                            }
-                        }
-                    },
-                    "icon_template": {
-                        "template": "http://www.eea.europa.eu/portal_depiction/{contentType}/image_thumb",
-                        "fields": {
-                            "contentType": {
+                        "template": "http://www.eea.europa.eu/portal_depiction/${contentType}/image_preview",
+                        "variables": [{
+                                "name": "contentType",
                                 "type" : "variable",
                                 "variable" : "contentType"
-                            }
-                        }
+                        }]
+                    },
+                    "icon_template": {
+                        "template": "http://www.eea.europa.eu/portal_depiction/${contentType}/image_thumb",
+                        "variables": [{
+                                "name": "contentType",
+                                "type" : "variable",
+                                "variable" : "contentType"
+                        }]
                     }
                 }
             ]
