@@ -44,6 +44,16 @@
                 "id": "rod_obligations",
                 "cluster_name": "reportnet",
                 "config_file": "riverconfig_obligations.json"
+            },
+            {
+                "id": "rod_clients",
+                "cluster_name": "reportnet",
+                "config_file": "riverconfig_clients.json"
+            },
+            {
+                "id": "rod_void",
+                "cluster_name": "reportnet",
+                "config_file": "riverconfig_void.json"
             }
         ]
     }

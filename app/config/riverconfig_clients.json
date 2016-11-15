@@ -26,10 +26,10 @@
   "listtype": "white",
    "//": "Normalise Properties uris, imitate owl:sameAs or when you want to use a property instead of another",
   "normProp": {
-    "http://purl.org/dc/terms/valid" : "http://purl.org/dc/terms/issued",
+    "http://rod.eionet.europa.eu/schema.rdf#lastUpdate" : "http://purl.org/dc/terms/issued",
     "http://purl.org/dc/terms/abstract": "http://purl.org/dc/terms/description",
-    "http://rod.eionet.europa.eu/schema.rdf#formalReporter": "http://purl.org/dc/terms/spatial",
-    "http://rod.eionet.europa.eu/schema.rdf#requester":"http://purl.org/dc/terms/creator"
+    "http://rod.eionet.europa.eu/schema.rdf#clientCountry": "http://purl.org/dc/terms/spatial",
+    "http://xmlns.com/foaf/0.1/name": "http://purl.org/dc/terms/title"
   },
   "//": "Normalise the properties to the given value",
   "normalisedProperties": {
@@ -106,6 +106,7 @@
     "Macedonia" : "Macedonia (FYR)",
     "Default" : "Various other issues",
     "Collection - old style" : "Collection",
+    "Reportnet client" : "Organization (Reportnet client)",
     "http://rod.eionet.europa.eu/spatial/76" : "value not available",
     "http://www.eea.europa.eu/portal_vocabularies/themes/acidification" : "Air pollution",
     "http://www.eea.europa.eu/portal_vocabularies/themes/air_quality" : "Air pollution",
@@ -181,8 +182,8 @@
   },
   "//": "Sync conditions",
   "syncConditions": [
-    "{?resource a <http://rod.eionet.europa.eu/schema.rdf#Obligation>}"
+    "{?resource a <http://rod.eionet.europa.eu/schema.rdf#Client>}"
   ],
-  "graphSyncConditions": ["FILTER (str(?graph) = 'http://rod.eionet.europa.eu/obligations/rdf')"],
+  "graphSyncConditions": ["FILTER (str(?graph) = 'http://rod.eionet.europa.eu/clients/rdf')"],
   "syncTimeProp": "http://cr.eionet.europa.eu/ontologies/contreg.rdf#lastRefreshed"
 }

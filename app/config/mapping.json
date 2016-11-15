@@ -112,6 +112,17 @@
             },
             "details": {
                 "visible": false
+            },
+            "facet": {
+                "visible": true,
+                "title": "Organisation involved",
+                "pos": 6,
+                "type": "facet",
+                "size": 100,
+                "min_size": 10,
+                "order": "count",
+                "operator": "OR",
+                "facet_display_options": ["sort", "checkbox"]
             }
         },
         {
@@ -282,6 +293,7 @@
                               "Video",
                               "Report",
                               "Data",
+                              "Data (RDF)",
                               "Data Visualization",
                               "Indicator Specification",
                               "Indicator factsheet",
@@ -308,6 +320,7 @@
                               "Policy Document",
                               "Rationale Reference",
                               "Reporting Obligation",
+                              "Organization (Reportnet client)",
                               "Legislation Instrument",
                               "SOER Key fact",
                               "SOER Message",
@@ -425,13 +438,13 @@
             },
             "facet": {
                 "visible": true,
-                "title": "Domain",
+                "title": "Publishing channel",
                 "pos": 6,
                 "type": "facet",
                 "size": 100,
                 "min_size": 10,
                 "order": "term",
-                "operator": "AND",
+                "operator": "OR",
                 "facet_display_options": ["sort", "checkbox"]
             }
         }
