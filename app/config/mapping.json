@@ -60,7 +60,8 @@
             "text": "document",
             "work-item": "generic",
             "collection---old-style ":"topic",
-            "legislation-instrument": "legislation-instrument"
+            "legislation-instrument": "legislation-instrument",
+            'reporting-obligation': 'reporting-obligation'
         },
         "defaultContentType" : "generic",
         "images": {
