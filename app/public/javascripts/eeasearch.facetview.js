@@ -44,7 +44,6 @@ function add_ribbon(id, message, ribbon_class){
 }
 
 function mark_recent(){
-    debugger;
     var records = $('.facet-view-simple').facetview.options.data.records;
     for (var i = 0; i < records.length; i++){
         if ((records[i]['http://purl.org/dc/terms/issued'] !== undefined) && (records[i]['http://purl.org/dc/terms/issued'] !== '')){
@@ -78,7 +77,7 @@ function add_control_for_expired(){
   var checkbox = $('<div class="facetview_include_expired"><span>Include archived content </span><input type="checkbox" id="include_expired" value=""></div>');
   checkbox.insertAfter(".facetview_display_type");
   var original_predefined_filters = $('.facet-view-simple').facetview.options.predefined_filters;
-  if (original_predefined_filters.length === 3){
+  if (original_predefined_filters.length === 2){
     $("#include_expired").prop("checked", true);
   }
   $("#include_expired").change(function() {
@@ -175,45 +174,12 @@ function build_hierarchy(facets) {
     return hierarchy;
 }
 
-function find_language(key, obj){
-    if (key === 'language'){
-        return {found:true, language:obj}
-    }
-    if ($.isArray(obj)){
-        for (var i = 0; i< obj.length; i++){
-            var found = find_language(key, obj[i]);
-            if (found.found){
-                return found;
-            }
-        }
-    }
-    else{
-        if (typeof obj === 'object'){
-            var keys = [];
-            jQuery.each(obj, function(obj_key, obj_value){
-                keys.push(obj_key)
-            });
-            for (var i = 0; i < keys.length; i++){
-                var found = find_language(keys[i], obj[keys[i]]);
-                if (found.found){
-                    return found;
-                }
-            }
-        }
-    }
-    return {found:false};
-}
 jQuery(document).ready(function($) {
   var url = $(location).attr('href');
-  var language = 'en';
   var hide_expired = true;
   if (url.split("?source=").length === 2){
     var source_str = decodeURIComponent(url.split("?source=")[1]);
     var source_query = JSON.parse(source_str);
-    var lang_obj = find_language("root", source_query);
-    if (lang_obj.found){
-        language = lang_obj.language;
-    }
     if ((source_str.indexOf('{"missing":{"field":"http://purl.org/dc/terms/expires"}}')) === -1){
         hide_expired = false;
     }
@@ -222,7 +188,6 @@ jQuery(document).ready(function($) {
   var today = getToday();
 
   predefined_filters = [
-      {'term': {'language': language}},
       {'term': {'http://www.eea.europa.eu/ontologies.rdf#hasWorkflowState':
                   'published'}},
       {'constant_score': {
@@ -300,7 +265,9 @@ jQuery(document).ready(function($) {
       from: 0,
       size: 20
     },
-    display_type: 'card'
+    display_type: 'card',
+    highlight_enabled: eea_mapping.highlights.enabled,
+    highlight_whitelist: eea_mapping.highlights.whitelist,
+    highlight_blacklist: eea_mapping.highlights.blacklist
   });
-
 });

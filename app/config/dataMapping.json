@@ -43,5 +43,9 @@
         "index" : {"type" : "string", "analyzer" : "none"},
         "http://purl.org/dc/terms/title": {"type": "string", "index": "not_analyzed"}
       }
+    },
+    "year" : {
+      "type" : "string",
+      "analyzer" : "date2year"
     }
 }

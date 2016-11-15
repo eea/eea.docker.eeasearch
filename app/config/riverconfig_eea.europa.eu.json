@@ -25,6 +25,7 @@
   ],
   "listtype": "white",
   "normProp": {
+    "http://purl.org/dc/terms/issued": ["http://purl.org/dc/terms/issued", "year"]
   },
   "//": "Normalise the properties to the given value",
   "normalisedProperties": {
