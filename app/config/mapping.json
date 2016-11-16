@@ -26,6 +26,7 @@
             "report": "report",
             "publication": "report",
             "dataset": "data",
+            "data-(rdf)": "data",
             "data": "data",
             "data-visualization": "davizvisualization",
             "indicator-specification": "specification",

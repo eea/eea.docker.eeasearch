@@ -19,6 +19,7 @@
     "http://www.w3.org/1999/02/22-rdf-syntax-ns#about",
     "language",
     "http://www.eea.europa.eu/portal_types#topic",
+    "http://purl.org/dc/terms/subject",
     "http://purl.org/dc/terms/description",
     "http://www.eea.europa.eu/ontologies.rdf#hasWorkflowState",
     "http://www.eea.europa.eu/ontologies.rdf#objectProvides"
@@ -28,7 +29,8 @@
   "normProp": {
     "http://rod.eionet.europa.eu/schema.rdf#lastUpdate" : "http://purl.org/dc/terms/issued",
     "http://purl.org/dc/terms/abstract": "http://purl.org/dc/terms/description",
-    "http://www.w3.org/2000/01/rdf-schema#label": "http://purl.org/dc/terms/title"
+    "http://www.w3.org/2000/01/rdf-schema#label": "http://purl.org/dc/terms/title",
+    "http://xmlns.com/foaf/0.1/isPrimaryTopicOf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#about"
   },
   "//": "Normalise the properties to the given value",
   "normalisedProperties": {
