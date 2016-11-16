@@ -26,7 +26,7 @@
             ]
         },
         "site_title": "Global search and catalogue",
-        "site_description": "<p style='font-size: 150%;font-style: italic;color: gray;'>Instantly search over 20 years of environemntal knowledge</p>",
+        "site_description": "<p style='font-size: 150%;font-style: italic;color: gray;'>Instantly search over 20 years of environmental knowledge by EEA</p>",
         "enableBreadcrumbs": true,
         "breadcrumbs": "EEA Global Catalogue",
         "dataprovencance_info_text": "Semantic Data Service (SDS)",
@@ -37,22 +37,27 @@
         "configs": [
             {
                 "id": "rod_instruments",
-                "cluster_name": "reportnet",
+                "cluster_name": "EEA Website",
+                "config_file": "riverconfig_eea.europa.eu.json"
+            },
+            {
+                "id": "rod_instruments",
+                "cluster_name": "Eionet > reportnet",
                 "config_file": "riverconfig_instruments.json"
             },
             {
                 "id": "rod_obligations",
-                "cluster_name": "reportnet",
+                "cluster_name": "Eionet > reportnet",
                 "config_file": "riverconfig_obligations.json"
             },
             {
                 "id": "rod_clients",
-                "cluster_name": "reportnet",
+                "cluster_name": "Eionet > reportnet",
                 "config_file": "riverconfig_clients.json"
             },
             {
                 "id": "rod_void",
-                "cluster_name": "reportnet",
+                "cluster_name": "Eionet > reportnet",
                 "config_file": "riverconfig_void.json"
             }
         ]
