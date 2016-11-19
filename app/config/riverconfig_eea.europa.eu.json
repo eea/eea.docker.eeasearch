@@ -19,13 +19,15 @@
     "http://www.w3.org/1999/02/22-rdf-syntax-ns#about",
     "language",
     "http://www.eea.europa.eu/portal_types#topic",
+    "http://purl.org/dc/terms/subject",
     "http://purl.org/dc/terms/description",
     "http://www.eea.europa.eu/ontologies.rdf#hasWorkflowState",
     "http://www.eea.europa.eu/ontologies.rdf#objectProvides"
   ],
   "listtype": "white",
   "normProp": {
-    "http://purl.org/dc/terms/issued": ["http://purl.org/dc/terms/issued", "year"]
+    "http://purl.org/dc/terms/issued": ["http://purl.org/dc/terms/issued", "year"],
+    "http://purl.org/dc/terms/creator": ["creator_cms"]
   },
   "//": "Normalise the properties to the given value",
   "normalisedProperties": {
@@ -102,6 +104,7 @@
     "Macedonia" : "Macedonia (FYR)",
     "Default" : "Various other issues",
     "Collection - old style" : "Collection",
+    "http://purl.org/dc/terms/creator": "EEA (European Environment Agency)",
     "http://www.eea.europa.eu/portal_vocabularies/themes/acidification" : "Air pollution",
     "http://www.eea.europa.eu/portal_vocabularies/themes/air_quality" : "Air pollution",
     "http://www.eea.europa.eu/portal_vocabularies/themes/nature" : "Biodiversity",
@@ -210,6 +213,6 @@
     "{?resource a <http://www.eea.europa.eu/portal_types/SOERKeyFact#SOERKeyFact>} UNION ",
     "{?resource a <http://www.eea.europa.eu/portal_types/SOERMEssage#SOERMEssage>}"
   ],
-  "graphSyncConditions": ["FILTER (str(?graph) = concat(str(?resource), '/@@rdf'))"],
+  "graphSyncConditions": ["FILTER (str(?graph) = concat(str(?resource), '/@@rdf')). FILTER (?time > xsd:dateTime('2016-10-01T00:00:00')). FILTER (?time < xsd:dateTime('2016-11-01T00:00:00'))"],
   "syncTimeProp": "http://cr.eionet.europa.eu/ontologies/contreg.rdf#lastRefreshed"
 }

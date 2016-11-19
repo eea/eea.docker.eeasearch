@@ -32,8 +32,9 @@
 }
 
 .recent .ribbon{
-  color: #efdc1e;
-  background-color: #ac003e;
+  font-size: 12px;
+  color: #ac003e;
+  background-color: #efdc1e;
 }
 
 #facetview_results td.ribbon-parent,

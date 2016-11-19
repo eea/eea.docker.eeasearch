@@ -36,7 +36,7 @@
     "river_configs": {
         "configs": [
             {
-                "id": "rod_instruments",
+                "id": "eea_content",
                 "cluster_name": "EEA Website",
                 "config_file": "riverconfig_eea.europa.eu.json"
             },
@@ -54,11 +54,6 @@
                 "id": "rod_clients",
                 "cluster_name": "Eionet > reportnet",
                 "config_file": "riverconfig_clients.json"
-            },
-            {
-                "id": "rod_void",
-                "cluster_name": "Eionet > reportnet",
-                "config_file": "riverconfig_void.json"
             }
         ]
     }
