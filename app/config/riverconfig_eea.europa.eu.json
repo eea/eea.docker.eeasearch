@@ -104,7 +104,6 @@
     "Macedonia" : "Macedonia (FYR)",
     "Default" : "Various other issues",
     "Collection - old style" : "Collection",
-    "http://purl.org/dc/terms/creator": "EEA (European Environment Agency)",
     "http://www.eea.europa.eu/portal_vocabularies/themes/acidification" : "Air pollution",
     "http://www.eea.europa.eu/portal_vocabularies/themes/air_quality" : "Air pollution",
     "http://www.eea.europa.eu/portal_vocabularies/themes/nature" : "Biodiversity",
@@ -174,7 +173,8 @@
     "http://purl.org/dc/terms/spatial": "Other",
     "http://www.eea.europa.eu/portal_types#topic": "Various other issues",
     "http://www.eea.europa.eu/ontologies.rdf#hasWorkflowState": "published",
-    "http://purl.org/dc/terms/title": "Title n/a"
+    "http://purl.org/dc/terms/title": "Title n/a",
+    "http://purl.org/dc/terms/creator": "European Environment Agency"
   },
   "//": "Sync conditions",
   "syncConditions": [
