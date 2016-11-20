@@ -54,6 +54,11 @@
                 "id": "rod_clients",
                 "cluster_name": "Eionet > reportnet",
                 "config_file": "riverconfig_clients.json"
+            },
+            {
+                "id": "eea_organisations",
+                "cluster_name": "EEA Website",
+                "config_file": "riverconfig_organisations.json"
             }
         ]
     }
