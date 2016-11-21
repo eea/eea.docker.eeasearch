@@ -11,6 +11,10 @@
       "type" : "string",
       "analyzer" : "none"
     },
+    "organisation" : {
+      "type" : "string",
+      "analyzer" : "none"
+    },
     "http://www.eea.europa.eu/portal_types#topic" : {
       "type" : "string",
       "null_value" : "Various other issues",

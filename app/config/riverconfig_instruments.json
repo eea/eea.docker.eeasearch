@@ -28,7 +28,8 @@
    "//": "Normalise Properties uris, imitate owl:sameAs or when you want to use a property instead of another",
   "normProp": {
     "http://purl.org/dc/terms/valid" : ["http://purl.org/dc/terms/issued", "year"],
-    "http://purl.org/dc/terms/abstract": "http://purl.org/dc/terms/description"
+    "http://purl.org/dc/terms/abstract": "http://purl.org/dc/terms/description",
+    "http://purl.org/dc/terms/creator": ["http://purl.org/dc/terms/creator","organisation"]
   },
   "//": "Normalise the properties to the given value",
   "normalisedProperties": {

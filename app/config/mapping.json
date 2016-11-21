@@ -212,27 +212,16 @@
             "name": "http://purl.org/dc/terms/creator",
             "listing": {
                 "title": "Creator",
-                "visible" : true,
+                "visible" : false,
                 "pos" : 4
             },
             "csv_tsv": {
                 "title": "http://purl.org/dc/terms/creator",
-                "visible": true,
+                "visible": false,
                 "pos": 0
             },
             "details": {
                 "visible": false
-            },
-            "facet": {
-                "visible": true,
-                "title": "Organisation involved",
-                "pos": 6,
-                "type": "facet",
-                "size": 100,
-                "min_size": 10,
-                "order": "count",
-                "operator": "OR",
-                "facet_display_options": ["sort", "checkbox"]
             }
         },
         {
@@ -515,6 +504,31 @@
             },
             "details": {
                 "visible": false
+            }
+        },
+        {
+            "name": "organisation",
+            "listing": {
+                "visible": false
+            },
+            "csv_tsv": {
+                "title": "organisation",
+                "visible": true,
+                "pos": 12
+            },
+            "details": {
+                "visible": false
+            },
+            "facet": {
+                "visible": true,
+                "title": "Organisation involved",
+                "pos": 6,
+                "type": "facet",
+                "size": 3000,
+                "min_size": 10,
+                "order": "term",
+                "operator": "OR",
+                "facet_display_options": ["sort", "checkbox"]
             }
         },
         {

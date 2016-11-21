@@ -30,7 +30,7 @@
     "http://rod.eionet.europa.eu/schema.rdf#lastUpdate" : "http://purl.org/dc/terms/issued",
     "http://purl.org/dc/terms/abstract": "http://purl.org/dc/terms/description",
     "http://rod.eionet.europa.eu/schema.rdf#clientCountry": "http://purl.org/dc/terms/spatial",
-    "http://xmlns.com/foaf/0.1/name": "http://purl.org/dc/terms/title"
+    "http://xmlns.com/foaf/0.1/name": ["http://purl.org/dc/terms/title","organisation"]
   },
   "//": "Normalise the properties to the given value",
   "normalisedProperties": {

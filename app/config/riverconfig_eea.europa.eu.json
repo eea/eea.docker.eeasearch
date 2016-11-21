@@ -174,7 +174,8 @@
     "http://www.eea.europa.eu/portal_types#topic": "Various other issues",
     "http://www.eea.europa.eu/ontologies.rdf#hasWorkflowState": "published",
     "http://purl.org/dc/terms/title": "Title n/a",
-    "http://purl.org/dc/terms/creator": "European Environment Agency"
+    "http://purl.org/dc/terms/creator": "European Environment Agency",
+    "organisation": "European Environment Agency"
   },
   "//": "Sync conditions",
   "syncConditions": [

@@ -27,10 +27,11 @@
   "listtype": "white",
    "//": "Normalise Properties uris, imitate owl:sameAs or when you want to use a property instead of another",
   "normProp": {
+    "http://rod.eionet.europa.eu/schema.rdf#lastUpdate":  ["http://purl.org/dc/terms/issued", "year"],
     "http://purl.org/dc/terms/valid" : ["http://purl.org/dc/terms/issued", "year"],
     "http://purl.org/dc/terms/abstract": "http://purl.org/dc/terms/description",
     "http://rod.eionet.europa.eu/schema.rdf#formalReporter": "http://purl.org/dc/terms/spatial",
-    "http://rod.eionet.europa.eu/schema.rdf#requester":"http://purl.org/dc/terms/creator"
+    "http://rod.eionet.europa.eu/schema.rdf#requester":["http://purl.org/dc/terms/creator","organisation"]
   },
   "//": "Normalise the properties to the given value",
   "normalisedProperties": {
