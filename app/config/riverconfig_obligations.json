@@ -96,7 +96,7 @@
       "Uzbekistan", "Vatican City", "Saint Vincent and the Grenadines", "Venezuela", "British Virgin Islands",
       "U.S. Virgin Islands", "Vietnam", "Vanuatu", "Wallis and Futuna", "Samoa", "Kosovo (UNSCR 1244/99)",
       "Yemen", "Mayotte", "South Africa", "Zambia", "Zimbabwe", "Russia", "Czechia", "Kosovo", "Macedonia", 
-      "Macedonia (FYR)"
+      "Former Yugoslav Republic of Macedonia, the", "Macedonia (FYR)"
     ]
   },
   "//": "Normalise these following objects to a given value",
@@ -105,7 +105,8 @@
     "Czechia" : "Czech Republic",
     "Russia" : "Russian Federation",
     "Kosovo" : "Kosovo (UNSCR 1244/99)",
-    "Macedonia" : "Macedonia (FYR)",
+    "Macedonia" : "Former Yugoslav Republic of Macedonia, the",
+    "Macedonia (FYR)": "Former Yugoslav Republic of Macedonia, the",
     "Default" : "Various other issues",
     "Collection - old style" : "Collection",
     "http://rod.eionet.europa.eu/spatial/76" : "value not available",
