@@ -84,12 +84,14 @@ var callback = function(text) {
 function removeRiver() {
     var esAPI = require('eea-searchserver').esAPI;
     var river_configs = require('nconf').get()['river_configs'];
+    var esQuery = new esAPI(getOptions());
     for (var i = 0; i < river_configs.configs.length; i++){
         var river_name = "_river/" + river_configs.configs[i].id;
-        new esAPI(getOptions())
-            .DELETE(river_name, callback('Deleting river! (if it exists)'))
-            .execute();
+        esQuery
+            .DELETE(river_name, callback('Deleting river! (if it exists)'));
     }
+    esQuery.execute();
+
 }
 
 function removeData(settings) {
@@ -119,22 +121,36 @@ function createIndex(settings) {
     } catch(e) {
         console.log('Index is missing');
     }
-    console.log('Index objects newer than:', startTime);
 
+    var esQuery = new esAPI(getOptions());
+    if (settings.remove_all){
+        startTime = "1970-01-01T00:00:00";
+        for (var i = 0; i < river_configs.configs.length; i++){
+            var river_name = "_river/" + river_configs.configs[i].id;
+            esQuery.DELETE(river_name, callback('Deleting river! (if it exists)'));
+        }
+        esQuery.DELETE(elastic.index, callback('Deleting index! (if it exists)'))
+    }
+    console.log('Index objects newer than:', startTime);
     for (var i = 0; i < river_configs.configs.length; i++){
         var riverconfig = require(path.join(settings.app_dir, '/config/', river_configs.configs[i].config_file));
         var config = getIndexFiles(settings, elastic, riverconfig, river_configs.configs[i].id, river_configs.configs[i].cluster_name);
         config.syncReq.eeaRDF.startTime = startTime;
         var river_name = "_river/" + river_configs.configs[i].id;
         var river_meta = river_name+"/_meta";
-        new esAPI(getOptions())
-            .PUT(elastic.index, config.analyzers,
-                 callback('Setting up new index and analyzers'))
+        esQuery
+            .PUT(elastic.index, config.analyzers, callback('Setting up new index and analyzers'))
             .DELETE(river_name, callback('Deleting river! (if it exists)'))
             .PUT(river_meta, config.syncReq, callback('Adding river back'))
-            .PUT(elastic.index + '/status/last_update', {'updated_at': Date.now() }, callback('River updated'))
-            .execute();
     }
+    esQuery.PUT(elastic.index + '/status/last_update', {'updated_at': Date.now() }, callback('Rivers updated'))
+            .execute();
+
+}
+
+function reIndex(settings) {
+    settings.remove_all = true;
+    createIndex(settings);
 }
 
 function showHelp() {
@@ -147,6 +163,8 @@ function showHelp() {
     console.log(' remove_data: Remove the ES index of this application');
     console.log(' remove_river: Remove the running river indexer if any');
     console.log('');
+    console.log(' re_index: Remove river and data, setup Elastic index and trigger indexing');
+    console.log('');
     console.log(' help: Show this menu');
     console.log('');
 }
@@ -156,5 +174,6 @@ module.exports = {
     'remove_river': removeRiver,
     'remove_data': removeData,
     'create_index': createIndex,
+    're_index': reIndex,
     'help': showHelp
 }
