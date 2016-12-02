@@ -163,7 +163,7 @@ function showHelp() {
     console.log(' remove_data: Remove the ES index of this application');
     console.log(' remove_river: Remove the running river indexer if any');
     console.log('');
-    console.log(' re_index: Remove river and data, setup Elastic index and trigger indexing');
+    console.log(' reindex: Remove river and data, recrate the index on the elastic_host and start harvesting');
     console.log('');
     console.log(' help: Show this menu');
     console.log('');
@@ -174,6 +174,6 @@ module.exports = {
     'remove_river': removeRiver,
     'remove_data': removeData,
     'create_index': createIndex,
-    're_index': reIndex,
+    'reindex': reIndex,
     'help': showHelp
 }
