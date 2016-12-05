@@ -46,9 +46,14 @@
                 "config_file": "riverconfig_instruments.json"
             },
             {
-                "id": "rod_obligations",
+                "id": "rod_obligations_expired",
                 "cluster_name": "Eionet > reportnet",
-                "config_file": "riverconfig_obligations.json"
+                "config_file": "riverconfig_obligations_expired.json"
+            },
+            {
+                "id": "rod_obligations_active",
+                "cluster_name": "Eionet > reportnet",
+                "config_file": "riverconfig_obligations_active.json"
             },
             {
                 "id": "rod_clients",
