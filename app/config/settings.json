@@ -4,7 +4,8 @@
     },
     "elastic": {
         "index": "rdfdata",
-        "type": "resource"
+        "type": "resource",
+        "enableValuesCounting": true
     },
     "external_templates": {
         "local_path": "/external_templates",

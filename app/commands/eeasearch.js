@@ -59,6 +59,7 @@ function getIndexFiles(settings, elastic, riverconfig, cluster_id, cluster_name)
             'whiteMap': riverconfig.whiteMap,
             'normObj': riverconfig.normObj,
             'syncOldData': true,
+            'addCounting': elastic.enableValuesCounting
         },
         'index': {
             'index': elastic.index,
