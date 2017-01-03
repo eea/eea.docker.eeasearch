@@ -268,6 +268,7 @@ jQuery(document).ready(function($) {
     display_type: 'card',
     highlight_enabled: eea_mapping.highlights.enabled,
     highlight_whitelist: eea_mapping.highlights.whitelist,
-    highlight_blacklist: eea_mapping.highlights.blacklist
+    highlight_blacklist: eea_mapping.highlights.blacklist,
+    enable_exact: false
   });
 });

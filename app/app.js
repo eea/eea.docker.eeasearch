@@ -22,7 +22,8 @@ options = {
     filterAnalyzers: 'config/filters.json',
     dataMapping: 'config/dataMapping.json',
     endpoint: 'http://semantic.eea.europa.eu/sparql',
-  }
+  },
+  customResourcesPath: ['code/config/public']
 }
 searchServer.Helpers.SimpleStart(options)
 
