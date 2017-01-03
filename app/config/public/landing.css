@@ -1,1 +1,13 @@
 /* styles for landing page tiles */
+
+.landing_tile {
+    display: none;
+}
+.eea_tile {
+    width: 265px;
+    min-height: 230px;
+    float: left;
+    margin: 0 1em 1em 0;
+    background-color: #00918D;
+}
+
