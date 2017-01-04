@@ -1,13 +1,12 @@
 /* styles for landing page tiles */
 
 .eea_tile {
-    width: 265px;
+    width: 245px;
     min-height: 230px;
     float: left;
     margin: 0 1em 1em 0;
     background-color: #00918D;
     padding: 1.5em;
-}
 
 .eea_tile_count {
     font-size: 60px;
@@ -42,6 +41,13 @@
 
 #landing .available_content h3 {
     border-bottom: 0;
+    display: block;
+    color: #e9f2f5;
+    margin-top: 1em;
+}
+
+.latest, .available_content {
+   background-color: #FFF;
 }
 
 .topics {
@@ -63,4 +69,3 @@
 .countries {
     background-color: #006699;
 }
-
