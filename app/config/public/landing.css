@@ -1,1 +1,66 @@
 /* styles for landing page tiles */
+
+.eea_tile {
+    width: 265px;
+    min-height: 230px;
+    float: left;
+    margin: 0 1em 1em 0;
+    background-color: #00918D;
+    padding: 1.5em;
+}
+
+.eea_tile_count {
+    font-size: 60px;
+    font-weight: bold;
+    color: #e9f2f5;
+    vertical-align: bottom;
+}
+
+.available_content .eea_tile_count { 
+   color: #1b928f;  
+}
+
+.time_coverage p { 
+    font-size: 150%;
+}
+
+.latest_objects, .available_content {
+   background-color: #FFF;
+}
+
+#landing h2 {
+    color: #FFF;
+    border-bottom: 1px solid #FFF;
+    font-size: 200%;
+}
+
+#landing .available_content > h2,
+#landing .latest_objects > h2,
+#landing .available_content h3 {
+    color: #1b928f;
+}
+
+#landing .available_content h3 {
+    border-bottom: 0;
+}
+
+.topics {
+    background-color: #f6a800;
+}
+
+.time_coverage {
+    background-color: #777c1f;
+}
+
+.organisations {
+    background-color: #babbdb;
+}
+
+.content_types {
+    background-color: #733d85;
+}
+
+.countries {
+    background-color: #006699;
+}
+
