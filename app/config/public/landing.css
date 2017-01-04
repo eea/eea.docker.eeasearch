@@ -4,10 +4,42 @@
     display: none;
 }
 .eea_tile {
-    width: 265px;
+    width: 245px;
     min-height: 230px;
     float: left;
     margin: 0 1em 1em 0;
+    padding: 1.5em;
     background-color: #00918D;
 }
 
+.eea_tile_count {
+    font-size: 60px;
+    font-weight: bold;
+    display: block;
+    color: #e9f2f5;
+    margin-top: 1em;
+}
+
+.latest, .available_content {
+   background-color: #FFF;
+}
+
+.topics {
+    background-color: #f6a800;
+}
+
+.time_coverage {
+    background-color: #777c1f;
+}
+
+.organisations {
+    background-color: #babbdb;
+}
+
+.content_types {
+    background-color: #733d85;
+}
+
+.countries {
+    background-color: #006699;
+}
