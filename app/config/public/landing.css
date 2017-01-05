@@ -19,6 +19,11 @@
     vertical-align: bottom;
 }
 
+.document_count {
+    display: block;
+    margin-bottom: 0.35em;
+}
+
 .available_content .eea_tile_count {
     color: #1b928f;
 }
@@ -52,25 +57,30 @@
 #landing .available_content h3 {
     border-bottom: 0;
 }
-
+.picture {
+    background: #00918D url("images/search-album-slideshow-bg.png") no-repeat 0px 0px;
+}
 .topics {
-    background-color: #f6a800;
+    background: #fbaf33 url("images/topics-bg.png") no-repeat 90px 60px;
 }
 
 .time_coverage {
-    background-color: #777c1f;
+    background-color: #b0c649;
 }
 
 .organisations {
-    background-color: #babbdb;
+    background: #babbdb url("images/organisations-bg.png") no-repeat 90px 60px;
 }
 
 .content_types {
-    background-color: #733d85;
+    background: #b3548d url("images/content-types-bg.png") no-repeat 72px 65px;
+    background-size: 70%;
 }
 
 .countries {
-    background-color: #006699;
+    background: #1c65a4 url("images/countries-bg.png") no-repeat -1px 1px;
+    height: 350px;
+    padding-top: 190px;
 }
 #landing .latest_objects_list {
     margin-left: 0;
