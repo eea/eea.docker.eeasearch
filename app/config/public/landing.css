@@ -3,8 +3,12 @@
     margin-top: 2em;
 }
 
+#facetview {
+    margin-bottom: 2em;
+}
+
 .eea_tile {
-    width: 222px;
+    width: 24%;
     min-height: 230px;
     float: left;
     margin: 0 1em 1em 0;
@@ -32,6 +36,7 @@
     font-size: 150%;
     margin-bottom: 1em;
     float: right;
+    color: #8a8787;
 }
 #landing .time_coverage > p {
     margin-bottom: 1.75em;
@@ -69,7 +74,8 @@
     background-size: 80%;
 }
 .topics {
-    background: #fbaf33 url("images/topics-bg.png") no-repeat 90px 60px;
+    background: #fbaf33 url("images/topics-bg.png") no-repeat 85% 25%;
+    background-size: 85%;
 }
 
 .time_coverage {
@@ -77,12 +83,13 @@
 }
 
 .organisations {
-    background: #babbdb url("images/organisations-bg.png") no-repeat 90px 60px;
+    background: #babbdb url("images/organisations-bg.png") no-repeat 85px 100px;
+    background-size: 70%;
 }
 
 .content_types {
-    background: #b3548d url("images/content-types-bg.png") no-repeat 72px 65px;
-    background-size: 70%;
+    background: #b3548d url("images/content-types-bg.png") no-repeat 85% 55%; 
+    background-size: 90%;
 }
 
 .countries {
@@ -101,6 +108,7 @@
 #landing .latest_objects > h2 {
     border-bottom: 1px solid #1b928f;
     color: #1b928f;
+    margin-bottom: 0.5em;
 }
 .latest_objects_list a {
     display: block;
@@ -126,6 +134,10 @@
     .eea_tile {
         width: 100%;
         float: none;
+        min-height: 300px;
+    }
+    .countries {
+        padding-top: 220px; 
     }
 }
 
@@ -139,12 +151,27 @@
     .eea_tile_count {
         font-size: 50px;
     }
+    .topics {
+        height: 245px;
+    }
+    #facetview {
+        margin-bottom: 5em;
+    }
 }
 
 @media (width: 1024px) {
     .content_types,
     .organisations {
         margin-top: -120px; 
+    }
+    .eea_tile {
+        width: 32%;
+    }
+    .countries {
+        clear: left;
+    }
+    .topics, .time_coverage {
+        margin-right: 0;
     }
 
 }
@@ -158,5 +185,20 @@
     }
     .grid-last-column-item {
         margin-right: 0;
+    }
+}
+
+@media (min-width: 1440px) {
+    .countries {
+        padding-top: 15%;
+    }
+}
+
+@media (min-width: 1680px) {
+    .eea_tile {
+        min-height: 350px;
+    }
+    .grid-item--height2 {
+        height: 470px;
     }
 }
