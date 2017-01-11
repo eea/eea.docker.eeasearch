@@ -8,7 +8,7 @@ $.fn.landingTile = function(settings) {
     }
 
     var getValueFromFacet = function(facet, value){
-        var retVal = [];
+        var retVal = 0;
         var tree = $("[id='" + facet + "']").closest(".facetview_filter").find(".facetview_tree");
         var visibleValues = tree.find("li").filter(function(idx, el) { return el.style.display !== "none"})
         if (value === "count"){
@@ -23,6 +23,14 @@ $.fn.landingTile = function(settings) {
             var values = jQuery.map(visibleValues, function(element) { if (jQuery(element).find(".facet_label_text").text() !== 'undefined') return jQuery(element).find(".facet_label_text").text(); });
             values.sort();
             retVal = values[values.length - 1];
+        }
+        return retVal;
+    }
+
+    var getValueFromResults = function(value){
+        var retVal = 0;
+        if (value === "count"){
+            retVal = $(".eea_results_count").text();
         }
         return retVal;
     }
@@ -45,12 +53,57 @@ $.fn.landingTile = function(settings) {
         }
     });
 
+    this.bind("custom_ready", function(event, value) {
+        var options = $(this).data("options");
+        if (options.values !== undefined){
+            for (var i = 0; i < options.values.length; i++){
+                valueSettingsForTile = {"type": "facet", "facet": options.facet}
+                jQuery.extend(valueSettingsForTile, options.values[i]);
+                if (valueSettingsForTile.type === "results"){
+                    if (valueSettingsForTile.method !== undefined){
+                        $(this).find("."+ valueSettingsForTile.name).text(value);
+                    }
+                }
+            }
+        }
+    });
+
+    this.bind("results_ready", function (){
+        var options = $(this).data("options");
+        if (options.values !== undefined){
+            for (var i = 0; i < options.values.length; i++){
+                valueSettingsForTile = {"type": "facet", "facet": options.facet}
+                jQuery.extend(valueSettingsForTile, options.values[i]);
+                if (valueSettingsForTile.type === "results"){
+                    if (valueSettingsForTile.method !== undefined){
+                        valueSettingsForTile.method(valueSettingsForTile.value, valueSettingsForTile.name);
+                    }
+                    else {
+
+                    }
+                }
+            }
+        }
+    });
+
     this.bind("click", function () {
         var options = $(this).data("options");
         if (options.type === "simple"){
             if (!$("[id='" + options.facet + "']").hasClass("facetview_open")){
                 $("[id='" + options.facet + "']").click();
             }
+        }
+    });
+}
+
+function getAllResults(value, name){
+    var search_url = $.fn.facetview.options.search_url;
+    $.ajax({
+        type: 'get',
+        url: search_url,
+        dataType: 'json',
+        success: function(sdata) {
+            $(".landing_tile .eea_tile").trigger("custom_ready", [sdata.hits.total]);
         }
     });
 }
@@ -94,7 +147,7 @@ jQuery(document).ready(function($) {
     $(".landing_tile .eea_tile.available_content").landingTile(
         {
             type : "custom",
-            values : [{"value":"count", "facet":"language", "name":"language_count"}]
+            values : [{"value":"count", "facet":"language", "name":"language_count"}, {"type":"results", "value":"count", "name":"documents_count", "method":getAllResults}]
         }
     );
 });
