@@ -100,6 +100,7 @@
     height: 300px;
     padding-top: 138px;
     background-size: 101%;
+    position: relative;
 }
 #landing .latest_objects_list {
     margin-left: 0;
@@ -146,7 +147,7 @@
 
 @media (width: 768px) {
     .eea_tile {
-        width: 200px;
+        width: 48.5%;
     }
     .eea_tile:nth-child(even) {
         margin-right: 0;
@@ -154,27 +155,49 @@
     .eea_tile_count {
         font-size: 50px;
     }
-    .topics {
+    .topics,
+    .time_coverage {
         height: 245px;
     }
     #facetview {
         margin-bottom: 5em;
+    }
+    .row-fluid .span3 {
+        width: 35%;
+    }
+    div#facetview_rightcol {
+        width: 64%;
     }
 }
 
 @media (width: 1024px) {
     .content_types,
     .organisations {
-        margin-top: -120px; 
+        margin-top: -240px;
     }
     .eea_tile {
         width: 32%;
     }
-    .countries {
-        clear: left;
+    .grid-item--height2 {
+        height: 330px;
+    }
+    
+    .latest_objects {
+        width: 480px;
+    }
+    .picture {
+       background-position: 30px 25px;
+    }
+    .topics {
+        height: 329px;
     }
     .topics, .time_coverage {
         margin-right: 0;
+    }
+
+    .countries {
+        clear: left;
+        height: 250px;
     }
 
 }
@@ -190,10 +213,23 @@
         margin-right: 0;
     }
 }
-
 @media (min-width: 1440px) {
+    .countries > h2 {
+        width: 89%;
+    }
+}
+@media (min-width: 1440px) and (max-width: 1679px) {
     .countries {
-        padding-top: 15%;
+        padding-top: 0;
+    }
+
+    .countries > h2 {
+        position: absolute;
+        top: 39%;
+    }
+    .countries_count {
+        position: absolute;
+        top: 57%;
     }
 }
 
@@ -203,5 +239,24 @@
     }
     .grid-item--height2 {
         height: 470px;
+    }
+    .countries {
+        background-size: 73%;
+        background-position: 35px 0;
+    }
+    .countries > h2 {
+        position: absolute;
+        top: 30%;
+    }
+    .countries_count {
+        position: absolute;
+        top: 45%;
+    }
+}
+
+
+@media (min-width: 1920px) {
+    .countries_count {
+        top: 49%;
     }
 }
