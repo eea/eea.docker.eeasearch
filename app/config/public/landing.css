@@ -134,6 +134,10 @@
 }
 .grid-item--height2 { height: 350px; }
 
+.mobile_tile {
+    display: none;
+}
+
 @media (max-width: 479px) {
     .eea_tile {
         width: 100%;
@@ -142,6 +146,9 @@
     }
     .countries {
         padding-top: 220px; 
+    }
+    .mobile_tile {
+        display: block;
     }
 }
 
