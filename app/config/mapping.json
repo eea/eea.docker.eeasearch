@@ -187,7 +187,7 @@
                 "visible": false
             },
             "facet": {
-                "allow_exact": false,
+                "allow_exact": true,
                 "visible": true,
                 "title": "Topic",
                 "pos": 1,
@@ -348,7 +348,7 @@
             },
             "facet": {
                 "desctext": "of the selected countries",
-                "allow_exact": false,
+                "allow_exact": true,
                 "visible": true,
                 "title": "Country",
                 "pos": 2,
@@ -523,7 +523,7 @@
                 "visible": false
             },
             "facet": {
-                "allow_exact": false,
+                "allow_exact": true,
                 "visible": true,
                 "title": "Organisation involved",
                 "pos": 6,
@@ -582,7 +582,7 @@
                 "visible": false
             },
             "facet": {
-                "allow_exact": false,
+                "allow_exact": true,
                 "visible": true,
                 "title": "Year",
                 "pos": 7,

@@ -269,6 +269,6 @@ jQuery(document).ready(function($) {
     highlight_enabled: eea_mapping.highlights.enabled,
     highlight_whitelist: eea_mapping.highlights.whitelist,
     highlight_blacklist: eea_mapping.highlights.blacklist,
-    enable_exact: false
+    enable_exact: true
   });
 });

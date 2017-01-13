@@ -36,7 +36,7 @@
         "dataprovencance_info_url": "http://semantic.eea.europa.eu",
         "further_info": "The content of this website has been created thanks to the open data approach and contribution of many organisations part of EEA's network (Eionet)."
     },
-    "landingpage_enabled": false,
+    "landingpage_enabled": true,
     "river_configs": {
         "configs": [
             {

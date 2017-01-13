@@ -150,4 +150,12 @@ jQuery(document).ready(function($) {
             values : [{"value":"count", "facet":"language", "name":"language_count"}, {"type":"results", "value":"count", "name":"documents_count", "method":getAllResults}]
         }
     );
+
+/*    var itemTemplate='<a href="{url}">{title}</a><strong>{type}</strong><span>Published on</span><span>{publish_date}</span>'
+    $(".landing_tile .eea_tile.latest_objects").landingTile(
+        {
+            type : "custom",
+            values : [{"type":"results", "value":"rows", "name":"language_count", "template": itemTemplate, "mapping":{"url":''}}]
+        }
+    );*/
 });
