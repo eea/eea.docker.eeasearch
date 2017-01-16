@@ -607,9 +607,9 @@
                 "size": 100,
                 "min_size": 10,
                 "order": "term",
-                "operator": "AND",
+                "operator": "OR",
                 "facet_display_options": ["sort", "checkbox"],
-                "default_values": {"operator": "and", "values":["en"]}
+                "default_values": {"operator": "or", "values":["en"]}
             }
         }
     ]
