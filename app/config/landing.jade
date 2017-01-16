@@ -1,72 +1,73 @@
 block landing
     div(class="landing_tile grid")
 
-      div(class="mobile_tile")
-       p The catalog provides access to
+      div(class="mobile_tiles")
+       p(class="available_content eea_tile") The catalog provides access to
         span(class="documents_count eea_tile_count")
-       p documents about 
+       p(class="eea_tile topics")  documents about
         span(class"topics_count eea_tile_count")
-       p topics spanning from 
+        |  topics
+       p(class="time_coverage eea_tile") spanning from
         span(class="time_coverage_min eea_tile_count")
-       p until
+       until
         span(class="time_coverage_max eea_tile_count")
-       p involving 
+       p(class="organisations eea_tile") involving
         span(class="organisations_count eea_tile_count")
-       p organisations from
+       p(class="countries eea_tile") organisations from
         span(class="countries_count eea_tile_count")
        p countries 
 
-      div(class="eea_tile available_content grid-item grid-item--height2")
-        h2 Available content
-        h3 Documents
-        span(class="documents_count eea_tile_count")
-        h3 Languages
-        span(class="language_count eea_tile_count")
+      div(class="normal_tiles")
+        div(class="eea_tile available_content grid-item grid-item--height2")
+          h2 Available content
+          h3 Documents
+          span(class="documents_count eea_tile_count")
+          h3 Languages
+          span(class="language_count eea_tile_count")
 
-      div(class="eea_tile picture grid-item grid-item--height2")
-        span
+        div(class="eea_tile picture grid-item grid-item--height2")
+          span
 
-      div(class="eea_tile topics grid-item")
-        h2 Topics
-        span(class="topics_count eea_tile_count")
+        div(class="eea_tile topics grid-item")
+          h2 Topics
+          span(class="topics_count eea_tile_count")
 
-      div(class="eea_tile time_coverage grid-item grid-last-column-item")
-        h2 Time coverage
-        p from
-          span(class="time_coverage_min eea_tile_count")
-        p until
-          span(class="time_coverage_max eea_tile_count")
+        div(class="eea_tile time_coverage grid-item grid-last-column-item")
+          h2 Time coverage
+          p from
+            span(class="time_coverage_min eea_tile_count")
+          p until
+            span(class="time_coverage_max eea_tile_count")
 
-      div(class="eea_tile organisations grid-item")
-        h2 Organisations
-        span(class="organisations_count eea_tile_count")
+        div(class="eea_tile organisations grid-item")
+          h2 Organisations
+          span(class="organisations_count eea_tile_count")
 
-      div(class="eea_tile content_types grid-item")
-        h2 Content types
-        span(class="content_types_count eea_tile_count")
+        div(class="eea_tile content_types grid-item")
+          h2 Content types
+          span(class="content_types_count eea_tile_count")
 
+        div(class="eea_tile countries grid-item grid-item--height2")
+          h2 Countries
+          span(class="countries_count eea_tile_count")
 
-      div(class="eea_tile countries grid-item grid-item--height2")
-        h2 Countries
-        span(class="countries_count eea_tile_count")
-
-      div(class="eea_tile latest_objects grid-item grid-item--height2 grid-last-column-item")
-        h2 Recently added
-        ul(class="latest_objects_list")
-          li
-            a(href="#") Exposure of ecosystems to acidification, eutrophication and ozone
-            strong Link
-            span Published on
-            span 12/07/2016
-          li
-            a(href="#") Exposure of ecosystems to acidification, eutrophication and ozone
-            strong Link
-            span Published on
-            span 12/07/2016
-          li
-            a(href="#") Exposure of ecosystems to acidification, eutrophication and ozone
-            strong Link
-            span Published on
-            span 12/07/2016
-        a(href="#" class="show_all_results pull-right") 
-          strong See all results
+        div(class="eea_tile latest_objects grid-item grid-item--height2 grid-last-column-item")
+          h2 Recently added
+          ul(class="latest_objects_list")
+            li
+              a(href="#") Exposure of ecosystems to acidification, eutrophication and ozone
+              strong Link
+              span Published on
+              span 12/07/2016
+            li
+              a(href="#") Exposure of ecosystems to acidification, eutrophication and ozone
+              strong Link
+              span Published on
+              span 12/07/2016
+            li
+              a(href="#") Exposure of ecosystems to acidification, eutrophication and ozone
+              strong Link
+              span Published on
+              span 12/07/2016
+          a(href="#" class="show_all_results pull-right")
+            strong See all results
