@@ -149,6 +149,10 @@
     }
     .mobile_tiles {
         display: block;
+        color: #fff;
+        font-size: 1em;
+        line-height: 1em;
+        font-weight: bold;
     }
     .eea_tile {
         display: none;
