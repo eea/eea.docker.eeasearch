@@ -159,6 +159,17 @@
         padding: 1em;
         margin: 0 !important;
     }
+    .latest_objects, .available_content {
+        background-color: #00918D;
+    }
+    .eea_tile_count,
+    .available_content .eea_tile_count {
+        color: #e9f2f5;
+        font-size: 25px;
+        vertical-align: sub;
+        display: inline-block;
+        margin-bottom: 0;
+    }
 }
 
 @media (width: 768px) {
@@ -275,3 +286,4 @@
         top: 49%;
     }
 }
+
