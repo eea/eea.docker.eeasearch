@@ -214,6 +214,6 @@
     "{?resource a <http://www.eea.europa.eu/portal_types/SOERKeyFact#SOERKeyFact>} UNION ",
     "{?resource a <http://www.eea.europa.eu/portal_types/SOERMEssage#SOERMEssage>}"
   ],
-  "graphSyncConditions": ["FILTER (str(?graph) = concat(str(?resource), '/@@rdf')). FILTER (?time > xsd:dateTime('2015-10-01T00:00:00')). FILTER (?time < xsd:dateTime('2017-11-01T00:00:00'))"],
+  "graphSyncConditions": ["FILTER (str(?graph) = concat(str(?resource), '/@@rdf')). FILTER (?time > xsd:dateTime('1990-01-01T00:00:00')). FILTER (?time < xsd:dateTime('2100-01-01T00:00:00'))"],
   "syncTimeProp": "http://cr.eionet.europa.eu/ontologies/contreg.rdf#lastRefreshed"
 }
