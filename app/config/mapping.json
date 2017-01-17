@@ -189,7 +189,7 @@
             "facet": {
                 "allow_exact": true,
                 "visible": true,
-                "title": "Topic",
+                "title": "Topics",
                 "pos": 1,
                 "type": "facet",
                 "size": 100,
@@ -350,7 +350,7 @@
                 "desctext": "of the selected countries",
                 "allow_exact": true,
                 "visible": true,
-                "title": "Country",
+                "title": "Countries",
                 "pos": 2,
                 "type": "facet",
                 "size": 100,
@@ -377,7 +377,7 @@
             },
             "facet": {
                 "visible": true,
-                "title": "Content type",
+                "title": "Content types",
                 "pos": 3,
                 "type": "facet",
                 "size": 50000,
@@ -462,7 +462,7 @@
             },
             "facet": {
                 "visible": true,
-                "title": "Content type 2",
+                "title": "Content types 2",
                 "pos": 5,
                 "type": "facet",
                 "size": 50000,
@@ -525,7 +525,7 @@
             "facet": {
                 "allow_exact": true,
                 "visible": true,
-                "title": "Organisation involved",
+                "title": "Organisations involved",
                 "pos": 6,
                 "type": "facet",
                 "size": 3000,
@@ -566,7 +566,7 @@
             },
             "facet": {
                 "visible": true,
-                "title": "Publishing channel",
+                "title": "Publishing channels",
                 "pos": 6,
                 "type": "facet",
                 "size": 100,
@@ -584,7 +584,7 @@
             "facet": {
                 "allow_exact": true,
                 "visible": true,
-                "title": "Year",
+                "title": "Years",
                 "pos": 7,
                 "type": "facet",
                 "size": 100,
@@ -601,7 +601,7 @@
             },
             "facet": {
                 "visible": true,
-                "title": "Language",
+                "title": "Languages",
                 "pos": 8,
                 "type": "facet",
                 "size": 100,
