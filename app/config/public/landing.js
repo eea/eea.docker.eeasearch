@@ -12,32 +12,41 @@ $.fn.landingTile = function(settings) {
         var retVal = 0;
         var tree = $("[id='" + facet + "']").closest(".facetview_filter").find(".facetview_tree");
         var visibleValues = tree.find("li").filter(function(idx, el) { return el.style.display !== "none";});
+        var values;
         if (value === "count"){
             retVal = visibleValues.length;
         }
         if (value === "min"){
-            var values = jQuery.map(visibleValues, function(element) { if (jQuery(element).find(".facet_label_text").text() !== 'undefined') { return jQuery(element).find(".facet_label_text").text();} });
+            values = jQuery.map(visibleValues, function(element) {
+                if (jQuery(element).find(".facet_label_text").text() !== 'undefined') {
+                    return jQuery(element).find(".facet_label_text").text();
+                }
+            });
             values.sort();
             retVal = values[0];
         }
         if (value === "max"){
-            var values = jQuery.map(visibleValues, function(element) { if (jQuery(element).find(".facet_label_text").text() !== 'undefined') { return jQuery(element).find(".facet_label_text").text();} });
+            values = jQuery.map(visibleValues, function(element) {
+                if (jQuery(element).find(".facet_label_text").text() !== 'undefined') {
+                    return jQuery(element).find(".facet_label_text").text();}
+            });
             values.sort();
             retVal = values[values.length - 1];
         }
         return retVal;
     };
 
-    var getValueFromResults = function(value){
-        var retVal = 0;
-        if (value === "count"){
-            retVal = $(".eea_results_count").text();
-        }
-        return retVal;
-    };
+    // var getValueFromResults = function(value){
+    //     var retVal = 0;
+    //     if (value === "count"){
+    //         retVal = $(".eea_results_count").text();
+    //     }
+    //     return retVal;
+    // };
 
     this.bind("facet_ready", function (){
         var options = $(this).data("options");
+        var valueSettingsForTile;
         if (options.values !== undefined){
             for (var i = 0; i < options.values.length; i++){
                 valueSettingsForTile = {"type": "facet", "facet": options.facet};
@@ -56,6 +65,7 @@ $.fn.landingTile = function(settings) {
 
     this.bind("custom_ready", function(event, value) {
         var options = $(this).data("options");
+        var valueSettingsForTile;
         if (options.values !== undefined){
             for (var i = 0; i < options.values.length; i++){
                 valueSettingsForTile = {"type": "facet", "facet": options.facet};
@@ -71,6 +81,7 @@ $.fn.landingTile = function(settings) {
 
     this.bind("results_ready", function (){
         var options = $(this).data("options");
+        var valueSettingsForTile;
         if (options.values !== undefined){
             for (var i = 0; i < options.values.length; i++){
                 valueSettingsForTile = {"type": "facet", "facet": options.facet};
@@ -86,15 +97,17 @@ $.fn.landingTile = function(settings) {
 
     this.bind("click", function () {
         var options = $(this).data("options");
+        var $simple_facet;
         if (options.type === "simple"){
-            if (!$("[id='" + options.facet + "']").hasClass("facetview_open")){
-                $("[id='" + options.facet + "']").click();
+            $simple_facet = $("[id='" + options.facet + "']");
+            if (!$simple_facet.hasClass("facetview_open")){
+                $simple_facet.click();
             }
         }
     });
 };
 
-function getAllResults(value, name){
+function getAllResults(){
     var search_url = $.fn.facetview.options.search_url;
     $.ajax({
         type: 'get',
