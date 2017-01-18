@@ -44,6 +44,11 @@
                 "config_file": "riverconfig_eea.europa.eu.json"
             },
             {
+                "id": "eea_vacancies",
+                "cluster_name": "EEA Website",
+                "config_file": "riverconfig_eeavacancies.json"
+            },
+            {
                 "id": "rod_instruments",
                 "cluster_name": "Eionet > reportnet",
                 "config_file": "riverconfig_instruments.json"

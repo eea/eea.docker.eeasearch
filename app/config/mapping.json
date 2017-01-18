@@ -471,6 +471,9 @@
                 "operator": "OR",
                 "values_whitelist": [
                              "Article",
+                             "EEA Job Vacancy",
+                             "Briefing (all)",
+                             "Briefing (Country)",
                              "News",
                              "News (Event)",
                              "Image",
