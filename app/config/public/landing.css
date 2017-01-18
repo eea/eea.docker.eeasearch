@@ -73,7 +73,6 @@
 }
 .normal_tiles .picture {
     background: #00918D url("images/search-album-slideshow-bg.png") no-repeat 30px 45px;
-    height: 320px;
     background-size: 80%;
 }
 .normal_tiles .topics {
@@ -97,7 +96,6 @@
 
 .normal_tiles .countries {
     background: #1c65a4 url("images/countries-bg.png") no-repeat -1px 1px;
-    height: 300px;
     padding-top: 138px;
     background-size: 101%;
     position: relative;
@@ -267,10 +265,10 @@
     .eea_tile {
         min-height: 350px;
     }
-    .grid-item--height2 {
+    .normal_tiles .grid-item--height2 {
         height: 470px;
     }
-    .countries {
+    .normal_tiles .countries {
         background-size: 73%;
         background-position: 35px 0;
     }

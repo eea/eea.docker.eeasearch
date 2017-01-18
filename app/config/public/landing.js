@@ -162,6 +162,10 @@ jQuery(document).ready(function($) {
         }
     );
 
+    $(".mobile_tiles").click(function (ev) {
+        $.fn.facetview.dosearch({remove_landing: true});
+    });
+
 /*    var itemTemplate='<a href="{url}">{title}</a><strong>{type}</strong><span>Published on</span><span>{publish_date}</span>'
     $(".landing_tile .eea_tile.latest_objects").landingTile(
         {
