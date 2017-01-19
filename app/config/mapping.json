@@ -387,7 +387,6 @@
                 "values_whitelist": [
                               "Highlight",
                               "Press Release",
-                              "Event",
                               "Promotion",
                               "Article",
                               "Eco-Tip",
@@ -475,7 +474,6 @@
                              "Briefing (all)",
                              "Briefing (Country)",
                              "News",
-                             "News (Event)",
                              "Image",
                              "Video",
                              "Web page",
