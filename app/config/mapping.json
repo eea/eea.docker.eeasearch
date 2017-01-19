@@ -8,7 +8,12 @@
     },
     "highlights": {
         "enabled": true,
-        "whitelist": ["http://purl.org/dc/terms/title"],
+        "whitelist": [
+            "http://purl.org/dc/terms/title",
+            "http://purl.org/dc/terms/description",
+            "http://www.w3.org/1999/02/22-rdf-syntax-ns#about",
+            "http://www.eea.europa.eu/portal_types#topic"
+            ],
         "blacklist": []
     },
     "types": {
