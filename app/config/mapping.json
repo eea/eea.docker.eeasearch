@@ -491,7 +491,8 @@
                              "Catalogue (search application)",
                              "Indicator assessment",
                              "Data (external links)",
-                             "Key message"
+                             "Key message",
+                             "Website main section"
                           ],
                 "facet_display_options": ["sort", "checkbox"]
             }
