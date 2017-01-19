@@ -480,6 +480,7 @@
                              "Briefing (Country)",
                              "News",
                              "Image",
+                             "File",
                              "Video",
                              "Web page",
                              "Map (interactive)",
@@ -537,7 +538,7 @@
                 "type": "facet",
                 "size": 3000,
                 "min_size": 10,
-                "order": "term",
+                "order": "reverse_count",
                 "operator": "OR",
                 "facet_display_options": ["sort", "checkbox"]
             }
@@ -618,6 +619,36 @@
                 "facet_display_options": ["sort", "checkbox"],
                 "default_values": {"operator": "or", "values":["en"]}
             }
+        },
+        {
+            "name": "http://purl.org/dc/terms/format",
+            "listing": {
+                "title": "Format",
+                "visible": true
+            },
+            "csv_tsv": {
+                "title": "http://purl.org/dc/terms/format",
+                "visible": true,
+                "pos": 11
+            },
+            "details": {
+                "visible": false
+            },
+            "list": {
+                "visible": false
+            },
+            "facet": {
+                "visible": true,
+                "title": "Format",
+                "pos": 9,
+                "type": "facet",
+                "size": 100,
+                "min_size": 10,
+                "order": "reverse_count",
+                "operator": "OR",
+                "facet_display_options": ["sort", "checkbox"]
+            }
+
         }
     ]
 }
