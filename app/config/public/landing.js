@@ -36,14 +36,6 @@ $.fn.landingTile = function(settings) {
         return retVal;
     };
 
-    // var getValueFromResults = function(value){
-    //     var retVal = 0;
-    //     if (value === "count"){
-    //         retVal = $(".eea_results_count").text();
-    //     }
-    //     return retVal;
-    // };
-
     this.bind("facet_ready", function (){
         var options = $(this).data("options");
         var valueSettingsForTile;
@@ -51,6 +43,9 @@ $.fn.landingTile = function(settings) {
             for (var i = 0; i < options.values.length; i++){
                 valueSettingsForTile = {"type": "facet", "facet": options.facet};
                 jQuery.extend(valueSettingsForTile, options.values[i]);
+                if (valueSettingsForTile.type !== "facet"){
+                    return;
+                }
                 var value = 0;
                 if (valueSettingsForTile.type === "facet"){
                     value = getValueFromFacet(valueSettingsForTile.facet, valueSettingsForTile.value);
@@ -89,6 +84,24 @@ $.fn.landingTile = function(settings) {
                 if (valueSettingsForTile.type === "results"){
                     if (valueSettingsForTile.method !== undefined){
                         valueSettingsForTile.method(valueSettingsForTile.value, valueSettingsForTile.name);
+                    }
+                    else {
+                        if (valueSettingsForTile.value === "rows"){
+                            if($.fn.facetview.options.rawdata){
+                            $("[class='"+valueSettingsForTile.name+"']").empty();
+                                var results = $.fn.facetview.options.rawdata.hits.hits;
+                                for (var res_count = 0; res_count < 3; res_count++){
+                                    var result = {};
+                                    $.extend(result, results[res_count]._source);
+                                    var result_for_template = {};
+                                    $.each(result, function(key,value){
+                                        result_for_template["${"+key+"}"] = value;
+                                    });
+                                var snippet = replace_variables_in_text(valueSettingsForTile.template, result_for_template);
+                                $("[class='"+valueSettingsForTile.name+"']").append($(snippet));
+                                }
+                            }
+                        }
                     }
                 }
             }
@@ -166,11 +179,12 @@ jQuery(document).ready(function($) {
         $.fn.facetview.dosearch({remove_landing: true});
     });
 
-/*    var itemTemplate='<a href="{url}">{title}</a><strong>{type}</strong><span>Published on</span><span>{publish_date}</span>'
+    var itemTemplate='<li><a href="${http://www.w3.org/1999/02/22-rdf-syntax-ns#about}">${http://purl.org/dc/terms/title}</a><span>Published on </span><span>${http://purl.org/dc/terms/issued}</span></li>'
+
     $(".landing_tile .eea_tile.latest_objects").landingTile(
         {
             type : "custom",
-            values : [{"type":"results", "value":"rows", "name":"language_count", "template": itemTemplate, "mapping":{"url":''}}]
+            values : [{"type":"results", "value":"rows", "name":"latest_objects_list", "template": itemTemplate}]
         }
-    );*/
+    );
 });
