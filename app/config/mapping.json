@@ -498,7 +498,10 @@
                              "Indicator assessment",
                              "Data (external links)",
                              "Key message",
-                             "Website main section"
+                             "Website main section",
+                             "Organization (Reportnet client)",
+                             "Organization",
+                             "Legislation Instrument"
                           ],
                 "facet_display_options": ["sort", "checkbox"]
             }
