@@ -22,7 +22,8 @@
     "http://purl.org/dc/terms/subject",
     "http://purl.org/dc/terms/description",
     "http://www.eea.europa.eu/ontologies.rdf#hasWorkflowState",
-    "http://www.eea.europa.eu/ontologies.rdf#objectProvides"
+    "http://www.eea.europa.eu/ontologies.rdf#objectProvides",
+    "http://purl.org/dc/terms/format"
   ],
   "listtype": "white",
   "normProp": {
@@ -128,6 +129,7 @@
     "http://www.eea.europa.eu/portal_workflow/eea_soer_workflow/states/published": "published",
     "Products.ATContentTypes.interfaces.image.IATImage": "Image",
     "Products.ATContentTypes.interfaces.image.IImageContent": "Image",
+    "Products.ATContentTypes.interfaces.file.IATFile":"File",
     "plone.app.blob.interfaces.IATBlobImage": "Image",
     "Products.EEAContentTypes.content.interfaces.IArticle": "Article",
     "Products.EEAContentTypes.content.interfaces.ICloudVideo": "Video",
@@ -177,12 +179,13 @@
     "http://www.eea.europa.eu/ontologies.rdf#hasWorkflowState": "published",
     "http://purl.org/dc/terms/title": "Title n/a",
     "http://purl.org/dc/terms/creator": "European Environment Agency",
-    "organisation": "European Environment Agency"
+    "organisation": "European Environment Agency",
+    "http://purl.org/dc/terms/format": "text/html"
   },
   "//": "Sync conditions",
   "syncConditions": [
-    "{?resource a <http://www.eea.europa.eu/portal_types/Folder#Folder> }"
+    "{?resource a <http://www.eea.europa.eu/portal_types/File#File> }"
   ],
-  "graphSyncConditions": ["FILTER (str(?graph) = concat(str(?resource), '/@@rdf')). FILTER (?time > xsd:dateTime('1990-01-01T00:00:00')). FILTER (?time < xsd:dateTime('2100-01-01T00:00:00'))"],
+  "graphSyncConditions": ["FILTER (str(?graph) = concat(str(?resource), '/@@rdf')). FILTER (?time > xsd:dateTime('2990-01-01T00:00:00')). FILTER (?time < xsd:dateTime('3100-01-01T00:00:00'))"],
   "syncTimeProp": "http://cr.eionet.europa.eu/ontologies/contreg.rdf#lastRefreshed"
 }

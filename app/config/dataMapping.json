@@ -51,5 +51,9 @@
     "year" : {
       "type" : "string",
       "analyzer" : "date2year"
+    },
+    "http://purl.org/dc/terms/format": {
+      "type" : "string",
+      "analyzer" : "none"
     }
 }

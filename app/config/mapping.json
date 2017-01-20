@@ -8,7 +8,12 @@
     },
     "highlights": {
         "enabled": true,
-        "whitelist": ["http://purl.org/dc/terms/title"],
+        "whitelist": [
+            "http://purl.org/dc/terms/title",
+            "http://purl.org/dc/terms/description",
+            "http://www.w3.org/1999/02/22-rdf-syntax-ns#about",
+            "http://www.eea.europa.eu/portal_types#topic"
+            ],
         "blacklist": []
     },
     "types": {
@@ -475,6 +480,7 @@
                              "Briefing (Country)",
                              "News",
                              "Image",
+                             "File",
                              "Video",
                              "Web page",
                              "Map (interactive)",
@@ -492,7 +498,10 @@
                              "Indicator assessment",
                              "Data (external links)",
                              "Key message",
-                             "Website main section"
+                             "Website main section",
+                             "Organization (Reportnet client)",
+                             "Organization",
+                             "Legislation Instrument"
                           ],
                 "facet_display_options": ["sort", "checkbox"]
             }
@@ -532,7 +541,7 @@
                 "type": "facet",
                 "size": 3000,
                 "min_size": 10,
-                "order": "term",
+                "order": "reverse_count",
                 "operator": "OR",
                 "facet_display_options": ["sort", "checkbox"]
             }
@@ -613,6 +622,36 @@
                 "facet_display_options": ["sort", "checkbox"],
                 "default_values": {"operator": "or", "values":["en"]}
             }
+        },
+        {
+            "name": "http://purl.org/dc/terms/format",
+            "listing": {
+                "title": "Format",
+                "visible": true
+            },
+            "csv_tsv": {
+                "title": "http://purl.org/dc/terms/format",
+                "visible": true,
+                "pos": 11
+            },
+            "details": {
+                "visible": false
+            },
+            "list": {
+                "visible": false
+            },
+            "facet": {
+                "visible": true,
+                "title": "Format",
+                "pos": 9,
+                "type": "facet",
+                "size": 100,
+                "min_size": 10,
+                "order": "reverse_count",
+                "operator": "OR",
+                "facet_display_options": ["sort", "checkbox"]
+            }
+
         }
     ]
 }
