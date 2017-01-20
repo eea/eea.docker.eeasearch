@@ -165,7 +165,7 @@ jQuery(document).ready(function($) {
         {
             type : "simple",
             facet : "year",
-            values : [{"value":"min", "name":"time_coverage_min"}, {"type":"fixed", "value":"2016", "name":"time_coverage_max"}]
+            values : [{"value":"min", "name":"time_coverage_min"}, {"value":"max", "name":"time_coverage_max"}]
         }
     );
     $(".available_content").landingTile(
