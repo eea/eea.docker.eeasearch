@@ -43,7 +43,7 @@ $.fn.landingTile = function(settings) {
             for (var i = 0; i < options.values.length; i++){
                 valueSettingsForTile = {"type": "facet", "facet": options.facet};
                 jQuery.extend(valueSettingsForTile, options.values[i]);
-                if (valueSettingsForTile.type !== "facet"){
+                if ((valueSettingsForTile.type !== "facet") && (valueSettingsForTile.type !== "fixed")) {
                     return;
                 }
                 var value = 0;
