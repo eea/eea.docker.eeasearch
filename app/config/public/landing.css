@@ -72,8 +72,8 @@
     font-size: 175%;
 }
 .normal_tiles .picture {
-    background: #00918D url("images/search-album-slideshow-bg.png") no-repeat 30px 45px;
-    background-size: 80%;
+    background: #00918D url("images/search-album-slideshow-bg.png") no-repeat center center;
+    background-size: contain; 
 }
 .normal_tiles .topics {
     background: #fbaf33 url("images/topics-bg.png") no-repeat 85% 25%;
@@ -173,7 +173,7 @@
     }
 }
 
-@media (width: 768px) {
+@media (min-width: 480px) and (max-width: 1023px) {
     .eea_tile {
         width: 48.5%;
     }
@@ -193,12 +193,15 @@
     .row-fluid .span3 {
         width: 35%;
     }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
     div#facetview_rightcol {
         width: 64%;
     }
 }
 
-@media (width: 1024px) {
+@media (min-width: 1023px) and (max-width: 1279px) {
     .content_types,
     .organisations {
         margin-top: -240px;
