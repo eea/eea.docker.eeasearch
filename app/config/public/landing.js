@@ -150,7 +150,7 @@ jQuery(document).ready(function($) {
     $(".content_types").landingTile(
         {
             type : "simple",
-            facet : "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+            facet : "http://www.eea.europa.eu/ontologies.rdf#objectProvides",
             values : [{"value":"count", "name":"content_types_count"}]
         }
     );
