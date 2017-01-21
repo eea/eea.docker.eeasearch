@@ -202,7 +202,6 @@
     "{?resource a <http://www.eea.europa.eu/portal_types/ExternalDataSpec#ExternalDataSpec>} UNION ",
     "{?resource a <http://www.eea.europa.eu/portal_types/GIS%20Application#GISApplication>} UNION ",
     "{?resource a <http://www.eea.europa.eu/portal_types/Highlight#Highlight>} UNION ",
-    "{?resource a <http://www.eea.europa.eu/portal_types/Image#Image>} UNION ",
     "{?resource a <http://www.eea.europa.eu/portal_types/KeyMessage#KeyMessage>} UNION ",
     "{?resource a <http://www.eea.europa.eu/portal_types/Link#Link>} UNION ",
     "{?resource a <http://www.eea.europa.eu/portal_types/MethodologyReference#MethodologyReference>} UNION ",
