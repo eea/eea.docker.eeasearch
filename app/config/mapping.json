@@ -352,7 +352,6 @@
                 "visible": false
             },
             "facet": {
-                "desctext": "of the selected countries",
                 "allow_exact": true,
                 "visible": true,
                 "title": "Countries",
@@ -501,7 +500,10 @@
                              "Website main section",
                              "Organization (Reportnet client)",
                              "Organization",
-                             "Legislation Instrument"
+                             "Legislation Instrument",
+                             "References and links",
+                             "Environmental question",
+                             "Reporting obligation"
                           ],
                 "facet_display_options": ["sort", "checkbox"]
             }
