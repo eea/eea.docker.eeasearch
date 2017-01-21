@@ -55,5 +55,13 @@
     "http://purl.org/dc/terms/format": {
       "type" : "string",
       "analyzer" : "none"
+    },
+    "label": {
+      "type" : "string",
+      "fields" : {
+        "toindex" : {"type" : "string", "analyzer" : "default"},
+        "index" : {"type" : "string", "analyzer" : "none"},
+        "label": {"type": "string", "index": "not_analyzed"}
+      }
     }
 }

@@ -29,7 +29,8 @@
   "normProp": {
     "http://purl.org/dc/terms/issued": ["http://purl.org/dc/terms/issued", "year"],
     "http://purl.org/dc/terms/creator": ["creator_cms"],
-    "http://www.eea.europa.eu/portal_types/Event#endDate": ["http://purl.org/dc/terms/expires"]
+    "http://www.eea.europa.eu/portal_types/Event#endDate": ["http://purl.org/dc/terms/expires"],
+    "http://purl.org/dc/terms/title": ["http://purl.org/dc/terms/title","label"]
   },
   "//": "Normalise the properties to the given value",
   "normalisedProperties": {
@@ -202,7 +203,6 @@
     "{?resource a <http://www.eea.europa.eu/portal_types/ExternalDataSpec#ExternalDataSpec>} UNION ",
     "{?resource a <http://www.eea.europa.eu/portal_types/GIS%20Application#GISApplication>} UNION ",
     "{?resource a <http://www.eea.europa.eu/portal_types/Highlight#Highlight>} UNION ",
-    "{?resource a <http://www.eea.europa.eu/portal_types/KeyMessage#KeyMessage>} UNION ",
     "{?resource a <http://www.eea.europa.eu/portal_types/Link#Link>} UNION ",
     "{?resource a <http://www.eea.europa.eu/portal_types/MethodologyReference#MethodologyReference>} UNION ",
     "{?resource a <http://www.eea.europa.eu/portal_types/PolicyDocumentReference#PolicyDocumentReference>} UNION ",
@@ -212,10 +212,8 @@
     "{?resource a <http://www.eea.europa.eu/portal_types/QuickEvent#QuickEvent>} UNION ",
     "{?resource a <http://www.eea.europa.eu/portal_types/RationaleReference#RationaleReference>} UNION ",
     "{?resource a <http://www.eea.europa.eu/portal_types/Report#Report>} UNION ",
-    "{?resource a <http://www.eea.europa.eu/portal_types/SOERKeyFact#SOERKeyFact>} UNION ",
-    "{?resource a <http://www.eea.europa.eu/portal_types/SOERMEssage#SOERMEssage>}  UNION ",
     "{?resource a <http://www.eea.europa.eu/portal_types/File#File>}"
   ],
-  "graphSyncConditions": ["FILTER (str(?graph) = concat(str(?resource), '/@@rdf')). FILTER (?time > xsd:dateTime('1990-01-01T00:00:00')). FILTER (?time < xsd:dateTime('2100-01-01T00:00:00'))"],
+  "graphSyncConditions": ["FILTER (str(?graph) = concat(str(?resource), '/@@rdf')). FILTER (?time > xsd:dateTime('2990-01-01T00:00:00')). FILTER (?time < xsd:dateTime('3100-01-01T00:00:00'))"],
   "syncTimeProp": "http://cr.eionet.europa.eu/ontologies/contreg.rdf#lastRefreshed"
 }

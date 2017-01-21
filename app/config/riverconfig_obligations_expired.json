@@ -30,7 +30,8 @@
     "http://rod.eionet.europa.eu/schema.rdf#lastUpdate":  ["http://purl.org/dc/terms/issued", "year"],
     "http://purl.org/dc/terms/abstract": "http://purl.org/dc/terms/description",
     "http://rod.eionet.europa.eu/schema.rdf#formalReporter": "http://purl.org/dc/terms/spatial",
-    "http://rod.eionet.europa.eu/schema.rdf#requester":["http://purl.org/dc/terms/creator","organisation"]
+    "http://rod.eionet.europa.eu/schema.rdf#requester":["http://purl.org/dc/terms/creator","organisation"],
+    "http://purl.org/dc/terms/title": ["http://purl.org/dc/terms/title","label"]
   },
   "//": "Normalise the properties to the given value",
   "normalisedProperties": {

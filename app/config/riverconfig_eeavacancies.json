@@ -27,7 +27,8 @@
   "listtype": "white",
   "normProp": {
     "http://purl.org/dc/terms/issued": ["http://purl.org/dc/terms/issued", "year"],
-    "http://purl.org/dc/terms/creator": ["creator_cms"]
+    "http://purl.org/dc/terms/creator": ["creator_cms"],
+    "http://purl.org/dc/terms/description": ["http://purl.org/dc/terms/description","label"]
   },
   "//": "Normalise the properties to the given value",
   "normalisedProperties": {

@@ -3,7 +3,7 @@
         "port": 3000
     },
     "elastic": {
-        "index": "rdfdata",
+        "index": "rdfdatadev",
         "type": "resource",
         "enableValuesCounting": true
     },
@@ -72,6 +72,11 @@
                 "id": "eea_organisations",
                 "cluster_name": "EEA Website",
                 "config_file": "riverconfig_organisations.json"
+            },
+            {
+                "id": "eea_messages",
+                "cluster_name": "EEA Website",
+                "config_file": "riverconfig_messages.json"
             }
         ]
     }
