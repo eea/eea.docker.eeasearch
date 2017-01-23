@@ -25,6 +25,20 @@ The content types below needs to have a distinct interface in order to appear in
 
 Other issues or ideas:
 
+FIXED. Fix table view, title and content types.
+
+Remove duplicates in content types column in table view.
+
+FIXED. Search highlighting brakes image results html in list view and cardview. 
+see http://bit.ly/2kaugYl
+
+Climate change adaptation topic has wrong id in:
+http://www.eea.europa.eu/articles/climate-finance-resources-for-low
+vs correct one:
+http://www.eea.europa.eu/signals/signals-2015/articles/soil-and-climate-change
+
+Add topics to key messages, questions (via postharvest in SDS).
+
 Adjust the settings on the facet and add Info bubble.DONE. missing bubble
 
 DONE. Keymessages. use description as title.
@@ -59,9 +73,7 @@ Not possible to have in "normMissing":
 cleanup policy doc refs with no titles like 
 http://www.eea.europa.eu/policy-documents/policydocumentreference.2016-11-29.4416473604
 
-searching for this, gives no results, but it should, see for example microdata
-Map 5.17 CCIV
-http://www.eea.europa.eu/data-and-maps/figures/trend-in-heating-and-cooling/map4-16-68122-trend-in.eps
+searching gives no results on Card or List view.
 
 
 NOTES:

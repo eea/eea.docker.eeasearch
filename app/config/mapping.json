@@ -12,7 +12,6 @@
             "http://purl.org/dc/terms/title",
             "label",
             "http://purl.org/dc/terms/description",
-            "http://www.w3.org/1999/02/22-rdf-syntax-ns#about",
             "http://www.eea.europa.eu/portal_types#topic"
             ],
         "blacklist": []
@@ -143,27 +142,6 @@
                 "visible": false
             },
             "csv_tsv": {
-                "visible": false
-            }
-        },
-        {
-            "name": "http://purl.org/dc/terms/title",
-            "listing": {
-                "title": "",
-                "visible" : true,
-                "pos" : 1,
-                "display": {
-                    "pre": "",
-                    "field": "http://purl.org/dc/terms/title",
-                    "post": "</td>"
-                }
-            },
-            "csv_tsv": {
-                "title": "http://purl.org/dc/terms/title",
-                "visible": true,
-                "pos": 8
-            },
-            "details": {
                 "visible": false
             }
         },
@@ -358,24 +336,24 @@
         {
             "name": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
             "listing": {
-                "title": "Content type",
+                "title": "Content types (standard)",
                 "visible" : true,
                 "pos" : 3
             },
             "csv_tsv": {
-                "title": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
-                "visible": true,
+                "title": "Content types (standard)",
+                "visible": false,
                 "pos": 11
             },
             "details": {
                 "visible": false
             },
             "facet": {
-                "visible": true,
-                "title": "Content types",
+                "visible": false,
+                "title": "Content types (standard)",
                 "pos": 3,
                 "type": "facet",
-                "size": 50000,
+                "size": 50,
                 "min_size": 10,
                 "order": "term",
                 "operator": "OR",
@@ -431,35 +409,68 @@
             "card": {
                 "field": "types",
                 "default": "",
-                "visible": true
+                "visible": false
             },
             "list": {
                 "field": "types",
                 "default": "",
-                "visible": true
+                "visible": false
             }
         },
         {
             "name": "http://www.eea.europa.eu/ontologies.rdf#objectProvides",
             "listing": {
-                "title": "Content type 2",
+                "title": "Content types",
                 "visible" : true,
-                "pos" : 3
+                "pos" : 3,
+                "values_whitelist": [
+                             "Article",
+                             "EEA Job Vacancy",
+                             "Briefing (all)",
+                             "Briefing (Country)",
+                             "News",
+                             "Image",
+                             "File",
+                             "Video",
+                             "Web page",
+                             "Map (interactive)",
+                             "Infographic",
+                             "Data visualisation",
+                             "Data (at EEA)",
+                             "Data table (via SPARQL)",
+                             "Topic/subtopic site",
+                             "Graph (image)",
+                             "Map (image)",
+                             "Publication / Report",
+                             "Microdata (file)",
+                             "Data provider (organisation)",
+                             "Catalogue (search application)",
+                             "Indicator assessment",
+                             "Data (external links)",
+                             "Key message",
+                             "Website main section",
+                             "Organization (Reportnet client)",
+                             "Organization",
+                             "Legislation Instrument",
+                             "References and links",
+                             "Environmental question",
+                             "Reporting obligation"
+                          ]
             },
             "csv_tsv": {
-                "title": "http://www.eea.europa.eu/ontologies.rdf#objectProvides",
+                "title": "Content types",
                 "visible": true,
                 "pos": 11
             },
             "details": {
-                "visible": false
+                "visible": true
             },
             "facet": {
                 "visible": true,
-                "title": "Content types 2",
+                "title": "Content types",
                 "pos": 5,
                 "type": "facet",
-                "size": 50000,
+                "size": 50,
                 "min_size": 10,
                 "order": "term",
                 "operator": "OR",
