@@ -37,6 +37,9 @@ $.fn.landingTile = function(settings) {
     };
 
     this.bind("facet_ready", function (){
+        if (!$("#landing").is(":visible")){
+            return;
+        }
         var options = $(this).data("options");
         var valueSettingsForTile;
         if (options.values !== undefined){
@@ -59,6 +62,9 @@ $.fn.landingTile = function(settings) {
     });
 
     this.bind("custom_ready", function(event, value) {
+        if (!$("#landing").is(":visible")){
+            return;
+        }
         var options = $(this).data("options");
         var valueSettingsForTile;
         if (options.values !== undefined){
@@ -75,6 +81,9 @@ $.fn.landingTile = function(settings) {
     });
 
     this.bind("results_ready", function (){
+        if (!$("#landing").is(":visible")){
+            return;
+        }
         var options = $(this).data("options");
         var valueSettingsForTile;
         if (options.values !== undefined){
@@ -109,6 +118,9 @@ $.fn.landingTile = function(settings) {
     });
 
     this.bind("click", function () {
+        if (!$("#landing").is(":visible")){
+            return;
+        }
         var options = $(this).data("options");
         var $simple_facet;
         if (options.type === "simple"){
