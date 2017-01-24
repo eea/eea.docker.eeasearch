@@ -33,7 +33,9 @@
     "http://purl.org/dc/terms/title": ["http://purl.org/dc/terms/title","label"],
     "http://www.eea.europa.eu/portal_types/Article#text": "text",
     "http://www.eea.europa.eu/portal_types/Sparql#sparql_results": "text",
-    "http://www.eea.europa.eu/portal_types/Collection#text": "text"
+    "http://www.eea.europa.eu/portal_types/Collection#text": "text",
+    "http://www.eea.europa.eu/portal_types/Fiche#text": "text",
+    "http://www.eea.europa.eu/portal_types/Fiche#summary": "http://purl.org/dc/terms/description"
   },
   "//": "Normalise the properties to the given value",
   "normalisedProperties": {
@@ -190,6 +192,7 @@
     "{?resource a <http://www.eea.europa.eu/portal_types/Sparql#Sparql> } UNION ",
     "{?resource a <http://www.eea.europa.eu/portal_types/Topic#Topic> } UNION ",
     "{?resource a <http://www.eea.europa.eu/portal_types/Collection#Collection> } UNION ",
+    "{?resource a <http://www.eea.europa.eu/portal_types/Fiche#Fiche> } UNION ",
     "{?resource a <http://www.eea.europa.eu/portal_types/Article#Article> }"
   ],
   "graphSyncConditions": ["FILTER (str(?graph) = concat(str(?resource), '/@@rdf')). FILTER (?time > xsd:dateTime('1990-01-01T00:00:00')). FILTER (?time < xsd:dateTime('2100-01-01T00:00:00'))"],
