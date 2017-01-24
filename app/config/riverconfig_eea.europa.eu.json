@@ -31,11 +31,16 @@
     "http://purl.org/dc/terms/creator": ["creator_cms"],
     "http://www.eea.europa.eu/portal_types/Event#endDate": ["http://purl.org/dc/terms/expires"],
     "http://purl.org/dc/terms/title": ["http://purl.org/dc/terms/title","label"],
+    "http://www.eea.europa.eu/portal_types/Fiche#summary": "http://purl.org/dc/terms/description",
+    "http://purl.org/dc/terms/abstract": "text",
     "http://www.eea.europa.eu/portal_types/Article#text": "text",
     "http://www.eea.europa.eu/portal_types/Sparql#sparql_results": "text",
     "http://www.eea.europa.eu/portal_types/Collection#text": "text",
     "http://www.eea.europa.eu/portal_types/Fiche#text": "text",
-    "http://www.eea.europa.eu/portal_types/Fiche#summary": "http://purl.org/dc/terms/description"
+    "http://www.eea.europa.eu/portal_types/Data#moreInfo": "text",
+    "http://www.eea.europa.eu/portal_types/Document#text": "text",
+    "http://www.eea.europa.eu/portal_types/PressRelease#text": "text",
+    "http://www.eea.europa.eu/portal_types/Highlight#text": "text"
   },
   "//": "Normalise the properties to the given value",
   "normalisedProperties": {
@@ -193,6 +198,7 @@
     "{?resource a <http://www.eea.europa.eu/portal_types/Topic#Topic> } UNION ",
     "{?resource a <http://www.eea.europa.eu/portal_types/Collection#Collection> } UNION ",
     "{?resource a <http://www.eea.europa.eu/portal_types/Fiche#Fiche> } UNION ",
+    "{?resource a <http://www.eea.europa.eu/portal_types/File#File>} UNION ",
     "{?resource a <http://www.eea.europa.eu/portal_types/Article#Article> }"
   ],
   "graphSyncConditions": ["FILTER (str(?graph) = concat(str(?resource), '/@@rdf')). FILTER (?time > xsd:dateTime('1990-01-01T00:00:00')). FILTER (?time < xsd:dateTime('2100-01-01T00:00:00'))"],

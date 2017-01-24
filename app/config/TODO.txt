@@ -46,7 +46,8 @@ Readability index in RDF and Elastic.
 
 make path of URL under the card visible as a breadcrumb, for example, remove domain name.
 
-make year facet clearer, maybe divide it in "year published" and "time coverage"
+make year facet clearer, maybe divide it in "year published" and "time coverage".
+how shall we add temporal coverage? two facets or one? range facet?
 
 display results on map (kibana?), needed for geo-positioned content
 
@@ -60,7 +61,8 @@ cleanup policy doc refs with no titles like
 http://www.eea.europa.eu/policy-documents/policydocumentreference.2016-11-29.4416473604
 
 Infographic, does not have text, dct:abstract should work.
-SPARQL query has not text. Results and query are both candidate.
+SPARQL query has not text. Results and query are both candidate, added results.
+Indicator has no text.
 
 Enabling text indexing in Article has the side effect that images showed up in
 table view. we should disable this facetview feature.
@@ -69,6 +71,17 @@ DONE. Add old style Collection.	plone.app.collection.interfaces.ICollection
 
 search for "Air quality statistics at reporting stations" then hover on the title
 you will get alt text with highlighting <em> in it. it shall not.
+
+Extra possible facets: relatedItems/references, isPartOf/hasPart, 
+Replaces/IsReplacedBy (related to archived).
+
+copy geotags to another field and show all with countries blacklist.
+Country groups via postharvest?
+
+Add Dashboard Tableau.Add it to SDS postharvest scripts.
+example
+http://www.eea.europa.eu/themes/climate/trends-and-projections-in-europe/country-profiles-greenhouse-gases-and-energy/trends-and-projections-in-eu
+Tell Content Managers to not ues iframe, rather the tableau embed code. 
 
 NOTES:
 all content types interfaces
@@ -80,6 +93,7 @@ all content types interfaces
     "{?resource a <http://www.eea.europa.eu/portal_types/Folder#Folder> } UNION ",
     "{?resource a <http://www.eea.europa.eu/portal_types/Fiche#Fiche> } UNION ",
     "{?resource a <http://www.eea.europa.eu/portal_types/Article#Article> } UNION ",
+    "{?resource a <http://www.eea.europa.eu/portal_types/Dashboard#Dashboard> } UNION ",
     "{?resource a <http://www.eea.europa.eu/portal_types/Assessment#Assessment>} UNION ",
     "{?resource a <http://www.eea.europa.eu/portal_types/CloudVideo#CloudVideo>} UNION ",
     "{?resource a <http://www.eea.europa.eu/portal_types/Data#Data>} UNION ",
