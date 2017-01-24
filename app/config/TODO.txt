@@ -25,42 +25,28 @@ The content types below needs to have a distinct interface in order to appear in
 
 Other issues or ideas:
 
+#81056 Date format in table and tile must be same as card view.
+
 FIXED. Fix table view, title and content types.
 
-Remove duplicates in content types column in table view.
+#81056 Remove duplicates in content types column in table view.
 
 FIXED. Search highlighting brakes image results html in list view and cardview. 
 see http://bit.ly/2kaugYl
 
-Climate change adaptation topic has wrong id in:
-http://www.eea.europa.eu/articles/climate-finance-resources-for-low
-vs correct one:
-http://www.eea.europa.eu/signals/signals-2015/articles/soil-and-climate-change
-
 Add topics to key messages, questions (via postharvest in SDS).
 
-Adjust the settings on the facet and add Info bubble.DONE. missing bubble
+DONE. Adjust the settings on the facet and add Info bubble.
 
 DONE. Keymessages. use description as title.
 
-File and Microdata (file). When selected. to show sub-facet/filters with Metatypes.
-Add Format facet? http://purl.org/dc/terms/format
+DONE. Add Format facet? http://purl.org/dc/terms/format
 
 Readability index in RDF and Elastic.
 
 make path of URL under the card visible as a breadcrumb, for example, remove domain name.
 
-on list view, make preview image column of same width. long urls breakes the design.
-
-remove hardcoded url below thumnail. the url area should be just called "label_1", "label_2"...
-date_1
-
-card design improvement with labels over the image and expanded lower part of card
-http://codepen.io/andytran/pen/BNjymy
-
 make year facet clearer, maybe divide it in "year published" and "time coverage"
-
-DONE. add small ? with hover dialog for explaining the facet settings
 
 display results on map (kibana?), needed for geo-positioned content
 
@@ -73,8 +59,16 @@ Not possible to have in "normMissing":
 cleanup policy doc refs with no titles like 
 http://www.eea.europa.eu/policy-documents/policydocumentreference.2016-11-29.4416473604
 
-searching gives no results on Card or List view.
+Infographic, does not have text, dct:abstract should work.
+SPARQL query has not text. Results and query are both candidate.
 
+Enabling text indexing in Article has the side effect that images showed up in
+table view. we should disable this facetview feature.
+
+DONE. Add old style Collection.	plone.app.collection.interfaces.ICollection
+
+search for "Air quality statistics at reporting stations" then hover on the title
+you will get alt text with highlighting <em> in it. it shall not.
 
 NOTES:
 all content types interfaces
