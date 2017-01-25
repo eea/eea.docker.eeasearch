@@ -9,6 +9,7 @@
     },
     "language" : {
       "type" : "string",
+      "null_value" : "en",
       "analyzer" : "none"
     },
     "organisation" : {
@@ -26,6 +27,7 @@
     },
     "http://www.eea.europa.eu/ontologies.rdf#objectProvides" : {
       "type" : "string",
+      "null_value" : "Other",
       "analyzer" : "none"
     },
     "http://purl.org/dc/terms/spatial" : {
@@ -50,6 +52,7 @@
     },
     "year" : {
       "type" : "string",
+      "null_value" : "Unknown",
       "analyzer" : "date2year"
     },
     "http://purl.org/dc/terms/format": {
@@ -63,5 +66,9 @@
         "index" : {"type" : "string", "analyzer" : "none"},
         "label": {"type": "string", "index": "not_analyzed"}
       }
+    },
+    "text" : {
+      "type" : "string",
+      "analyzer" : "none"
     }
 }

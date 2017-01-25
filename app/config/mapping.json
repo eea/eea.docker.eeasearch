@@ -355,7 +355,7 @@
                 "visible": false
             },
             "facet": {
-                "visible": false,
+                "visible": true,
                 "title": "Content types (standard)",
                 "pos": 3,
                 "type": "facet",
@@ -369,6 +369,7 @@
                               "Promotion",
                               "Article",
                               "Eco-Tip",
+                              "Collection",
                               "Image",
                               "Video",
                               "Report",
@@ -511,7 +512,8 @@
                              "Legislation Instrument",
                              "References and links",
                              "Environmental question",
-                             "Reporting obligation"
+                             "Reporting obligation",
+                             "Collections and lists"
                           ],
                 "facet_display_options": ["sort", "checkbox"]
             }
