@@ -83,6 +83,12 @@ example
 http://www.eea.europa.eu/themes/climate/trends-and-projections-in-europe/country-profiles-greenhouse-gases-and-energy/trends-and-projections-in-eu
 Tell Content Managers to not ues iframe, rather the tableau embed code. 
 
+Show sparql data table on hover and on listing where the description would be.
+
+Sparql geocoverage with alchemy? or postharvest script?
+
+In mobile view, searching will not show facets.
+
 NOTES:
 all content types interfaces
 
