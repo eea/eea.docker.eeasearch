@@ -258,6 +258,8 @@
         {
             "name": "http://purl.org/dc/terms/issued",
             "listing": {
+                "type": "date",
+                "format": "dd M yy",
                 "title": "Issued",
                 "visible" : true,
                 "pos" : 6
@@ -271,12 +273,16 @@
                 "visible": false
             },
             "card": {
-                "field": "datestamp",
+                "type": "date",
+                "format": "dd M yy",
+                "field": "date",
                 "default": "",
                 "visible": true
             },
             "list": {
-                "field": "datestamp",
+                "type": "date",
+                "format": "dd M yy",
+                "field": "date",
                 "default": "",
                 "visible": true
             }
