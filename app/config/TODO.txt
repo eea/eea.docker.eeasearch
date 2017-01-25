@@ -78,7 +78,7 @@ Replaces/IsReplacedBy (related to archived).
 copy geotags to another field and show all with countries blacklist.
 Country groups via postharvest?
 
-Add Dashboard Tableau.Add it to SDS postharvest scripts.
+DONE. Add Dashboard Tableau.Add it to SDS postharvest scripts.
 example
 http://www.eea.europa.eu/themes/climate/trends-and-projections-in-europe/country-profiles-greenhouse-gases-and-energy/trends-and-projections-in-eu
 Tell Content Managers to not ues iframe, rather the tableau embed code. 
@@ -88,6 +88,11 @@ Show sparql data table on hover and on listing where the description would be.
 Sparql geocoverage with alchemy? or postharvest script?
 
 In mobile view, searching will not show facets.
+
+Add in SDS, linking for http://www.eea.europa.eu/portal_vocabularies/themes/climate and
+the object http://www.eea.europa.eu/themes/climate, e.g. foaf:homepage
+add "http://www.eea.europa.eu/portal_types#topic" in ontologies.rdf as reference to a 
+sub-class of eeatopic/concept.
 
 NOTES:
 all content types interfaces
