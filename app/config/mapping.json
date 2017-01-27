@@ -175,12 +175,14 @@
             "card": {
                 "field": "topics",
                 "default": "",
-                "visible": true
+                "visible": true,
+                "type": "list"
             },
             "list": {
                 "field": "topics",
                 "default": "",
-                "visible": true
+                "visible": true,
+                "type": "list"
             }
         },
         {
@@ -303,12 +305,14 @@
             "card": {
                 "field": "description",
                 "default": "",
-                "visible": true
+                "visible": true,
+                "type": "simple"
             },
             "list": {
                 "field": "description",
                 "default": "",
-                "visible": true
+                "visible": true,
+                "type": "simple"
             }
         },
         {
@@ -574,12 +578,14 @@
             "card": {
                 "field": "url",
                 "default": "",
-                "visible": true
+                "visible": true,
+                "type": "simple"
             },
             "list": {
                 "field": "url",
                 "default": "",
-                "visible": true
+                "visible": true,
+                "type": "simple"
             }
         },
         {
@@ -688,12 +694,14 @@
             "card": {
                 "field": "title",
                 "default": "",
-                "visible": true
+                "visible": true,
+                "type" : "simple"
             },
             "list": {
                 "field": "title",
                 "default": "",
-                "visible": true
+                "visible": true,
+                "simple" : true
             }
         }
     ]
