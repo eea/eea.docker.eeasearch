@@ -86,6 +86,8 @@ Tell Content Managers to not ues iframe, rather the tableau embed code.
 Show sparql data table on hover and on listing where the description would be.
 
 Sparql geocoverage with alchemy? or postharvest script?
+Sparql missing topic and organisation.
+
 
 In mobile view, searching will not show facets.
 
@@ -94,9 +96,31 @@ the object http://www.eea.europa.eu/themes/climate, e.g. foaf:homepage
 add "http://www.eea.europa.eu/portal_types#topic" in ontologies.rdf as reference to a 
 sub-class of eeatopic/concept.
 
+EEAFigure has not format. we could take it from the EEAFigureFile inside.
+IF above is done, EEAFigureFile can be removed.
+
+For CM. Many briefings do not have tags,geotags,topics (all) and temporal coverage.
+need to make fields required.
+
+For CM. Some collections misses Topics.
+
+For DATA, in SDS, add all organisations, owner and processor. tell mauro, missing
+processor on CLC datasets like http://www.eea.europa.eu/data-and-maps/data/clc-2000-raster-4
+
+For Data external links. we miss organisation involved.
+
+Data providers missing topic.
+
+Data visualisations missing organisations.
+
+Policy question missing the topics.
+
 NOTES:
 all content types interfaces
 
+    "{?resource a <http://www.eea.europa.eu/portal_types/Topic#Topic> } UNION ",
+    "{?resource a <http://www.eea.europa.eu/portal_types/Collection#Collection> } UNION ",
+    "{?resource a <http://www.eea.europa.eu/portal_types/File#File>} UNION ",
     "{?resource a <http://www.eea.europa.eu/portal_types/Infographic#Infographic> } UNION ",
     "{?resource a <http://www.eea.europa.eu/portal_types/Sparql#Sparql> } UNION ",
     "{?resource a <http://www.eea.europa.eu/portal_types/Topic#Topic> } UNION ",
@@ -131,4 +155,5 @@ all content types interfaces
     "{?resource a <http://www.eea.europa.eu/portal_types/Report#Report>} UNION ",
     "{?resource a <http://www.eea.europa.eu/portal_types/Organisation#Organisation>} UNION ",
     "{?resource a <http://www.eea.europa.eu/portal_types/SOERKeyFact#SOERKeyFact>} UNION ",
+    "{?resource a <http://www.eea.europa.eu/portal_types/KeyMessage#KeyMessage>} UNION ",
     "{?resource a <http://www.eea.europa.eu/portal_types/SOERMEssage#SOERMEssage>}"
