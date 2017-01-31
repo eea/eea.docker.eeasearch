@@ -265,6 +265,7 @@ jQuery(document).ready(function($) {
       from: 0,
       size: 20
     },
+    display_images: false,
     display_type: 'card',
     highlight_enabled: eea_mapping.highlights.enabled,
     highlight_whitelist: eea_mapping.highlights.whitelist,
