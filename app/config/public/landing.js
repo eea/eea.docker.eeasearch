@@ -62,7 +62,7 @@ jQuery(document).ready(function($) {
         $.fn.facetview.dosearch({remove_landing: true});
     });
 
-    var itemTemplate='<li><a href="${http://www.w3.org/1999/02/22-rdf-syntax-ns#about}">${http://purl.org/dc/terms/title}</a><span>Published on </span><span>${http://purl.org/dc/terms/issued}</span></li>'
+    var itemTemplate='<li><a href="${http://www.w3.org/1999/02/22-rdf-syntax-ns#about}">${label}</a><span>Published on </span><span>${http://purl.org/dc/terms/issued}</span></li>'
 
     $(".landing_tile .eea_tile.latest_objects").landingTile(
         {
