@@ -153,27 +153,6 @@ function add_iframe() {
   }
 }
 
-function build_hierarchy(facets) {
-    var hierarchy = {};
-    for (var i = 0; i < facets.length; i++){
-        var key = facets[i].field
-        var new_item = [];
-        for (var j = 0; j < eea_mapping.facets.length; j++){
-            if (eea_mapping.facets[j].name === key){
-                if (eea_mapping.facets[j].values_whitelist !== undefined){
-                    var values = {}
-                    for (var k = 0; k < eea_mapping.facets[j].values_whitelist.length; k++){
-                        values[eea_mapping.facets[j].values_whitelist[k]] = []
-                    }
-                    new_item.push(values);
-                }
-            }
-        }
-        hierarchy[key] = new_item;
-    }
-    return hierarchy;
-}
-
 jQuery(document).ready(function($) {
   var url = $(location).attr('href');
   var hide_expired = true;
@@ -211,7 +190,6 @@ jQuery(document).ready(function($) {
     ];
 
 
-  var appHierarchy = build_hierarchy(buildFacets(eea_mapping.facets).facets);
   var tmp_predefined_filters = [];
   tmp_predefined_filters = tmp_predefined_filters.concat(predefined_filters);
   if (hide_expired){
@@ -242,7 +220,6 @@ jQuery(document).ready(function($) {
     no_results_message: 'Your search did not return any results',
     add_undefined: true,
     predefined_filters: tmp_predefined_filters,
-    hierarchy: appHierarchy,
     pager_on_top: true,
     permanent_filters: true,
     post_init_callback: function() {
