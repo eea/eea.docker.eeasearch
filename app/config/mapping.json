@@ -400,7 +400,7 @@
             "facet": {
                 "allow_exact": true,
                 "visible": true,
-                "title": "Places",
+                "title": "Places/Regions/Cities/Seas...",
                 "pos": 2,
                 "type": "facet",
                 "size": 100,

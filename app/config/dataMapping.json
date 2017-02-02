@@ -34,6 +34,10 @@
       "type" : "string",
       "analyzer" : "none"
     },
+    "places" : {
+      "type" : "string",
+      "analyzer" : "none"
+    },
     "http://purl.org/dc/terms/creator" : {
       "type" : "string",
       "analyzer" : "none"
@@ -68,6 +72,10 @@
       }
     },
     "text" : {
+      "type" : "string",
+      "analyzer" : "none"
+    },
+    "http://purl.org/dc/terms/references" : {
       "type" : "string",
       "analyzer" : "none"
     }
