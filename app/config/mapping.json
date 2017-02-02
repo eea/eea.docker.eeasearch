@@ -416,16 +416,6 @@
                               "Work Item"
                           ],
                 "facet_display_options": ["sort", "checkbox"]
-            },
-            "card": {
-                "field": "types",
-                "default": "",
-                "visible": false
-            },
-            "list": {
-                "field": "types",
-                "default": "",
-                "visible": false
             }
         },
         {
@@ -520,6 +510,16 @@
                              "Collections and lists"
                           ],
                 "facet_display_options": ["sort", "checkbox"]
+            },
+            "card": {
+                "field": "types",
+                "default": "",
+                "visible": true
+            },
+            "list": {
+                "field": "types",
+                "default": "",
+                "visible": true
             }
         },
         {
