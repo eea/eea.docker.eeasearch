@@ -27,11 +27,11 @@ Other issues or ideas:
 
 #81705 the content type image fallback is not working anymore. mapping.json L20
 
-#81056 Date format in table and tile must be same as card view.
+FIXED. #81058 Date format in table and tile must be same as card view.
 
 FIXED. Fix table view, title and content types.
 
-#81056 Remove duplicates in content types column in table view.
+FIXED. #81058 Remove duplicates in content types column in table view.
 
 FIXED. Search highlighting brakes image results html in list view and cardview. 
 see http://bit.ly/2kaugYl
