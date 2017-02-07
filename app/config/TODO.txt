@@ -25,7 +25,7 @@ The content types below needs to have a distinct interface in order to appear in
 
 Other issues or ideas:
 
-#81705 the content type image fallback is not working anymore. mapping.json L20
+FIXED. #81705 the content type image fallback is not working anymore. mapping.json L20
 
 FIXED. #81058 Date format in table and tile must be same as card view.
 
@@ -64,12 +64,12 @@ FIXED. Infographic, does not have text, dct:abstract should work.
 FIXED. SPARQL query has not text. Results and query are both candidate, added results.
 FIXED. Indicator has no text.
 
-#81304 Enabling text indexing in Article has the side effect that images showed up in
+FIXED. #81304 Enabling text indexing in Article has the side effect that images showed up in
 table view. we should disable this facetview feature.
 
 DONE. Add old style Collection.	plone.app.collection.interfaces.ICollection
 
-search for "Air quality statistics at reporting stations" then hover on the title
+FIXED. search for "Air quality statistics at reporting stations" then hover on the title
 you will get alt text with highlighting <em> in it. it shall not.
 
 copy geotags to another field and show all with countries blacklist.
@@ -113,7 +113,7 @@ Data visualisations missing organisations.
 
 Policy question missing the topics.
 
-#81305 facet values_whitelist is not documented. values_blacklist does not seems to exist.
+FIXED. #81305 facet values_whitelist is not documented. values_blacklist does not seems to exist.
 
 geotag label is just 16, see
 http://www.eea.europa.eu/about-us/documents/eea-budgets/budget-of-the-european-environment-agency-for-the-financial-year-2011
