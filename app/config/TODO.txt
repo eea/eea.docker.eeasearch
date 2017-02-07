@@ -25,11 +25,13 @@ The content types below needs to have a distinct interface in order to appear in
 
 Other issues or ideas:
 
-#81056 Date format in table and tile must be same as card view.
+FIXED. #81705 the content type image fallback is not working anymore. mapping.json L20
+
+FIXED. #81058 Date format in table and tile must be same as card view.
 
 FIXED. Fix table view, title and content types.
 
-#81056 Remove duplicates in content types column in table view.
+FIXED. #81058 Remove duplicates in content types column in table view.
 
 FIXED. Search highlighting brakes image results html in list view and cardview. 
 see http://bit.ly/2kaugYl
@@ -43,8 +45,6 @@ DONE. Keymessages. use description as title.
 DONE. Add Format facet? http://purl.org/dc/terms/format
 
 Readability index in RDF and Elastic.
-
-make path of URL under the card visible as a breadcrumb, for example, remove domain name.
 
 make year facet clearer, maybe divide it in "year published" and "time coverage".
 how shall we add temporal coverage? two facets or one? range facet?
@@ -60,20 +60,17 @@ Not possible to have in "normMissing":
 cleanup policy doc refs with no titles like 
 http://www.eea.europa.eu/policy-documents/policydocumentreference.2016-11-29.4416473604
 
-Infographic, does not have text, dct:abstract should work.
-SPARQL query has not text. Results and query are both candidate, added results.
-Indicator has no text.
+FIXED. Infographic, does not have text, dct:abstract should work.
+FIXED. SPARQL query has not text. Results and query are both candidate, added results.
+FIXED. Indicator has no text.
 
-Enabling text indexing in Article has the side effect that images showed up in
+FIXED. #81304 Enabling text indexing in Article has the side effect that images showed up in
 table view. we should disable this facetview feature.
 
 DONE. Add old style Collection.	plone.app.collection.interfaces.ICollection
 
-search for "Air quality statistics at reporting stations" then hover on the title
+FIXED. search for "Air quality statistics at reporting stations" then hover on the title
 you will get alt text with highlighting <em> in it. it shall not.
-
-Extra possible facets: relatedItems/references, isPartOf/hasPart, 
-Replaces/IsReplacedBy (related to archived).
 
 copy geotags to another field and show all with countries blacklist.
 Country groups via postharvest?
@@ -88,6 +85,7 @@ Show sparql data table on hover and on listing where the description would be.
 Sparql geocoverage with alchemy? or postharvest script?
 Sparql missing topic and organisation.
 
+Geotags normalisation e.g. Bosnia and Herzegovina vs Bosnia-Herzegovina
 
 In mobile view, searching will not show facets.
 
@@ -114,6 +112,12 @@ Data providers missing topic.
 Data visualisations missing organisations.
 
 Policy question missing the topics.
+
+FIXED. #81305 facet values_whitelist is not documented. values_blacklist does not seems to exist.
+
+geotag label is just 16, see
+http://www.eea.europa.eu/about-us/documents/eea-budgets/budget-of-the-european-environment-agency-for-the-financial-year-2011
+and in SDS.
 
 NOTES:
 all content types interfaces
