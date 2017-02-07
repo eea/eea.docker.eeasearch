@@ -74,6 +74,7 @@
     "Schweiz" : "Switzerland",
     "Dnemark" : "Denmark",
     "Bulgarien" : "Bulgaria",
+    "The Netherlands" : "Netherlands",
     "Default" : "Various other issues",
     "Collection - old style" : "Collection",
     "http://www.eea.europa.eu/portal_vocabularies/themes/acidification" : "Air pollution",
@@ -148,7 +149,8 @@
     "http://purl.org/dc/terms/issued": "2000-01-01",
     "http://purl.org/dc/terms/title": "Title n/a",
     "http://purl.org/dc/terms/format": "text/html",
-    "http://www.eea.europa.eu/ontologies.rdf#objectProvides": "Legislation Instrument"
+    "http://www.eea.europa.eu/ontologies.rdf#objectProvides": "Legislation Instrument",
+    "places" : "unknown"
   },
   "//": "Sync conditions",
   "syncConditions": [

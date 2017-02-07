@@ -74,6 +74,7 @@
     "Schweiz" : "Switzerland",
     "Dnemark" : "Denmark",
     "Bulgarien" : "Bulgaria",
+    "The Netherlands" : "Netherlands",
     "Default" : "Various other issues",
     "Collection - old style" : "Collection",
     "Products.ATContentTypes.interfaces.interfaces.IATContentType": "EEA Job Vacancy",
@@ -106,7 +107,8 @@
     "http://purl.org/dc/terms/title": "Title n/a",
     "http://purl.org/dc/terms/creator": "European Environment Agency",
     "organisation": "European Environment Agency",
-    "http://purl.org/dc/terms/format": "text/html"
+    "http://purl.org/dc/terms/format": "text/html",
+    "places" : "unknown"
   },
   "//": "Sync conditions",
   "syncConditions": [
