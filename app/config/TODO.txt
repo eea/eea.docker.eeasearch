@@ -132,6 +132,8 @@ when a user type a term or phrases in the search box, the system will suggest
 terms, useful for autocompletion or for fixing mispelling. 
 This feature is somewhat related/reusable for the facet suggester (aka typeahead).
 
+new feature: geo facet search via map widget.
+
 
 NOTES:
 all content types interfaces
