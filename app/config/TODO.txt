@@ -97,8 +97,8 @@ sub-class of eeatopic/concept.
 EEAFigure has not format. we could take it from the EEAFigureFile inside.
 IF above is done, EEAFigureFile can be removed.
 
-For CM. Many briefings do not have tags,geotags,topics (all) and temporal coverage.
-need to make fields required.
+DONE. For CM. Many briefings do not have tags,geotags,topics (all) and temporal coverage.
+need to make fields required. Briefings reindexed in SDS.
 
 For CM. Some collections misses Topics.
 
@@ -118,6 +118,20 @@ FIXED. #81305 facet values_whitelist is not documented. values_blacklist does no
 geotag label is just 16, see
 http://www.eea.europa.eu/about-us/documents/eea-budgets/budget-of-the-european-environment-agency-for-the-financial-year-2011
 and in SDS.
+
+if you select Data (external links) only two rows are showen in table view, instead of 20.
+
+make user friendly name of languages, instead of ISO code.
+
+rename legislation instruments to legislation. improve types in general.
+maybe merge with Policy document references.
+
+new feature: implement search suggestions
+see https://www.elastic.co/guide/en/elasticsearch/reference/1.7/search-suggesters.html
+when a user type a term or phrases in the search box, the system will suggest
+terms, useful for autocompletion or for fixing mispelling. 
+This feature is somewhat related/reusable for the facet suggester (aka typeahead).
+
 
 NOTES:
 all content types interfaces
