@@ -379,7 +379,8 @@
                 "Uzbekistan", "Vatican City", "Saint Vincent and the Grenadines", "Venezuela", "British Virgin Islands",
                 "U.S. Virgin Islands", "Vietnam", "Vanuatu", "Wallis and Futuna", "Samoa", "Kosovo (UNSCR 1244/99)",
                 "Yemen", "Mayotte", "South Africa", "Zambia", "Zimbabwe", "Russia", "Czechia", "Kosovo", "Macedonia", 
-                "Former Yugoslav Republic of Macedonia, the", "Macedonia (FYR)"]
+                "Former Yugoslav Republic of Macedonia, the", "Macedonia (FYR)","England" ,"Scotland","Wales","Northern Ireland",
+                "Congo"]
             }
         },
         {
@@ -400,12 +401,12 @@
             "facet": {
                 "allow_exact": true,
                 "visible": true,
-                "title": "Places/Regions/Cities/Seas...",
+                "title": "Regions/Places/Cities/Seas...",
                 "pos": 2,
                 "type": "facet",
                 "size": 100,
                 "min_size": 10,
-                "order": "term",
+                "order": "reverse_count",
                 "operator": "OR",
                 "facet_display_options": ["sort", "checkbox"],
                 "values_blacklist":[
@@ -446,7 +447,8 @@
                 "Uzbekistan", "Vatican City", "Saint Vincent and the Grenadines", "Venezuela", "British Virgin Islands",
                 "U.S. Virgin Islands", "Vietnam", "Vanuatu", "Wallis and Futuna", "Samoa", "Kosovo (UNSCR 1244/99)",
                 "Yemen", "Mayotte", "South Africa", "Zambia", "Zimbabwe", "Russia", "Czechia", "Kosovo", "Macedonia", 
-                "Former Yugoslav Republic of Macedonia, the", "Macedonia (FYR)"]
+                "Former Yugoslav Republic of Macedonia, the", "Macedonia (FYR)","England" ,"Scotland","Wales","Northern Ireland",
+                "Congo"]
             }
         },
         {
