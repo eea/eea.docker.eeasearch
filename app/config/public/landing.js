@@ -55,10 +55,12 @@ jQuery(document).ready(function($) {
     );
 
     $(".mobile_tiles").click(function (ev) {
+        ev.preventDefault();
         $.fn.facetview.dosearch({remove_landing: true});
     });
 
     $(".show_all_results").click(function (ev) {
+        ev.preventDefault();
         $.fn.facetview.dosearch({remove_landing: true});
     });
 
