@@ -139,6 +139,8 @@ http://www.eea.europa.eu/themes/regions/pan-european/virtual-library
 
 Recently added has stopped working.
 
+remove "6","8" and other digits from places blacklist once geotags are fine in SDS.
+
 
 NOTES:
 all content types interfaces
