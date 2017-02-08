@@ -97,8 +97,8 @@ sub-class of eeatopic/concept.
 EEAFigure has not format. we could take it from the EEAFigureFile inside.
 IF above is done, EEAFigureFile can be removed.
 
-For CM. Many briefings do not have tags,geotags,topics (all) and temporal coverage.
-need to make fields required.
+DONE. For CM. Many briefings do not have tags,geotags,topics (all) and temporal coverage.
+need to make fields required. Briefings reindexed in SDS.
 
 For CM. Some collections misses Topics.
 
@@ -118,6 +118,22 @@ FIXED. #81305 facet values_whitelist is not documented. values_blacklist does no
 geotag label is just 16, see
 http://www.eea.europa.eu/about-us/documents/eea-budgets/budget-of-the-european-environment-agency-for-the-financial-year-2011
 and in SDS.
+
+if you select Data (external links) only two rows are showen in table view, instead of 20.
+
+make user friendly name of languages, instead of ISO code.
+
+rename legislation instruments to legislation. improve types in general.
+maybe merge with Policy document references.
+
+new feature: implement search suggestions
+see https://www.elastic.co/guide/en/elasticsearch/reference/1.7/search-suggesters.html
+when a user type a term or phrases in the search box, the system will suggest
+terms, useful for autocompletion or for fixing mispelling. 
+This feature is somewhat related/reusable for the facet suggester (aka typeahead).
+
+new feature: geo facet search via map widget.
+
 
 NOTES:
 all content types interfaces
@@ -161,3 +177,41 @@ all content types interfaces
     "{?resource a <http://www.eea.europa.eu/portal_types/SOERKeyFact#SOERKeyFact>} UNION ",
     "{?resource a <http://www.eea.europa.eu/portal_types/KeyMessage#KeyMessage>} UNION ",
     "{?resource a <http://www.eea.europa.eu/portal_types/SOERMEssage#SOERMEssage>}"
+    
+    
+Used only for riverconfig_eea.europa.eu:
+
+    "{?resource a <http://www.eea.europa.eu/portal_types/Topic#Topic> } UNION ",
+    "{?resource a <http://www.eea.europa.eu/portal_types/Collection#Collection> } UNION ",
+    "{?resource a <http://www.eea.europa.eu/portal_types/File#File>} UNION ",
+    "{?resource a <http://www.eea.europa.eu/portal_types/Infographic#Infographic> } UNION ",
+    "{?resource a <http://www.eea.europa.eu/portal_types/Sparql#Sparql> } UNION ",
+    "{?resource a <http://www.eea.europa.eu/portal_types/Topic#Topic> } UNION ",
+    "{?resource a <http://www.eea.europa.eu/portal_types/Collection#Collection> } UNION ",
+    "{?resource a <http://www.eea.europa.eu/portal_types/Folder#Folder> } UNION ",
+    "{?resource a <http://www.eea.europa.eu/portal_types/Fiche#Fiche> } UNION ",
+    "{?resource a <http://www.eea.europa.eu/portal_types/Article#Article> } UNION ",
+    "{?resource a <http://www.eea.europa.eu/portal_types/Dashboard#Dashboard> } UNION ",
+    "{?resource a <http://www.eea.europa.eu/portal_types/Assessment#Assessment>} UNION ",
+    "{?resource a <http://www.eea.europa.eu/portal_types/CloudVideo#CloudVideo>} UNION ",
+    "{?resource a <http://www.eea.europa.eu/portal_types/Data#Data>} UNION ",
+    "{?resource a <http://www.eea.europa.eu/portal_types/DavizVisualization#DavizVisualization>} UNION ",
+    "{?resource a <http://www.eea.europa.eu/portal_types/Document#Document>} UNION ",
+    "{?resource a <http://www.eea.europa.eu/portal_types/EEAFigure#EEAFigure>} UNION ",
+    "{?resource a <http://www.eea.europa.eu/portal_types/EEAFigureFile#EEAFigureFile>} UNION ",
+    "{?resource a <http://www.eea.europa.eu/portal_types/EcoTip#EcoTip>} UNION ",
+    "{?resource a <http://www.eea.europa.eu/portal_types/Event#Event>} UNION ",
+    "{?resource a <http://www.eea.europa.eu/portal_types/ExternalDataSpec#ExternalDataSpec>} UNION ",
+    "{?resource a <http://www.eea.europa.eu/portal_types/GIS%20Application#GISApplication>} UNION ",
+    "{?resource a <http://www.eea.europa.eu/portal_types/Highlight#Highlight>} UNION ",
+    "{?resource a <http://www.eea.europa.eu/portal_types/Image#Image>} UNION ",
+    "{?resource a <http://www.eea.europa.eu/portal_types/KeyMessage#KeyMessage>} UNION ",
+    "{?resource a <http://www.eea.europa.eu/portal_types/Link#Link>} UNION ",
+    "{?resource a <http://www.eea.europa.eu/portal_types/MethodologyReference#MethodologyReference>} UNION ",
+    "{?resource a <http://www.eea.europa.eu/portal_types/PolicyDocumentReference#PolicyDocumentReference>} UNION ",
+    "{?resource a <http://www.eea.europa.eu/portal_types/PolicyQuestion#PolicyQuestion>} UNION ",
+    "{?resource a <http://www.eea.europa.eu/portal_types/PressRelease#PressRelease>} UNION ",
+    "{?resource a <http://www.eea.europa.eu/portal_types/Promotion#Promotion>} UNION ",
+    "{?resource a <http://www.eea.europa.eu/portal_types/QuickEvent#QuickEvent>} UNION ",
+    "{?resource a <http://www.eea.europa.eu/portal_types/RationaleReference#RationaleReference>} UNION ",
+    "{?resource a <http://www.eea.europa.eu/portal_types/Report#Report>}"
