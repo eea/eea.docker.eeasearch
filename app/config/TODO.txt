@@ -134,6 +134,13 @@ This feature is somewhat related/reusable for the facet suggester (aka typeahead
 
 new feature: geo facet search via map widget.
 
+Import AoA db as RDF in SDS. Together with SERIS migration project.
+http://www.eea.europa.eu/themes/regions/pan-european/virtual-library
+
+Recently added has stopped working.
+
+remove "6","8" and other digits from places blacklist once geotags are fine in SDS.
+
 
 NOTES:
 all content types interfaces
