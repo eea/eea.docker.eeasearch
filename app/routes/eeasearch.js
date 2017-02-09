@@ -41,4 +41,5 @@ exports.index = function(req, res){
   searchServer.EEAFacetFramework.render(req, res, 'index', options);
 };
 
-exports.details = searchServer.builtinRoutes.details
+exports.details = searchServer.builtinRoutes.details;
+exports.setlandingvalue = searchServer.builtinRoutes.setlandingvalue;
