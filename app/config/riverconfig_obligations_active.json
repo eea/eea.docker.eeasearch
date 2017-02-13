@@ -28,8 +28,8 @@
    "//": "Normalise Properties uris, imitate owl:sameAs or when you want to use a property instead of another",
   "normProp": {
     "http://rod.eionet.europa.eu/schema.rdf#lastUpdate":  ["http://purl.org/dc/terms/issued", "year"],
-    "http://purl.org/dc/terms/abstract": "http://purl.org/dc/terms/description",
-    "http://rod.eionet.europa.eu/schema.rdf#formalReporter": "http://purl.org/dc/terms/spatial",
+    "http://purl.org/dc/terms/abstract": ["http://purl.org/dc/terms/description","text"],
+    "http://rod.eionet.europa.eu/schema.rdf#formalReporter": ["http://purl.org/dc/terms/spatial","places"],
     "http://rod.eionet.europa.eu/schema.rdf#requester":["http://purl.org/dc/terms/creator","organisation"],
     "http://purl.org/dc/terms/title": ["http://purl.org/dc/terms/title","label"]
   },
@@ -66,12 +66,17 @@
     "Kosovo under UNSCR 1244/99" : "Kosovo (UNSCR 1244/99)",
     "Macedonia" : "Former Yugoslav Republic of Macedonia, the",
     "Macedonia (FYR)": "Former Yugoslav Republic of Macedonia, the",
+    "Macedonia (ARYM)": "Former Yugoslav Republic of Macedonia, the",
+    "The Former Yugoslav Republic of Macedonia": "Former Yugoslav Republic of Macedonia, the",
+    "The former Yugoslav Republic of Macedonia":  "Former Yugoslav Republic of Macedonia, the",
+    "Macedonia, the Former Yugoslav Republic of": "Former Yugoslav Republic of Macedonia, the",
     "Bosnia-Herzegovina" : "Bosnia and Herzegovina",
     "Republic of the Congo" : "Congo",
     "DR Congo" : "Democratic Republic of the Congo",
     "Schweiz" : "Switzerland",
     "Dnemark" : "Denmark",
     "Bulgarien" : "Bulgaria",
+    "The Netherlands" : "Netherlands",
     "Default" : "Various other issues",
     "Collection - old style" : "Collection",
     "http://rod.eionet.europa.eu/spatial/76" : "value not available",
@@ -147,7 +152,8 @@
     "http://purl.org/dc/terms/issued": "2000-01-01",
     "http://purl.org/dc/terms/title": "Title n/a",
     "http://purl.org/dc/terms/format": "text/html",
-    "http://www.eea.europa.eu/ontologies.rdf#objectProvides": "Reporting obligation"
+    "http://www.eea.europa.eu/ontologies.rdf#objectProvides": "Reporting obligation",
+    "places" : "unknown"
   },
   "//": "Sync conditions",
   "syncConditions": [

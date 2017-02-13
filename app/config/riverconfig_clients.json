@@ -28,8 +28,8 @@
    "//": "Normalise Properties uris, imitate owl:sameAs or when you want to use a property instead of another",
   "normProp": {
     "http://rod.eionet.europa.eu/schema.rdf#lastUpdate" : "http://purl.org/dc/terms/issued",
-    "http://purl.org/dc/terms/abstract": "http://purl.org/dc/terms/description",
-    "http://rod.eionet.europa.eu/schema.rdf#clientCountry": "http://purl.org/dc/terms/spatial",
+    "http://purl.org/dc/terms/abstract": ["http://purl.org/dc/terms/description","text"],
+    "http://rod.eionet.europa.eu/schema.rdf#clientCountry": ["http://purl.org/dc/terms/spatial","places"],
     "http://xmlns.com/foaf/0.1/name": ["http://purl.org/dc/terms/title","organisation","label"]
   },
   "//": "Normalise the properties to the given value",
@@ -65,12 +65,16 @@
     "Kosovo under UNSCR 1244/99" : "Kosovo (UNSCR 1244/99)",
     "Macedonia" : "Former Yugoslav Republic of Macedonia, the",
     "Macedonia (FYR)": "Former Yugoslav Republic of Macedonia, the",
+    "Macedonia (ARYM)": "Former Yugoslav Republic of Macedonia, the",
+    "The Former Yugoslav Republic of Macedonia": "Former Yugoslav Republic of Macedonia, the",
+    "Macedonia, the Former Yugoslav Republic of": "Former Yugoslav Republic of Macedonia, the",
     "Bosnia-Herzegovina" : "Bosnia and Herzegovina",
     "Republic of the Congo" : "Congo",
     "DR Congo" : "Democratic Republic of the Congo",
     "Schweiz" : "Switzerland",
     "Dnemark" : "Denmark",
     "Bulgarien" : "Bulgaria",
+    "The Netherlands" : "Netherlands",
     "Default" : "Various other issues",
     "Collection - old style" : "Collection",
     "Reportnet client" : "Organization (Reportnet client)",
@@ -147,7 +151,8 @@
     "http://purl.org/dc/terms/issued": "2000-01-01",
     "http://purl.org/dc/terms/title": "Title n/a",
     "http://purl.org/dc/terms/format": "text/html",
-    "http://www.eea.europa.eu/ontologies.rdf#objectProvides": "Organization (Reportnet client)"
+    "http://www.eea.europa.eu/ontologies.rdf#objectProvides": ["Organization (Reportnet client)", "Organization"],
+    "places" : "unknown"
   },
   "//": "Sync conditions",
   "syncConditions": [

@@ -28,7 +28,9 @@
   "normProp": {
     "http://purl.org/dc/terms/issued": ["http://purl.org/dc/terms/issued", "year"],
     "http://purl.org/dc/terms/creator": ["http://purl.org/dc/terms/creator", "creator_cms"],
-    "http://purl.org/dc/terms/title": ["organisation", "http://purl.org/dc/terms/title","label"]
+    "http://purl.org/dc/terms/title": ["organisation", "http://purl.org/dc/terms/title","label"],
+    "http://purl.org/dc/terms/spatial":["http://purl.org/dc/terms/spatial","places"],
+    "http://purl.org/dc/terms/abstract": "text"
   },
   "//": "Normalise the properties to the given value",
   "normalisedProperties": {
@@ -63,12 +65,16 @@
     "Kosovo under UNSCR 1244/99" : "Kosovo (UNSCR 1244/99)",
     "Macedonia" : "Former Yugoslav Republic of Macedonia, the",
     "Macedonia (FYR)": "Former Yugoslav Republic of Macedonia, the",
+    "Macedonia (ARYM)": "Former Yugoslav Republic of Macedonia, the",
+    "The Former Yugoslav Republic of Macedonia": "Former Yugoslav Republic of Macedonia, the",
+    "Macedonia, the Former Yugoslav Republic of": "Former Yugoslav Republic of Macedonia, the",
     "Bosnia-Herzegovina" : "Bosnia and Herzegovina",
     "Republic of the Congo" : "Congo",
     "DR Congo" : "Democratic Republic of the Congo",
     "Schweiz" : "Switzerland",
     "Dnemark" : "Denmark",
     "Bulgarien" : "Bulgaria",
+    "The Netherlands" : "Netherlands",
     "Default" : "Various other issues",
     "Collection - old style" : "Collection",
     "http://www.eea.europa.eu/portal_vocabularies/themes/acidification" : "Air pollution",
@@ -141,7 +147,8 @@
     "http://www.eea.europa.eu/portal_types#topic": "Various other issues",
     "http://www.eea.europa.eu/ontologies.rdf#hasWorkflowState": "published",
     "http://purl.org/dc/terms/title": "Title n/a",
-    "http://purl.org/dc/terms/format": "text/html"
+    "http://purl.org/dc/terms/format": "text/html",
+    "places" : "unknown"
   },
   "//": "Sync conditions",
   "syncConditions": [
