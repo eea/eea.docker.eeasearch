@@ -36,7 +36,7 @@ FIXED. #81058 Remove duplicates in content types column in table view.
 FIXED. Search highlighting brakes image results html in list view and cardview. 
 see http://bit.ly/2kaugYl
 
-Add topics to key messages, questions (via postharvest in SDS).
+DONE. Add topics to key messages, questions (via postharvest in SDS).
 
 DONE. Adjust the settings on the facet and add Info bubble.
 
@@ -44,7 +44,12 @@ DONE. Keymessages. use description as title.
 
 DONE. Add Format facet? http://purl.org/dc/terms/format
 
+Add "reading level" and "reading time" similar to https://wordcounter.net/.
 Readability index in RDF and Elastic.
+
+Add charts/histogram on cards on landing page. E.g. for Time coverage, we can add
+the histogram with count for each year. For geo we can do an intensity map. more
+charts can be added via a link at the bottom "Explore content analytics".
 
 make year facet clearer, maybe divide it in "year published" and "time coverage".
 how shall we add temporal coverage? two facets or one? range facet?
@@ -54,7 +59,7 @@ display results on map (kibana?), needed for geo-positioned content
 add typeahead search (https://twitter.github.io/typeahead.js/) within 
 facets that have many values, e.g. organisations
 
-Not possible to have in "normMissing":
+FIXED. Not possible to have in "normMissing":
 "http://www.eea.europa.eu/ontologies.rdf#objectProvides": ["Organization (Reportnet client)","Organization"]
 
 cleanup policy doc refs with no titles like 
@@ -72,7 +77,8 @@ DONE. Add old style Collection.	plone.app.collection.interfaces.ICollection
 FIXED. search for "Air quality statistics at reporting stations" then hover on the title
 you will get alt text with highlighting <em> in it. it shall not.
 
-copy geotags to another field and show all with countries blacklist.
+DONE. copy geotags to another field and show all with countries blacklist.
+
 Country groups via postharvest?
 
 DONE. Add Dashboard Tableau.Add it to SDS postharvest scripts.
@@ -85,16 +91,28 @@ Show sparql data table on hover and on listing where the description would be.
 Sparql geocoverage with alchemy? or postharvest script?
 Sparql missing topic and organisation.
 
-Geotags normalisation e.g. Bosnia and Herzegovina vs Bosnia-Herzegovina
+Data should have formats from children files. postharvest script.
 
-In mobile view, searching will not show facets.
+DONE. Add file formats to Daviz as SVG, PNG, CSV,TSV, JSON.
+
+Make daviz as microdata type.
+
+DONE. Add formats to sparql.
+
+DONE. Add PDF format to FICHE, ARTICLE, NEWS, INDICATORS.
+
+DONE. Publications should have PDF format. postharvest script.
+
+DONE. Geotags normalisation e.g. Bosnia and Herzegovina vs Bosnia-Herzegovina
+
+FIXED. In mobile view, searching will not show facets.
 
 Add in SDS, linking for http://www.eea.europa.eu/portal_vocabularies/themes/climate and
 the object http://www.eea.europa.eu/themes/climate, e.g. foaf:homepage
 add "http://www.eea.europa.eu/portal_types#topic" in ontologies.rdf as reference to a 
 sub-class of eeatopic/concept.
 
-EEAFigure has not format. we could take it from the EEAFigureFile inside.
+DONE. EEAFigure has not format. we could take it from the EEAFigureFile inside.
 IF above is done, EEAFigureFile can be removed.
 
 DONE. For CM. Many briefings do not have tags,geotags,topics (all) and temporal coverage.
@@ -105,7 +123,16 @@ For CM. Some collections misses Topics.
 For DATA, in SDS, add all organisations, owner and processor. tell mauro, missing
 processor on CLC datasets like http://www.eea.europa.eu/data-and-maps/data/clc-2000-raster-4
 
-For Data external links. we miss organisation involved.
+DONE. For Data external links. we miss organisation involved. postharvest script.
+
+DONE. Add dataProvider mapping for externaldataspec
+
+Add dataProvider and dataProcessor to Data and its relateditems bback/forward refs.
+postharvest script.
+
+Add dataProvider and dataProcessor mapping for Indicators.
+
+For Daviz, add organisation involved.
 
 Data providers missing topic.
 
@@ -137,10 +164,9 @@ new feature: geo facet search via map widget.
 Import AoA db as RDF in SDS. Together with SERIS migration project.
 http://www.eea.europa.eu/themes/regions/pan-european/virtual-library
 
-Recently added has stopped working.
+FIXED. Recently added has stopped working.
 
 remove "6","8" and other digits from places blacklist once geotags are fine in SDS.
-
 
 NOTES:
 all content types interfaces
