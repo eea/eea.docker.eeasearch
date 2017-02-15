@@ -1,65 +1,9 @@
- {
+{
     "cluster_id": {
       "type" : "string",
       "analyzer" : "none"
     },
     "cluster_name": {
-      "type" : "string",
-      "analyzer" : "none"
-    },
-    "language" : {
-      "type" : "string",
-      "null_value" : "en",
-      "analyzer" : "none"
-    },
-    "organisation" : {
-      "type" : "string",
-      "analyzer" : "none"
-    },
-    "http://www.eea.europa.eu/portal_types#topic" : {
-      "type" : "string",
-      "null_value" : "Various other issues",
-      "analyzer" : "none"
-    },
-    "http://www.w3.org/1999/02/22-rdf-syntax-ns#type" : {
-      "type" : "string",
-      "analyzer" : "none"
-    },
-    "http://www.eea.europa.eu/ontologies.rdf#objectProvides" : {
-      "type" : "string",
-      "null_value" : "Other",
-      "analyzer" : "none"
-    },
-    "http://purl.org/dc/terms/spatial" : {
-      "type" : "string",
-      "analyzer" : "none"
-    },
-    "places" : {
-      "type" : "string",
-      "analyzer" : "none"
-    },
-    "http://purl.org/dc/terms/creator" : {
-      "type" : "string",
-      "analyzer" : "none"
-    },
-    "http://www.eea.europa.eu/ontologies.rdf#hasWorkflowState" : {
-      "type" : "string",
-      "analyzer" : "none"
-    },
-    "http://purl.org/dc/terms/title" : {
-      "type" : "string",
-      "fields" : {
-        "toindex" : {"type" : "string", "analyzer" : "default"},
-        "index" : {"type" : "string", "analyzer" : "none"},
-        "http://purl.org/dc/terms/title": {"type": "string", "index": "not_analyzed"}
-      }
-    },
-    "year" : {
-      "type" : "string",
-      "null_value" : "Unknown",
-      "analyzer" : "date2year"
-    },
-    "http://purl.org/dc/terms/format": {
       "type" : "string",
       "analyzer" : "none"
     },
@@ -70,13 +14,5 @@
         "index" : {"type" : "string", "analyzer" : "none"},
         "label": {"type": "string", "index": "not_analyzed"}
       }
-    },
-    "text" : {
-      "type" : "string",
-      "analyzer" : "none"
-    },
-    "http://purl.org/dc/terms/references" : {
-      "type" : "string",
-      "analyzer" : "none"
     }
 }

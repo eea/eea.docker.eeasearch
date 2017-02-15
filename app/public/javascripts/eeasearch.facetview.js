@@ -200,26 +200,11 @@ jQuery(document).ready(function($) {
     search_url: './api',
     datatype: 'json',
     search_index: 'elasticsearch',
-    search_sortby: [
-      {
-        'field': 'http://purl.org/dc/terms/title',
-        'display_asc': 'Title a-z',
-        'display_desc': 'Title z-a'
-      },
-      {
-        'field': 'http://purl.org/dc/terms/issued',
-        'display_asc': 'Oldest',
-        'display_desc': 'Newest'
-      }
-    ],
-    sort: [{'http://purl.org/dc/terms/issued': {'order': 'desc'}}
-    ],
     default_operator: 'AND',
     default_freetext_fuzzify: '',
     querystr_filtered_chars: ':?',
     no_results_message: 'Your search did not return any results',
     add_undefined: true,
-    predefined_filters: tmp_predefined_filters,
     pager_on_top: true,
     permanent_filters: true,
     post_init_callback: function() {
