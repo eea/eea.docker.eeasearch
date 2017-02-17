@@ -123,6 +123,10 @@
     margin-right: 0.2em;
 }
 
+.latest_objects {
+    overflow:hidden;
+    position: relative;
+}
 
 /* clearfix */
 .grid:after {
@@ -291,6 +295,3 @@
     }
 }
 
-.latest_objects {
-    overflow:hidden;
-}
