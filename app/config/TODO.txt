@@ -146,20 +146,20 @@ geotag label is just 16, see
 http://www.eea.europa.eu/about-us/documents/eea-budgets/budget-of-the-european-environment-agency-for-the-financial-year-2011
 and in SDS.
 
-if you select Data (external links) only two rows are showen in table view, instead of 20.
+DONE. if you select Data (external links) only two rows are showen in table view, instead of 20.
 
 make user friendly name of languages, instead of ISO code.
 
 rename legislation instruments to legislation. improve types in general.
 maybe merge with Policy document references.
 
-new feature: implement search suggestions
+#82254 new feature: implement search suggestions
 see https://www.elastic.co/guide/en/elasticsearch/reference/1.7/search-suggesters.html
 when a user type a term or phrases in the search box, the system will suggest
 terms, useful for autocompletion or for fixing mispelling. 
 This feature is somewhat related/reusable for the facet suggester (aka typeahead).
 
-new feature: geo facet search via map widget.
+#82255. new feature: geo facet search via map widget.
 
 Import AoA db as RDF in SDS. Together with SERIS migration project.
 http://www.eea.europa.eu/themes/regions/pan-european/virtual-library
@@ -167,6 +167,9 @@ http://www.eea.europa.eu/themes/regions/pan-european/virtual-library
 FIXED. Recently added has stopped working.
 
 remove "6","8" and other digits from places blacklist once geotags are fine in SDS.
+
+dataProvider and dataProcessor should both be added as organisations involved in
+SDS via postharvest.
 
 NOTES:
 all content types interfaces

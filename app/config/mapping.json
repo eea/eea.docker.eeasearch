@@ -148,12 +148,12 @@
         {
             "name": "http://www.eea.europa.eu/portal_types#topic",
             "listing": {
-                "title": "Topic",
+                "title": "Topics",
                 "visible" : true,
                 "pos" : 5
             },
             "csv_tsv": {
-                "title": "http://www.eea.europa.eu/portal_types#topic",
+                "title": "topics",
                 "visible": true,
                 "pos": 9
             },
@@ -193,7 +193,7 @@
                 "pos" : 4
             },
             "csv_tsv": {
-                "title": "http://purl.org/dc/terms/creator",
+                "title": "creator",
                 "visible": false,
                 "pos": 0
             },
@@ -207,23 +207,9 @@
                 "visible": false
             },
             "csv_tsv": {
-                "title": "http://www.eea.europa.eu/ontologies.rdf#hasWorkflowState",
+                "title": "WorkflowState",
                 "visible": true,
                 "pos": 7
-            },
-            "details": {
-                "visible": false
-            }
-        },
-        {
-            "name": "http://www.eea.europa.eu/ontologies.rdf#objectProvides",
-            "listing": {
-                "visible": false
-            },
-            "csv_tsv": {
-                "title": "http://www.eea.europa.eu/ontologies.rdf#objectProvides",
-                "visible": true,
-                "pos": 8
             },
             "details": {
                 "visible": false
@@ -235,7 +221,7 @@
                 "visible": false
             },
             "csv_tsv": {
-                "title": "http://purl.org/dc/terms/modified",
+                "title": "modified",
                 "visible": true,
                 "pos": 4
             },
@@ -249,7 +235,7 @@
                 "visible": false
             },
             "csv_tsv": {
-                "title": "http://purl.org/dc/terms/expires",
+                "title": "expires",
                 "visible": true,
                 "pos": 2
             },
@@ -267,7 +253,7 @@
                 "pos" : 6
             },
             "csv_tsv": {
-                "title": "http://purl.org/dc/terms/issued",
+                "title": "issued",
                 "visible": true,
                 "pos": 3
             },
@@ -292,12 +278,14 @@
         {
             "name": "http://purl.org/dc/terms/description",
             "listing": {
-                "visible": false
+                "title": "description",
+                "visible": true,
+                "pos": 2
             },
             "csv_tsv": {
-                "title": "http://purl.org/dc/terms/description",
+                "title": "description",
                 "visible": true,
-                "pos": 1
+                "pos": 2
             },
             "details": {
                 "visible": false
@@ -597,20 +585,6 @@
             }
         },
         {
-            "name": "language",
-            "listing": {
-                "visible": false
-            },
-            "csv_tsv": {
-                "title": "language",
-                "visible": true,
-                "pos": 12
-            },
-            "details": {
-                "visible": false
-            }
-        },
-        {
             "name": "organisation",
             "listing": {
                 "visible": false
@@ -642,7 +616,7 @@
                 "visible": false
             },
             "csv_tsv": {
-                "title": "http://www.w3.org/1999/02/22-rdf-syntax-ns#about",
+                "title": "url",
                 "visible": true,
                 "pos": 10
             },
@@ -702,6 +676,14 @@
             "listing": {
                 "visible": false
             },
+            "csv_tsv": {
+                "title": "language",
+                "visible": true,
+                "pos": 12
+            },
+            "details": {
+                "visible": false
+            },
             "facet": {
                 "visible": true,
                 "title": "Languages",
@@ -722,7 +704,7 @@
                 "visible": true
             },
             "csv_tsv": {
-                "title": "http://purl.org/dc/terms/format",
+                "title": "format",
                 "visible": true,
                 "pos": 11
             },
@@ -760,7 +742,7 @@
             "csv_tsv": {
                 "title": "label",
                 "visible": true,
-                "pos": 8
+                "pos": 1
             },
             "details": {
                 "visible": false
