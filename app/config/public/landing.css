@@ -125,6 +125,8 @@
 
 .latest_objects {
     overflow:hidden;
+}
+.eea_tile {
     position: relative;
 }
 
