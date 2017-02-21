@@ -100,6 +100,9 @@
     background-size: 101%;
     position: relative;
 }
+.latest_objects_list .ribbon-parent {
+    display: none;
+}
 #landing .latest_objects_list {
     margin-left: 0;
 }
@@ -123,6 +126,12 @@
     margin-right: 0.2em;
 }
 
+.latest_objects {
+    overflow:hidden;
+}
+.eea_tile {
+    position: relative;
+}
 
 /* clearfix */
 .grid:after {
@@ -291,6 +300,3 @@
     }
 }
 
-.latest_objects {
-    overflow:hidden;
-}
