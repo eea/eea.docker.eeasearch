@@ -11,5 +11,26 @@
     "date2year" : {
       "type" : "pattern",
       "pattern" : "[-](.*)"
+    },
+    "didYouMean": {
+      "filter": [
+        "lowercase"
+      ],
+      "char_filter": [
+        "html_strip"
+      ],
+      "type": "custom",
+      "tokenizer": "standard"
+    },
+    "autocomplete": {
+      "filter": [
+        "lowercase", "autocompleteFilter"
+      ],
+      "char_filter": [
+        "html_strip"
+      ],
+      "type": "custom",
+      "tokenizer": "standard"
     }
+
 }
