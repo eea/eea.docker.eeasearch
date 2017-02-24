@@ -64,7 +64,7 @@
         "index" : {"type" : "string", "analyzer" : "none"},
         "http://purl.org/dc/terms/title": {"type": "string", "index": "not_analyzed"}
       },
-      "copy_to" : ["did_you_mean", "autocomplete4"]
+      "copy_to" : ["did_you_mean", "autocomplete"]
     },
     "year" : {
       "type" : "string",
