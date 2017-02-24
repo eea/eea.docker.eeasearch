@@ -1,6 +1,6 @@
  {
     "did_you_mean": {"type": "string", "analyzer": "didYouMean"},
-    "autocomplete4": {"type": "string", "analyzer": "autocomplete"},
+    "autocomplete": {"type": "string", "analyzer": "autocomplete"},
 
     "cluster_id": {
       "type" : "string",

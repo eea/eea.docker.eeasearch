@@ -31,14 +31,5 @@
       ],
       "type": "custom",
       "tokenizer": "standard"
-    },
-    "autocomplete2": {
-        "type":      "custom",
-        "tokenizer": "standard",
-        "filter": [
-            "lowercase",
-            "autocompleteFilter2"
-        ]
     }
-
 }
