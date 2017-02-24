@@ -1,6 +1,6 @@
  {
     "did_you_mean": {"type": "string", "analyzer": "didYouMean"},
-    "autocomplete": {"type": "string", "analyzer": "autocomplete"},
+    "autocomplete4": {"type": "string", "analyzer": "autocomplete"},
 
     "cluster_id": {
       "type" : "string",
@@ -9,7 +9,7 @@
     "cluster_name": {
       "type" : "string",
       "analyzer" : "none",
-      "copy_to" : ["did_you_mean", "autocomplete"]
+      "copy_to" : ["did_you_mean"]
     },
     "language" : {
       "type" : "string",
@@ -19,39 +19,39 @@
     "organisation" : {
       "type" : "string",
       "analyzer" : "none",
-      "copy_to" : ["did_you_mean", "autocomplete"]
+      "copy_to" : ["did_you_mean"]
     },
     "http://www.eea.europa.eu/portal_types#topic" : {
       "type" : "string",
       "null_value" : "Various other issues",
       "analyzer" : "none",
-      "copy_to" : ["did_you_mean", "autocomplete"]
+      "copy_to" : ["did_you_mean"]
     },
     "http://www.w3.org/1999/02/22-rdf-syntax-ns#type" : {
       "type" : "string",
       "analyzer" : "none",
-      "copy_to" : ["did_you_mean", "autocomplete"]
+      "copy_to" : ["did_you_mean"]
     },
     "http://www.eea.europa.eu/ontologies.rdf#objectProvides" : {
       "type" : "string",
       "null_value" : "Other",
       "analyzer" : "none",
-      "copy_to" : ["did_you_mean", "autocomplete"]
+      "copy_to" : ["did_you_mean"]
     },
     "http://purl.org/dc/terms/spatial" : {
       "type" : "string",
       "analyzer" : "none",
-      "copy_to" : ["did_you_mean", "autocomplete"]
+      "copy_to" : ["did_you_mean"]
     },
     "places" : {
       "type" : "string",
       "analyzer" : "none",
-      "copy_to" : ["did_you_mean", "autocomplete"]
+      "copy_to" : ["did_you_mean"]
     },
     "http://purl.org/dc/terms/creator" : {
       "type" : "string",
       "analyzer" : "none",
-      "copy_to" : ["did_you_mean", "autocomplete"]
+      "copy_to" : ["did_you_mean"]
     },
     "http://www.eea.europa.eu/ontologies.rdf#hasWorkflowState" : {
       "type" : "string",
@@ -64,7 +64,7 @@
         "index" : {"type" : "string", "analyzer" : "none"},
         "http://purl.org/dc/terms/title": {"type": "string", "index": "not_analyzed"}
       },
-      "copy_to" : ["did_you_mean", "autocomplete"]
+      "copy_to" : ["did_you_mean", "autocomplete4"]
     },
     "year" : {
       "type" : "string",
@@ -82,16 +82,16 @@
         "index" : {"type" : "string", "analyzer" : "none"},
         "label": {"type": "string", "index": "not_analyzed"}
       },
-      "copy_to" : ["did_you_mean", "autocomplete"]
+      "copy_to" : ["did_you_mean"]
     },
     "text" : {
       "type" : "string",
       "analyzer" : "none",
-      "copy_to" : ["did_you_mean", "autocomplete"]
+      "copy_to" : ["did_you_mean"]
     },
     "http://purl.org/dc/terms/references" : {
       "type" : "string",
       "analyzer" : "none",
-      "copy_to" : ["did_you_mean", "autocomplete"]
+      "copy_to" : ["did_you_mean"]
     }
 }

@@ -4,8 +4,13 @@
           "language": "english"
     },
     "autocompleteFilter": {
-          "max_shingle_size": "5",
+          "max_shingle_size": "2",
           "min_shingle_size": "2",
           "type": "shingle"
+    },
+    "autocompleteFilter2": {
+        "type": "edge_ngram",
+        "min_gram": 1,
+        "max_gram": 20
     }
 }

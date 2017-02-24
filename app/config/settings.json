@@ -3,7 +3,7 @@
         "port": 3000
     },
     "elastic": {
-        "index": "rdfdatadev2",
+        "index": "rdfdatadev3",
         "type": "resource",
         "enableValuesCounting": true
     },
