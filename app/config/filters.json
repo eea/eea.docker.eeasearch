@@ -6,6 +6,7 @@
     "autocompleteFilter": {
           "max_shingle_size": "5",
           "min_shingle_size": "2",
-          "type": "shingle"
+          "type": "shingle",
+          "filler_token": ""
     }
 }

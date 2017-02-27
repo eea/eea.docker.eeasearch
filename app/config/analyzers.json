@@ -24,7 +24,7 @@
     },
     "autocomplete": {
       "filter": [
-        "lowercase", "autocompleteFilter"
+        "lowercase", "stop", "autocompleteFilter", "trim"
       ],
       "char_filter": [
         "html_strip"
