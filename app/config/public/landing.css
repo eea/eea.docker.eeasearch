@@ -100,7 +100,7 @@
     background-size: 101%;
     position: relative;
 }
-.latest_objects_list .ribbon-parent {
+.latest_objects_list .ribbon-wrapper {
     display: none;
 }
 #landing .latest_objects_list {
