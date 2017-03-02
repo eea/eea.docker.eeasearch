@@ -493,7 +493,7 @@
                           ],
             "listing": {
                 "title": "Content types (standard)",
-                "visible" : true,
+                "visible" : false,
                 "pos" : 3
             },
             "csv_tsv": {
@@ -505,7 +505,7 @@
                 "visible": false
             },
             "facet": {
-                "visible": true,
+                "visible": false,
                 "title": "Content types (standard)",
                 "pos": 3,
                 "type": "facet",
