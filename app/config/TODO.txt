@@ -171,6 +171,42 @@ remove "6","8" and other digits from places blacklist once geotags are fine in S
 dataProvider and dataProcessor should both be added as organisations involved in
 SDS via postharvest.
 
+Nice to have, languages in full name in facet (native name or english):
+    "ar":"عربى (ar)",
+    "bg":"Български (bg)",
+    "bs":"bosanski (bs)",
+    "cs":"čeština (cs)",
+    "hr":"Hrvatski (hr)",
+    "da":"dansk (da)",
+    "de":"Deutsch (de)",
+    "nl":"Nederlands (nl)",
+    "el":"ελληνικά (el)",
+    "en":"English (en)",
+    "et":"eesti (et)",
+    "fi":"Suomi (fi)",
+    "fr":"Français (fr)",
+    "ga":"Gaeilge (ga)",
+    "hu":"magyar (hu)",
+    "is":"Íslenska (is)",
+    "it":"italiano (it)",
+    "lv":"Latviešu (lv)",
+    "lt":"lietuvių (lt)",
+    "mk":"македонски (mk)",
+    "mt":"Malti (mt)",
+    "no":"Norsk (no)",
+    "pl":"polski (pl)",
+    "pt":"Português (pt)",
+    "ro":"Română (ro)",
+    "ru":"русский (ru)",
+    "sk":"slovenčina (sk)",
+    "sl":"Slovenščina (sl)",
+    "sq":"shqiptar (sq)",
+    "sr":"Српски (sr)",
+    "es":"Español (es)",
+    "sv":"Svenska (sv)",
+    "tr":"Türkçe (tr)",
+    "zh":"中文 (zh)"
+
 NOTES:
 all content types interfaces
 
