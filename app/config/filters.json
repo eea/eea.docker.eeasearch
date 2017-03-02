@@ -2,5 +2,11 @@
     "english_stemmer": {
           "type": "stemmer",
           "language": "english"
+    },
+    "autocompleteFilter": {
+          "max_shingle_size": "5",
+          "min_shingle_size": "2",
+          "type": "shingle",
+          "filler_token": ""
     }
 }
