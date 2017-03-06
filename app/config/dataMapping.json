@@ -86,7 +86,7 @@
     },
     "text" : {
       "type" : "string",
-      "analyzer" : "none",
+      "analyzer": "default",
       "copy_to" : ["did_you_mean"]
     },
     "http://purl.org/dc/terms/references" : {
