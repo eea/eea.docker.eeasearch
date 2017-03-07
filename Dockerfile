@@ -1,5 +1,5 @@
 FROM eeacms/node:v4.2.2-1.1
-LABEL eu.europa.eea.eeasearch.version="v2.0.0-rc.2"
+LABEL eu.europa.eea.eeasearch.version="v2.0.0-rc.3"
 ENV NODE_ENV 'production'
 ADD ./app/package.json /tmp/package.json
 ADD ./README.md /tmp/README.md
