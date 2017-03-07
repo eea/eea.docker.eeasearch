@@ -19,7 +19,7 @@ jQuery(document).ready(function($) {
                 tile: ".organisations",
                 type: "simple",
                 facet: "organisation",
-                values: [{"value":"count", "name":"organisations_count"}]
+                values: [{"value":"full_count", "name":"organisations_count"}]
             },
             {
                 tile: ".topics",
