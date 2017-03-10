@@ -177,7 +177,17 @@ there are much more than 100, so the count must be taken from ES index, not the 
 bug. When using the filtering, and then removing it, the languages and organisations count
 is wrong.
 
+Increment max_shingle_size for autocomplete. Now it's set on 5, that's why autocomplete 
+doesn't work if we have more than 5 words in the search terms field
 
+Check how we could disable autocomplete suggests terms in more languages.
+Ex. after typing: "European hazardous waste management improving, but its 
+prevention needs attention" we get the hint:
+"European hazardous waste management improving, but its prevention needs attention à"
+I think the problem relates to the previous issue, with the max_shingle_size.
+Elastic doesn't find any suggestion for 
+"European hazardous waste management improving, but its prevention needs attention".
+In this case we take the last word: "attention" and it's suggestion is "attention à"
 
 Nice to have, languages in full name in facet (native name or english):
     "ar":"عربى (ar)",
