@@ -189,6 +189,12 @@ Elastic doesn't find any suggestion for
 "European hazardous waste management improving, but its prevention needs attention".
 In this case we take the last word: "attention" and it's suggestion is "attention à"
 
+As a speed improvement we should abort all ajax queries when user starts to type something.
+Now when the user stops typing we have an ajax call to get the results, and after that 
+an ajax call for each facet. After the facet ajax call returns the values, we populate the
+facets, what also takes time.
+When the user starts to type we should abort all ajax calls we don't need them anyway.
+
 Nice to have, languages in full name in facet (native name or english):
     "ar":"عربى (ar)",
     "bg":"Български (bg)",
