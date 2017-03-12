@@ -75,7 +75,7 @@
   },
   "//": "Normalise these following objects to a given value",
   "normObj": {
-    "Organisation" : "Organization",
+    "Organization" : "Organisation",
     "Czechia" : "Czech Republic",
     "Russia" : "Russian Federation",
     "Kosovo" : "Kosovo (UNSCR 1244/99)",

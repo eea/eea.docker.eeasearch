@@ -171,13 +171,20 @@ remove "6","8" and other digits from places blacklist once geotags are fine in S
 dataProvider and dataProcessor should both be added as organisations involved in
 SDS via postharvest.
 
-On landing dashboard there Organisation shows the count 100 as limit. 
+FIXED. On landing dashboard there Organisation shows the count 100 as limit. 
 there are much more than 100, so the count must be taken from ES index, not the facet.
 
-bug. When using the filtering, and then removing it, the languages and organisations count
+FIXED. bug. When using the filtering, and then removing it, the languages and organisations count
 is wrong.
 
+Add social links on app, share query.
 
+add accordion animation when opening/closing facets.
+
+exact match only works the second time it is selected, not at first.
+
+FIXED (coinflicting rivers). Errors on production, not everything is synced, only one third got synced. 
+look at error logs in autosync containers for details.
 
 Nice to have, languages in full name in facet (native name or english):
     "ar":"عربى (ar)",
@@ -295,3 +302,47 @@ Used only for riverconfig_eea.europa.eu:
     "{?resource a <http://www.eea.europa.eu/portal_types/QuickEvent#QuickEvent>} UNION ",
     "{?resource a <http://www.eea.europa.eu/portal_types/RationaleReference#RationaleReference>} UNION ",
     "{?resource a <http://www.eea.europa.eu/portal_types/Report#Report>}"
+    
+    
+all clusters:
+
+            {
+                "id": "eea_content",
+                "cluster_name": "EEA Website",
+                "config_file": "riverconfig_eea.europa.eu.json"
+            },
+            {
+                "id": "eea_vacancies",
+                "cluster_name": "EEA Website",
+                "config_file": "riverconfig_eeavacancies.json"
+            },
+            {
+                "id": "rod_instruments",
+                "cluster_name": "Eionet > reportnet",
+                "config_file": "riverconfig_instruments.json"
+            },
+            {
+                "id": "rod_obligations_expired",
+                "cluster_name": "Eionet > reportnet",
+                "config_file": "riverconfig_obligations_expired.json"
+            },
+            {
+                "id": "rod_obligations_active",
+                "cluster_name": "Eionet > reportnet",
+                "config_file": "riverconfig_obligations_active.json"
+            },
+            {
+                "id": "rod_clients",
+                "cluster_name": "Eionet > reportnet",
+                "config_file": "riverconfig_clients.json"
+            },
+            {
+                "id": "eea_organisations",
+                "cluster_name": "EEA Website",
+                "config_file": "riverconfig_organisations.json"
+            },
+            {
+                "id": "eea_messages",
+                "cluster_name": "EEA Website",
+                "config_file": "riverconfig_messages.json"
+            }

@@ -57,7 +57,7 @@
   },
   "//": "Normalise these following objects to a given value",
   "normObj": {
-    "Organisation" : "Organization",
+    "Organization" : "Organisation",
     "Czechia" : "Czech Republic",
     "Russia" : "Russian Federation",
     "Kosovo" : "Kosovo (UNSCR 1244/99)",
@@ -75,7 +75,7 @@
     "Bulgarien" : "Bulgaria",
     "Default" : "Various other issues",
     "Collection - old style" : "Collection",
-    "Reportnet client" : "Organization (Reportnet client)",
+    "Reportnet client" : "Organisation (Reportnet client)",
     "dataset" : "Data (RDF)",
     "http://rod.eionet.europa.eu/spatial/76" : "value not available",
     "http://www.eea.europa.eu/portal_vocabularies/themes/acidification" : "Air pollution",
