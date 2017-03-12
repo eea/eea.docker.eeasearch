@@ -177,6 +177,23 @@ there are much more than 100, so the count must be taken from ES index, not the 
 FIXED. bug. When using the filtering, and then removing it, the languages and organisations count
 is wrong.
 
+Increment max_shingle_size for autocomplete. Now it's set on 5, that's why autocomplete 
+doesn't work if we have more than 5 words in the search terms field
+
+Check how we could disable autocomplete suggests terms in more languages.
+Ex. after typing: "European hazardous waste management improving, but its 
+prevention needs attention" we get the hint:
+"European hazardous waste management improving, but its prevention needs attention à"
+I think the problem relates to the previous issue, with the max_shingle_size.
+Elastic doesn't find any suggestion for 
+"European hazardous waste management improving, but its prevention needs attention".
+In this case we take the last word: "attention" and it's suggestion is "attention à"
+
+As a speed improvement we should abort all ajax queries when user starts to type something.
+Now when the user stops typing we have an ajax call to get the results, and after that 
+an ajax call for each facet. After the facet ajax call returns the values, we populate the
+facets, what also takes time.
+When the user starts to type we should abort all ajax calls we don't need them anyway.
 Add social links on app, share query.
 
 add accordion animation when opening/closing facets.
@@ -302,6 +319,7 @@ Used only for riverconfig_eea.europa.eu:
     "{?resource a <http://www.eea.europa.eu/portal_types/QuickEvent#QuickEvent>} UNION ",
     "{?resource a <http://www.eea.europa.eu/portal_types/RationaleReference#RationaleReference>} UNION ",
     "{?resource a <http://www.eea.europa.eu/portal_types/Report#Report>}"
+<<<<<<< HEAD
     
     
 all clusters:
@@ -346,3 +364,5 @@ all clusters:
                 "cluster_name": "EEA Website",
                 "config_file": "riverconfig_messages.json"
             }
+=======
+>>>>>>> 1d0fc091d58d3f300936a655d45a18b7d1d26ca7
