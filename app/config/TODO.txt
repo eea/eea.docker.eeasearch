@@ -319,7 +319,6 @@ Used only for riverconfig_eea.europa.eu:
     "{?resource a <http://www.eea.europa.eu/portal_types/QuickEvent#QuickEvent>} UNION ",
     "{?resource a <http://www.eea.europa.eu/portal_types/RationaleReference#RationaleReference>} UNION ",
     "{?resource a <http://www.eea.europa.eu/portal_types/Report#Report>}"
-<<<<<<< HEAD
     
     
 all clusters:
@@ -364,5 +363,3 @@ all clusters:
                 "cluster_name": "EEA Website",
                 "config_file": "riverconfig_messages.json"
             }
-=======
->>>>>>> 1d0fc091d58d3f300936a655d45a18b7d1d26ca7
