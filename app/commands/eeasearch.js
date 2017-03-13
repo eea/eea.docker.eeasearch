@@ -103,7 +103,44 @@ function removeData(settings) {
         .execute();
 }
 
+function checkIfIndexing(settings){
+    var request = require('sync-request');
+    var esAPI = require('eea-searchserver').esAPI;
+    var elastic = require('nconf').get()['elastic'];
+    var rivers = 'http://' + elastic.host + ':' + elastic.port + elastic.path + '/_river/_search'
+    qs = {
+        "query": {
+            "bool": {
+                "must": [
+                    {
+                        "term": {
+                            "index.index": elastic.index
+                        }
+                    }
+                ]
+            }
+        }
+    };
+    var river_count = 0;
+    try {
+        res = request('GET', rivers, {q:qs});
+        var res_json = JSON.parse(res.getBody('utf8'));
+        river_count = res_json.hits.total;
+    } catch(e) {
+        console.log("Couldn't get the number of rivers");
+    }
+    if (river_count !== 0){
+        return true;
+    }
+    return false;
+}
+
 function createIndex(settings) {
+    if (checkIfIndexing(settings)){
+        console.log("Indexing already in progress. If you want to start it again, use the reindex command, or wait until the indexing is done.");
+        return;
+    }
+
     var esAPI = require('eea-searchserver').esAPI;
     var elastic = require('nconf').get()['elastic'];
     var river_configs = require('nconf').get()['river_configs'];

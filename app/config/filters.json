@@ -4,7 +4,7 @@
           "language": "english"
     },
     "autocompleteFilter": {
-          "max_shingle_size": "5",
+          "max_shingle_size": "12",
           "min_shingle_size": "2",
           "type": "shingle",
           "filler_token": ""
