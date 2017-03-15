@@ -9,10 +9,10 @@
     },
     "external_templates": {
         "local_path": "/external_templates",
-        "host": "www.eea.europa.eu",
-        "head_path": "/templates/v2/getRequiredHead?jsdisable=all",
-        "header_path": "/templates/v2/getHeader?jsdisable=all",
-        "footer_path": "/templates/v2/getFooter"
+        "host": "https://www.eea.europa.eu",
+        "head_path": "/templates/v2/getRequiredHead?jsdisable=all&render_full_html=False",
+        "header_path": "/templates/v2/getHeader?jsdisable=all&render_full_html=False",
+        "footer_path": "/templates/v2/getFooter?render_full_html=False"
     },
     "layout_vars": {
         "head_title": "Global catalogue of the European Environment Agency (EEA)",
