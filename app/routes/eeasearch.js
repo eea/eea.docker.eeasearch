@@ -42,4 +42,3 @@ exports.index = function(req, res){
 };
 
 exports.details = searchServer.builtinRoutes.details;
-exports.setlandingvalue = searchServer.builtinRoutes.setlandingvalue;
