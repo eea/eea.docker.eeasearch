@@ -13,8 +13,7 @@
     "underscore": "*",
     "nodemon": "*",
     "sync-request": "*",
-    "dateformat": "*",
-    "memcached": "*"
+    "dateformat": "*"
   },
   "repository": {
     "type": "git",
