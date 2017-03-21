@@ -1,5 +1,6 @@
 var dateFormat = require('dateformat')
 var path = require('path');
+var cache = require('eea-searchserver').util.cache;
 
 function getOptions() {
     var nconf = require('nconf')
@@ -83,6 +84,8 @@ var callback = function(text) {
 }
 
 function removeRiver() {
+    cache.invalidateLandingValues();
+
     var esAPI = require('eea-searchserver').esAPI;
     var river_configs = require('nconf').get()['river_configs'];
     var esQuery = new esAPI(getOptions());
@@ -96,6 +99,8 @@ function removeRiver() {
 }
 
 function removeData(settings) {
+    cache.invalidateLandingValues();
+
     var esAPI = require('eea-searchserver').esAPI;
     var elastic = require('nconf').get()['elastic'];
     new esAPI(getOptions())
@@ -140,6 +145,8 @@ function createIndex(settings) {
         console.log("Indexing already in progress. If you want to start it again, use the reindex command, or wait until the indexing is done.");
         return;
     }
+
+    cache.invalidateLandingValues();
 
     var esAPI = require('eea-searchserver').esAPI;
     var elastic = require('nconf').get()['elastic'];
