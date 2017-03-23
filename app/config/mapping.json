@@ -173,6 +173,7 @@
                 "min_size": 10,
                 "order": "term",
                 "operator": "AND",
+                "autocomplete": true,
                 "facet_display_options": ["sort", "checkbox"]
             },
             "card": {
@@ -371,6 +372,7 @@
                 "min_size": 10,
                 "order": "term",
                 "operator": "AND",
+                "autocomplete": true,
                 "facet_display_options": ["sort", "checkbox"]
             }
         },
@@ -439,6 +441,7 @@
                 "min_size": 10,
                 "order": "reverse_count",
                 "operator": "OR",
+                "autocomplete": true,
                 "facet_display_options": ["sort", "checkbox"]
             }
         },
