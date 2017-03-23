@@ -84,8 +84,6 @@ var callback = function(text) {
 }
 
 function removeRiver() {
-    cache.invalidateLandingValues();
-
     var esAPI = require('eea-searchserver').esAPI;
     var river_configs = require('nconf').get()['river_configs'];
     var esQuery = new esAPI(getOptions());
@@ -99,8 +97,6 @@ function removeRiver() {
 }
 
 function removeData(settings) {
-    cache.invalidateLandingValues();
-
     var esAPI = require('eea-searchserver').esAPI;
     var elastic = require('nconf').get()['elastic'];
     new esAPI(getOptions())
@@ -146,8 +142,6 @@ function createIndex(settings) {
         return;
     }
 
-    cache.invalidateLandingValues();
-
     var esAPI = require('eea-searchserver').esAPI;
     var elastic = require('nconf').get()['elastic'];
     var river_configs = require('nconf').get()['river_configs'];
@@ -188,7 +182,8 @@ function createIndex(settings) {
             .DELETE(river_name, callback('Deleting river! (if it exists)'))
             .PUT(river_meta, config.syncReq, callback('Adding river back'))
     }
-    esQuery.PUT(elastic.index + '/status/last_update', {'updated_at': Date.now() }, callback('Rivers updated'))
+    esQuery.PUT(elastic.index + '/status/last_update', {'updated_at': Date.now() }, callback('Rivers updated'));
+    esQuery.PUT(elastic.index + '/cache/cache', {}, function(){})
             .execute();
 
 }
