@@ -16,6 +16,14 @@
       "null_value" : "en",
       "analyzer" : "none"
     },
+    "http://www.eea.europa.eu/portal_types#dataProvider":{
+       "type" : "string",
+       "copy_to" : "organisation"
+     },
+     "http://www.eea.europa.eu/portal_types#dataProcessor":{
+       "type" : "string",
+       "copy_to" : "organisation"
+     },
     "organisation" : {
       "type" : "string",
       "analyzer" : "none",

@@ -24,7 +24,9 @@
     "http://www.eea.europa.eu/ontologies.rdf#hasWorkflowState",
     "http://www.eea.europa.eu/ontologies.rdf#objectProvides",
     "http://purl.org/dc/terms/format",
-    "http://purl.org/dc/terms/references"
+    "http://purl.org/dc/terms/references",
+    "http://www.eea.europa.eu/portal_types#dataProvider",
+    "http://www.eea.europa.eu/portal_types#dataProcessor"
   ],
   "listtype": "white",
   "normProp": {
@@ -43,9 +45,7 @@
     "http://www.eea.europa.eu/portal_types/PressRelease#text": "text",
     "http://www.eea.europa.eu/portal_types/Highlight#text": "text",
     "http://www.eea.europa.eu/portal_types/Assessment#assessment": "text",
-    "http://purl.org/dc/terms/spatial":["http://purl.org/dc/terms/spatial","places"],
-    "http://www.eea.europa.eu/portal_types#dataProvider":["dataProvider","oganisation"],
-    "http://www.eea.europa.eu/portal_types#dataProcessor":["dataProcessor"]
+    "http://purl.org/dc/terms/spatial":["http://purl.org/dc/terms/spatial","places"]
   },
   "//": "Normalise the properties to the given value",
   "normalisedProperties": {
@@ -185,14 +185,11 @@
     "{?resource a <http://www.eea.europa.eu/portal_types/Dashboard#Dashboard> } UNION ",
     "{?resource a <http://www.eea.europa.eu/portal_types/Assessment#Assessment>} UNION ",
     "{?resource a <http://www.eea.europa.eu/portal_types/CloudVideo#CloudVideo>} UNION ",
-    "{?resource a <http://www.eea.europa.eu/portal_types/Data#Data>} UNION ",
     "{?resource a <http://www.eea.europa.eu/portal_types/DavizVisualization#DavizVisualization>} UNION ",
     "{?resource a <http://www.eea.europa.eu/portal_types/Document#Document>} UNION ",
-    "{?resource a <http://www.eea.europa.eu/portal_types/EEAFigure#EEAFigure>} UNION ",
     "{?resource a <http://www.eea.europa.eu/portal_types/EEAFigureFile#EEAFigureFile>} UNION ",
     "{?resource a <http://www.eea.europa.eu/portal_types/EcoTip#EcoTip>} UNION ",
     "{?resource a <http://www.eea.europa.eu/portal_types/Event#Event>} UNION ",
-    "{?resource a <http://www.eea.europa.eu/portal_types/ExternalDataSpec#ExternalDataSpec>} UNION ",
     "{?resource a <http://www.eea.europa.eu/portal_types/GIS%20Application#GISApplication>} UNION ",
     "{?resource a <http://www.eea.europa.eu/portal_types/Highlight#Highlight>} UNION ",
     "{?resource a <http://www.eea.europa.eu/portal_types/Image#Image>} UNION ",
