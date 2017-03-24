@@ -40,6 +40,11 @@
     "river_configs": {
         "configs": [
             {
+                "id": "eea_daviz",
+                "cluster_name": "EEA Website",
+                "config_file": "riverconfig_eeadaviz.json"
+            },
+            {
                 "id": "eea_dataexternal",
                 "cluster_name": "EEA Website",
                 "config_file": "riverconfig_eeadata_external.json"

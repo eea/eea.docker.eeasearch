@@ -73,8 +73,8 @@
     "The Netherlands" : "Netherlands",
     "Default" : "Various other issues",
     "Collection - old style" : "Collection",
-    "http://www.eea.europa.eu/portal_workflow/one_state_workflow/states/published": "published",
-    "eea.indicators.content.interfaces.IExternalDataSpec": "Data (external links)"
+    "http://www.eea.europa.eu/portal_workflow/daviz_workflow/states/published": "published",
+    "eea.daviz.content.interfaces.IDavizVisualization": "Data visualisation"
   },
   "//": "Normalise missing properties with the given values",
   "normMissing": {
@@ -83,13 +83,13 @@
     "http://www.eea.europa.eu/ontologies.rdf#hasWorkflowState": "published",
     "http://purl.org/dc/terms/title": "Title n/a",
     "http://purl.org/dc/terms/creator": "European Environment Agency (EEA)",
-    "http://www.eea.europa.eu/portal_types#dataProvider": "unknown",
+    "organisation": "European Environment Agency (EEA)",
     "http://purl.org/dc/terms/format": "text/html",
     "places" : "unknown"
   },
   "//": "Sync conditions",
   "syncConditions": [
-    "{?resource a <http://www.eea.europa.eu/portal_types/ExternalDataSpec#ExternalDataSpec>}"
+    "{?resource a <http://www.eea.europa.eu/portal_types/DavizVisualization#DavizVisualization>}"
   ],
   "graphSyncConditions": ["FILTER (str(?graph) = concat(str(?resource), '/@@rdf')). FILTER (?time > xsd:dateTime('1990-01-01T00:00:00')). FILTER (?time < xsd:dateTime('2100-01-01T00:00:00'))"],
   "syncTimeProp": "http://cr.eionet.europa.eu/ontologies/contreg.rdf#lastRefreshed"

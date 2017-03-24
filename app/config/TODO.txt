@@ -212,7 +212,7 @@ Nice to have, languages in full name in facet (native name or english):
     "da":"dansk (da)",
     "de":"Deutsch (de)",
     "nl":"Nederlands (nl)",
-    "el":"ελληνικά (el)",
+    "el":"ελληνιικά (el)",
     "en":"English (en)",
     "et":"eesti (et)",
     "fi":"Suomi (fi)",
@@ -323,6 +323,26 @@ Used only for riverconfig_eea.europa.eu:
     
 all clusters:
 
+            {
+                "id": "eea_daviz",
+                "cluster_name": "EEA Website",
+                "config_file": "riverconfig_eeadaviz.json"
+            },
+            {
+                "id": "eea_dataexternal",
+                "cluster_name": "EEA Website",
+                "config_file": "riverconfig_eeadata_external.json"
+            },
+            {
+                "id": "eea_data",
+                "cluster_name": "EEA Website",
+                "config_file": "riverconfig_eeadata.json"
+            },
+            {
+                "id": "eea_figures",
+                "cluster_name": "EEA Website",
+                "config_file": "riverconfig_eeafigures.json"
+            },
             {
                 "id": "eea_content",
                 "cluster_name": "EEA Website",
