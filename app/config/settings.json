@@ -3,7 +3,6 @@
         "port": 3000
     },
     "elastic": {
-        "index": "rdfdata",
         "type": "resource",
         "enableValuesCounting": true
     },
@@ -39,6 +38,11 @@
     "suggestions_enabled": true,
     "river_configs": {
         "configs": [
+            {
+                "id": "eea_reports",
+                "cluster_name": "EEA Website",
+                "config_file": "riverconfig_eeareports.json"
+            },
             {
                 "id": "eea_daviz",
                 "cluster_name": "EEA Website",

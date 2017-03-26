@@ -151,7 +151,6 @@
     "Products.ATContentTypes.interfaces.link.IATLink": "References and links",
     "plone.app.collection.interfaces.ICollection":"Catalogue / listing",
     "Products.ATContentTypes.interfaces.topic.IATTopic": "Catalogue / listing",
-    "eea.reports.interfaces.IReportContainerEnhanced": "Publication / Report",
     "eea.soercontent.content.interfaces.ICountryFiche": "Briefing (Country)",
     "eea.soercontent.content.interfaces.IFiche": "Briefing (all)",
     "eea.soercontent.content.interfaces.ISoerContent":"Briefing (SOER)",
@@ -199,8 +198,7 @@
     "{?resource a <http://www.eea.europa.eu/portal_types/PressRelease#PressRelease>} UNION ",
     "{?resource a <http://www.eea.europa.eu/portal_types/Promotion#Promotion>} UNION ",
     "{?resource a <http://www.eea.europa.eu/portal_types/QuickEvent#QuickEvent>} UNION ",
-    "{?resource a <http://www.eea.europa.eu/portal_types/RationaleReference#RationaleReference>} UNION ",
-    "{?resource a <http://www.eea.europa.eu/portal_types/Report#Report>}"
+    "{?resource a <http://www.eea.europa.eu/portal_types/RationaleReference#RationaleReference>}"
   ],
   "graphSyncConditions": ["FILTER (str(?graph) = concat(str(?resource), '/@@rdf')). FILTER (?time > xsd:dateTime('1990-01-01T00:00:00')). FILTER (?time < xsd:dateTime('2100-01-01T00:00:00'))"],
   "syncTimeProp": "http://cr.eionet.europa.eu/ontologies/contreg.rdf#lastRefreshed"

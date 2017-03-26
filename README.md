@@ -61,6 +61,8 @@ Available commands:
 * remove_river: stop the harvesting process by removing the river
 
 Environment variables:
+* elastic_index: the elasticsearch index id where to store the data. 
+  * note the elastic index in app/config/settings.json takes precendence, so delete if you want the environment variable to work.
 * elastic_host, elastic_port, elastic_path: the elasticsearch endpoint parameters
   the elasticsearch endpoint will be interpreted as such: `http://$elastic_host:$elastic_port$elastic_path`
  * by default, elastic_port is 9200
