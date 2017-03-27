@@ -200,7 +200,7 @@ Add social links on app, share query.
 
 FIXED. add accordion animation when opening/closing facets.
 
-FIXED. exact match only works the second time it is selected, not at first.
+exact match only works the second time it is selected, not at first.
 
 FIXED (coinflicting rivers). Errors on production, not everything is synced, only one third got synced. 
 look at error logs in autosync containers for details.
@@ -214,6 +214,24 @@ Propagate geotags from Figures/Daviz/Indicators to Publications.
 
 Make distribution chart for facet counts, possibility to select. combined with slider?
 e.g. https://docs.microsoft.com/en-us/azure/log-analytics/media/log-analytics-log-searches/oms-search-facet.png
+
+Time coverage on analytics page shows only 100y, because of max 100 values in facet.
+In recently added we have "Published on NaN undefined NaN"
+
+Encoding issues on geotags export to RDF, see
+http://www.eea.europa.eu/about-us/competitions/waste-smart-competition/specific-privacy-statement
+it says: 6 (Kongens Nytorv 6, 1050 Kopenhagen, Dänemark)
+BUT in SDS it is: 6 (Kongens Nytorv 6, 1050 Kopenhagen, Dnemark)
+caused by two distinct resources in SDS
+http://www.eea.europa.eu/about-us/competitions/waste-smart-competition/specific-privacy-statement
+and
+http://www.eea.europa.eu/about-us/what/public-events/competitions/waste-smart-competition/imaginair-competition-rules/specific-privacy-statement
+
+geotags duplicates when label and title differs
+https://github.com/eea/eea.geotags/blob/a39b28ac7d4b6055bca33060ec4cb90add888a78/eea/geotags/rdf/marshaller.py#L60
+AND change the RDF export of our geotags to use geonames NS where possible, for example http://www.geonames.org/ontology#shortName
+
+http://semantic.eea.europa.eu/harvest.action?harvestDTO.harvestId=6530833
 
 Nice to have, languages in full name in facet (native name or english):
     "ar":"عربى (ar)",
