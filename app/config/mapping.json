@@ -670,9 +670,10 @@
                 "type": "facet",
                 "size": 100,
                 "min_size": 10,
-                "order": "term",
+                "order": "reverse_term",
                 "operator": "AND",
-                "facet_display_options": ["sort", "checkbox"]
+                "facet_display_options": ["sort", "checkbox"],
+                "values_blacklist": ["undefined"]
             }
         },
         {
