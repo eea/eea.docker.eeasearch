@@ -191,7 +191,6 @@
     "{?resource a <http://www.eea.europa.eu/portal_types/Assessment#Assessment>} UNION ",
     "{?resource a <http://www.eea.europa.eu/portal_types/CloudVideo#CloudVideo>} UNION ",
     "{?resource a <http://www.eea.europa.eu/portal_types/Document#Document>} UNION ",
-    "{?resource a <http://www.eea.europa.eu/portal_types/EEAFigureFile#EEAFigureFile>} UNION ",
     "{?resource a <http://www.eea.europa.eu/portal_types/EcoTip#EcoTip>} UNION ",
     "{?resource a <http://www.eea.europa.eu/portal_types/Event#Event>} UNION ",
     "{?resource a <http://www.eea.europa.eu/portal_types/GIS%20Application#GISApplication>} UNION ",
