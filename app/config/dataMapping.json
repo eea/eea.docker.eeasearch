@@ -79,6 +79,10 @@
       "null_value" : "Unknown",
       "analyzer" : "date2year"
     },
+    "time_coverage" : {
+      "type" : "integer",
+      "analyzer" : "date2year"
+    },
     "http://purl.org/dc/terms/format": {
       "type" : "string",
       "analyzer" : "none"

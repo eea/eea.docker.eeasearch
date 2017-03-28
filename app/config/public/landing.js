@@ -42,7 +42,7 @@ jQuery(document).ready(function($) {
             {
                 tile: ".time_coverage",
                 type: "simple",
-                facet: "year",
+                facet: "time_coverage",
                 values: [{"value":"min", "name":"time_coverage_min"}, {"value":"max", "name":"time_coverage_max"}]
             },
             {

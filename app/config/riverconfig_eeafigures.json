@@ -31,6 +31,7 @@
   "listtype": "white",
   "normProp": {
     "http://purl.org/dc/terms/issued": ["http://purl.org/dc/terms/issued", "year"],
+    "http://www.eea.europa.eu/portal_types/EEAFigure#temporalCoverage": ["time_coverage"],
     "http://purl.org/dc/terms/creator": ["creator_cms"],
     "http://www.eea.europa.eu/portal_types/Event#endDate": ["http://purl.org/dc/terms/expires"],
     "http://purl.org/dc/terms/title": ["http://purl.org/dc/terms/title","label"],
