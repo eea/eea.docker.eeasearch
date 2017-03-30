@@ -174,6 +174,8 @@
                 "order": "term",
                 "operator": "AND",
                 "autocomplete": true,
+                "autocomplete_placeholder": "Search for topic",
+                "empty_message": "No topics to show",
                 "facet_display_options": ["sort", "checkbox"]
             },
             "card": {
@@ -373,6 +375,8 @@
                 "order": "term",
                 "operator": "AND",
                 "autocomplete": true,
+                "autocomplete_placeholder": "Search for country",
+                "empty_message": "No countries to show",
                 "facet_display_options": ["sort", "checkbox"]
             }
         },
@@ -442,6 +446,9 @@
                 "order": "reverse_count",
                 "operator": "OR",
                 "autocomplete": true,
+                "autocomplete_placeholder": "Search for regions/places/cities/seas...",
+                "empty_message": "No regions/places/cities/seas... to show",
+
                 "facet_display_options": ["sort", "checkbox"]
             }
         },
