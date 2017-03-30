@@ -667,16 +667,33 @@
                 "visible": false
             },
             "facet": {
-                "allow_exact": true,
                 "visible": true,
-                "title": "Years",
+                "title": "Publishing year",
                 "pos": 7,
                 "type": "facet",
                 "size": 100,
                 "min_size": 10,
-                "order": "term",
+                "order": "reverse_term",
                 "operator": "AND",
-                "facet_display_options": ["sort", "checkbox"]
+                "facet_display_options": ["sort", "checkbox"],
+                "values_blacklist": ["undefined"]
+            }
+        },
+        {
+            "name": "time_coverage",
+            "listing": {
+                "visible": false
+            },
+            "csv_tsv": {
+                "title": "Time coverage",
+                "visible": true,
+                "pos": 11
+            },
+            "facet": {
+                "visible": true,
+                "title": "Time coverage",
+                "pos": 7,
+                "type": "range"
             }
         },
         {

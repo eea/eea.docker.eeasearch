@@ -4,6 +4,7 @@
 eeasearch:
   environment:
     VERSION_INFO: eeacms/eeasearch:master
+    elastic_index: 'rdfdata'
     elastic_host: 10.201.1.92
     elastic_port: '9200'
     AUTO_INDEXING: 'false'
