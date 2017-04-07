@@ -28,7 +28,6 @@
             ]
         },
         "site_title": "Global search and catalogue <sup style='color:#fbaf33'>beta</sup>",
-        "site_description": "<p style='font-size: 150%;font-style: italic;color: gray;'>Instantly search over 20 years of environmental knowledge by EEA</p>",
         "enableBreadcrumbs": false,
         "dataprovencance_info_text": "Semantic Data Service (SDS)",
         "dataprovencance_info_url": "http://semantic.eea.europa.eu",
