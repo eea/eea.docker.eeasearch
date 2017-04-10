@@ -55,7 +55,7 @@
     margin: 0 0 1em 0;
 }
 
-#landing .available_content > h2,
+#landing .available_content .eea_tile_content > h2,
 #landing .latest_objects > h2,
 #landing .available_content h3 {
     color: #115c57;
@@ -63,7 +63,7 @@
 
 #landing .available_content h2 {
     border-bottom: 1px solid #115c57;
-    font-size: 300%;
+    font-size: 375%;
     line-height: 1;
     margin-bottom: 0; 
 }

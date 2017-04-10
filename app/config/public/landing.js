@@ -71,4 +71,32 @@ jQuery(document).ready(function($) {
         ev.preventDefault();
         $.fn.facetview.dosearch({remove_landing: true});
     });
+    adjustTileSize();
+});
+
+function adjustTileSize(){
+    if ($("#landing").is(":visible")){
+        var tileWidth = $("#landing .normal_tiles .available_content").width();
+        var tileHeight = $("#landing .normal_tiles .available_content").height();
+        var contentWidth;
+        var contentHeight;
+        var fontSize = 45;
+        $("#landing .normal_tiles .available_content .eea_tile_content h2").css("font-size", fontSize + "px");
+        while (true){
+            contentWidth = $("#landing .normal_tiles .available_content .eea_tile_content").width();
+            contentHeight = $("#landing .normal_tiles .available_content .eea_tile_content").height();
+            if ((tileWidth >= contentWidth) && (tileHeight >= contentHeight)){
+                break;
+            }
+            if (fontSize <= 12){
+                break;
+            }
+            fontSize--;
+            $("#landing .normal_tiles .available_content .eea_tile_content h2").css("font-size", fontSize + "px");
+        }
+    }
+}
+
+$( window ).resize(function() {
+    adjustTileSize();
 });
