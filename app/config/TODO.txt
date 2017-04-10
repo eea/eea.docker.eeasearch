@@ -127,7 +127,7 @@ DONE. For Data external links. we miss organisation involved. postharvest script
 
 DONE. Add dataProvider mapping for externaldataspec
 
-Add dataProvider and dataProcessor to Data and its relateditems bback/forward refs.
+DONE. Add dataProvider and dataProcessor to Data and its relateditems bback/forward refs.
 postharvest script.
 
 Add dataProvider and dataProcessor mapping for Indicators.
@@ -139,6 +139,7 @@ Data providers missing topic.
 Data visualisations missing organisations.
 
 Policy question missing the topics.
+FIXED by http://semantic.eea.europa.eu/admin/harvestScript?id=1156
 
 FIXED. #81305 facet values_whitelist is not documented. values_blacklist does not seems to exist.
 
@@ -196,7 +197,7 @@ an ajax call for each facet. After the facet ajax call returns the values, we po
 facets, what also takes time.
 When the user starts to type we should abort all ajax calls we don't need them anyway.
 
-Add social links on app, share query.
+share query with url shortner. Add social links.
 
 FIXED. add accordion animation when opening/closing facets.
 
@@ -208,15 +209,16 @@ look at error logs in autosync containers for details.
 DONE (via postharvest). Propagate data provenance from Figures/Daviz/Indicators to Publications.
 
 Propagate time coverage from Figures/Daviz/Indicators to Publications.
-Have distinct range facet for Publishing/Issued year.
+
+FIXED. Have distinct range facet for Publishing/Issued year.
 
 Propagate geotags from Figures/Daviz/Indicators to Publications.
 
 Make distribution chart for facet counts, possibility to select. combined with slider?
 e.g. https://docs.microsoft.com/en-us/azure/log-analytics/media/log-analytics-log-searches/oms-search-facet.png
 
-Time coverage on analytics page shows only 100y, because of max 100 values in facet.
-In recently added we have "Published on NaN undefined NaN"
+FIXED Time coverage on analytics page shows only 100y, because of max 100 values in facet.
+FIXED In recently added we have "Published on NaN undefined NaN"
 
 Encoding issues on geotags export to RDF, see
 http://www.eea.europa.eu/about-us/competitions/waste-smart-competition/specific-privacy-statement
@@ -233,9 +235,37 @@ AND change the RDF export of our geotags to use geonames NS where possible, for 
 
 http://semantic.eea.europa.eu/harvest.action?harvestDTO.harvestId=6530833
 
-keep or not to keep EEAFigureFile, 
+FIXED. keep or not to keep EEAFigureFile, 
 e.g. http://www.eea.europa.eu/data-and-maps/figures/potential-level-of-invasive-species/26710_map-7-5-potential-level.eps
 it is inside an DRAFT map.
+
+#83682 make sort by relevance default. improve relevance ranking by weighting of fields and popularity by google analytics.
+
+If you deselect all languages > select a country , then no results are shown.
+if you select content types, it shows results. then select a place and deselect 
+content type. now select another place again, results disappears.
+
+If a daviz contains in data provenance a URL to another externaldataspec or data
+which ends with space " " or with anchor like
+http://www.eea.europa.eu/data-and-maps/data/external/the-classification-of-the-maximum#tab-produced-figures
+than the back relation is not automatically done
+e.g. http://www.eea.europa.eu/data-and-maps/daviz/maximum-extent-of-ice-cover-1
+
+FIXED. Add a RESET ALL FILTERS when user has changed the match any/all and exact etc.
+
+Italian File comes up as English in SDS
+http://semantic.eea.europa.eu/factsheet.action?uri=http%3A%2F%2Fwww.eea.europa.eu%2Fit%2Fpublications%2F92-828-3351-8%2F9it.pdf
+
+#84124 put focus on input search.
+
+#84124 add info message when missing results.
+
+Add format to Data, via postharvest.
+
+move tagline "Instantly search..." into the box "Content available".
+Make it look like a quote? or similar that looks good.
+
+DONE. We miss Contracts (CallForTenders, CallForProposals ...).
 
 Nice to have, languages in full name in facet (native name or english):
     "ar":"عربى (ar)",

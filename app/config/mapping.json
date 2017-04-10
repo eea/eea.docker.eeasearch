@@ -490,7 +490,8 @@
                               "Data table via SPARQL",
                               "Speech",
                               "Text",
-                              "Work Item"
+                              "Work Item",
+                              "Contract opportunity"
                           ],
             "listing": {
                 "title": "Content types (standard)",
@@ -552,7 +553,8 @@
                              "Legislation (Data reporting)",
                              "References and links",
                              "Environmental question",
-                             "Reporting obligation"
+                             "Reporting obligation",
+                             "Contract opportunity"
                           ],
             "listing": {
                 "title": "Content types",
