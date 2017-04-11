@@ -23,9 +23,14 @@
     vertical-align: bottom;
 }
 
-.document_count {
+.documents_count {
     display: block;
     margin-bottom: 0.35em;
+}
+
+.documents_count,
+.language_count {
+    height: 18px;
 }
 
 .available_content .eea_tile_count {
