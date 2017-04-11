@@ -173,6 +173,10 @@
                 "min_size": 10,
                 "order": "term",
                 "operator": "AND",
+                "autocomplete": true,
+                "autocomplete_placeholder": "Search for topic",
+                "empty_message": "No topics to show",
+                "short_name": "Topic",
                 "facet_display_options": ["sort", "checkbox"]
             },
             "card": {
@@ -371,6 +375,10 @@
                 "min_size": 10,
                 "order": "term",
                 "operator": "AND",
+                "autocomplete": true,
+                "autocomplete_placeholder": "Search for country",
+                "empty_message": "No countries to show",
+                "short_name": "Country",
                 "facet_display_options": ["sort", "checkbox"]
             }
         },
@@ -439,6 +447,10 @@
                 "min_size": 10,
                 "order": "reverse_count",
                 "operator": "OR",
+                "autocomplete": true,
+                "autocomplete_placeholder": "Search for regions/places/cities/seas...",
+                "empty_message": "No regions/places/cities/seas... to show",
+                "short_name": "Region",
                 "facet_display_options": ["sort", "checkbox"]
             }
         },
@@ -578,6 +590,7 @@
                 "min_size": 10,
                 "order": "term",
                 "operator": "OR",
+                "short_name": "Content type",
                 "facet_display_options": ["sort", "checkbox"]
             },
             "card": {
@@ -614,6 +627,7 @@
                 "min_size": 10,
                 "order": "reverse_count",
                 "operator": "OR",
+                "short_name": "Organisation",
                 "facet_display_options": ["sort", "checkbox"]
             }
         },
@@ -657,6 +671,7 @@
                 "min_size": 10,
                 "order": "term",
                 "operator": "OR",
+                "short_name": "Website",
                 "facet_display_options": ["sort", "checkbox"]
             }
         },
@@ -675,6 +690,7 @@
                 "order": "reverse_term",
                 "operator": "AND",
                 "facet_display_options": ["sort", "checkbox"],
+                "short_name": "Year",
                 "values_blacklist": ["undefined"]
             }
         },
@@ -717,6 +733,7 @@
                 "min_size": 10,
                 "order": "term",
                 "operator": "OR",
+                "short_name": "Language",
                 "facet_display_options": ["sort", "checkbox"],
                 "default_values": {"operator": "or", "values":["en"]}
             }
@@ -747,6 +764,7 @@
                 "min_size": 10,
                 "order": "reverse_count",
                 "operator": "OR",
+                "short_name": "Format",
                 "facet_display_options": ["sort", "checkbox"]
             }
 

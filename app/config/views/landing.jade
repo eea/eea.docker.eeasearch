@@ -32,15 +32,16 @@ block landing
 
       div(class="normal_tiles")
         div(class="eea_tile available_content grid-item grid-item--height2")
-          h2 Available content
-          h3 Documents
-          span(class="documents_count eea_tile_count")
-            if (landingCache.documents_count)
-                = landingCache.documents_count
-          h3 Languages
-          span(class="language_count eea_tile_count")
-            if (landingCache.language_count)
-                = landingCache.language_count
+            div(class="eea_tile_content")
+              h2 Instantly search over 20 years of environmental knowledge by EEA
+              h3 Documents
+              span(class="documents_count eea_tile_count")
+                if (landingCache.documents_count)
+                    = landingCache.documents_count
+              h3 Languages
+              span(class="language_count eea_tile_count")
+                if (landingCache.language_count)
+                    = landingCache.language_count
 
         div(class="eea_tile picture grid-item grid-item--height2")
           span
