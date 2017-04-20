@@ -1,0 +1,14 @@
+{
+    "fields_boosting":{
+        "fields":[
+            "http://purl.org/dc/terms/title^2",
+            "http://purl.org/dc/terms/spatial",
+            "http://purl.org/dc/terms/creator",
+            "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+            "http://www.w3.org/1999/02/22-rdf-syntax-ns#about",
+            "http://www.eea.europa.eu/portal_types#topic",
+            "http://purl.org/dc/terms/subject",
+            "http://purl.org/dc/terms/description"
+        ]
+    }
+}
