@@ -8,6 +8,7 @@ var path = require('path');
 var searchServer = require('eea-searchserver')
 var builtinRoutes = require('./routes/eeasearch');
 var managementCommands = require('./commands/eeasearch');
+var fs = require('fs');
 
 options = {
   app_dir: __dirname,
@@ -27,6 +28,16 @@ options = {
 }
 searchServer.Helpers.SimpleStart(options)
 
+
+exports.relevanceSettings = function(next){
+    var relevancePath = path.join(__dirname, "/config/relevance.json");
+    if (fs.existsSync(relevancePath)) {
+        next(require(relevancePath));
+    }
+    else{
+        next({});
+    }
+}
 
 exports.fieldsMapping = function(next){
     next(require(path.join(__dirname, "/config/mapping.json")));

@@ -247,6 +247,7 @@ jQuery(document).ready(function($) {
     highlight_enabled: eea_mapping.highlights.enabled,
     highlight_whitelist: eea_mapping.highlights.whitelist,
     highlight_blacklist: eea_mapping.highlights.blacklist,
-    enable_exact: true
+    enable_exact: true,
+    relevance: settings_relevance
   });
 });
