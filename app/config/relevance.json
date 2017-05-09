@@ -4,5 +4,12 @@
             "http://purl.org/dc/terms/title^2",
             "_all"
         ]
+    },
+    "decay_function":{
+        "gauss": {
+            "http://purl.org/dc/terms/issued": {
+                "scale": "8w"
+            }
+        }
     }
 }
