@@ -11,5 +11,39 @@
                 "scale": "8w"
             }
         }
+    },
+    "facet_decay_functions": {
+        "http://www.eea.europa.eu/portal_types#topic": {
+            "linear": {
+                "items_count_http://www.eea.europa.eu/portal_types#topic": {
+                    "scale": 1,
+                    "origin": 0
+                }
+            }
+        },
+        "http://purl.org/dc/terms/spatial": {
+            "linear": {
+                "items_count_http://purl.org/dc/terms/spatial": {
+                    "scale": 1,
+                    "origin": 0
+                }
+            }
+        },
+        "places": {
+            "linear": {
+                "items_count_places": {
+                    "scale": 1,
+                    "origin": 0
+                }
+            }
+        },
+        "organisation": {
+            "linear": {
+                "items_count_organisation": {
+                    "scale": 1,
+                    "origin": 0
+                }
+            }
+        }
     }
 }
