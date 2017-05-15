@@ -212,8 +212,8 @@ jQuery(document).ready(function($) {
         'display_desc': 'Newest'
       }
     ],
-//    sort: [{'http://purl.org/dc/terms/issued': {'order': 'desc'}}],
-    selected_sort: "relevance",
+    sort: [{'http://purl.org/dc/terms/issued': {'order': 'desc'}}],
+//    selected_sort: "relevance",
     default_operator: 'AND',
     default_freetext_fuzzify: '',
     querystr_filtered_chars: ':?',
@@ -251,3 +251,4 @@ jQuery(document).ready(function($) {
     relevance: settings_relevance
   });
 });
+
