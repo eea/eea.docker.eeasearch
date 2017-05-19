@@ -35,6 +35,7 @@
     },
     "landingpage_enabled": true,
     "suggestions_enabled": true,
+    "relevance_enabled": true,
     "river_configs": {
         "configs": [
             {
