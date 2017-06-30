@@ -2,16 +2,26 @@
     "fields_boosting":{
         "fields":[
             "http://purl.org/dc/terms/title^2",
+            "http://purl.org/dc/terms/subject^1.5",
+            "http://purl.org/dc/terms/description^1.5",
+            "merged_spatial^1.2",
+            "merged_places^1.2",
+            "merged_objectProvides^1.4",
+            "merged_topics^1.2",
             "_all"
         ]
     },
-    "decay_function":{
+    "functions":{
         "gauss": {
             "http://purl.org/dc/terms/issued": {
-                "scale": "8w"
+                "scale": "2w"
             }
+        },
+        "script_score": {
+            "script": "doc['items_count_http://purl.org/dc/terms/references'].value*0.01"
         }
     },
+    "score_mode":"sum",
     "facet_decay_functions": {
         "http://www.eea.europa.eu/portal_types#topic": {
             "linear": {

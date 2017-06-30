@@ -157,7 +157,8 @@ jQuery(document).ready(function($) {
   var url = $(location).attr('href');
   var hide_expired = true;
   if (url.split("?source=").length === 2){
-    var source_str = decodeURIComponent(url.split("?source=")[1]);
+    var source_str = url.split("?source=")[1];
+    source_str = decodeURIComponent(source_str);
     var source_query = JSON.parse(source_str);
     if ((source_str.indexOf('{"missing":{"field":"http://purl.org/dc/terms/expires"}}')) === -1){
         hide_expired = false;

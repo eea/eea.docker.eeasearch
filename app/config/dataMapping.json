@@ -1,6 +1,10 @@
  {
     "did_you_mean": {"type": "string", "analyzer": "didYouMean"},
     "autocomplete": {"type": "string", "analyzer": "autocomplete"},
+    "merged_topics": {"type": "string", "analyzer": "default"},
+    "merged_spatial": {"type": "string", "analyzer": "default"},
+    "merged_places": {"type": "string", "analyzer": "default"},
+    "merged_objectProvides": {"type": "string", "analyzer": "default"},
 
     "cluster_id": {
       "type" : "string",
@@ -33,7 +37,7 @@
       "type" : "string",
       "null_value" : "Various other issues",
       "analyzer" : "none",
-      "copy_to" : ["did_you_mean"]
+      "copy_to" : ["did_you_mean", "merged_topics"]
     },
     "http://www.w3.org/1999/02/22-rdf-syntax-ns#type" : {
       "type" : "string",
@@ -44,17 +48,17 @@
       "type" : "string",
       "null_value" : "Other",
       "analyzer" : "none",
-      "copy_to" : ["did_you_mean"]
+      "copy_to" : ["did_you_mean", "merged_objectProvides"]
     },
     "http://purl.org/dc/terms/spatial" : {
       "type" : "string",
       "analyzer" : "none",
-      "copy_to" : ["did_you_mean"]
+      "copy_to" : ["did_you_mean", "merged_spatial"]
     },
     "places" : {
       "type" : "string",
       "analyzer" : "none",
-      "copy_to" : ["did_you_mean"]
+      "copy_to" : ["did_you_mean", "merged_places"]
     },
     "http://purl.org/dc/terms/creator" : {
       "type" : "string",
