@@ -1,10 +1,12 @@
  {
     "did_you_mean": {"type": "string", "analyzer": "didYouMean"},
     "autocomplete": {"type": "string", "analyzer": "autocomplete"},
-    "merged_topics": {"type": "string", "analyzer": "default"},
-    "merged_spatial": {"type": "string", "analyzer": "default"},
-    "merged_places": {"type": "string", "analyzer": "default"},
-    "merged_objectProvides": {"type": "string", "analyzer": "default"},
+    "searchable_topics": {"type": "string", "analyzer": "default"},
+    "searchable_spatial": {"type": "string", "analyzer": "default"},
+    "searchable_places": {"type": "string", "analyzer": "default"},
+    "searchable_objectProvides": {"type": "string", "analyzer": "default"},
+    "searchable_organisation": {"type": "string", "analyzer": "default"},
+    "searchable_time_coverage":  {"type": "string", "analyzer": "default"},
 
     "cluster_id": {
       "type" : "string",
@@ -22,22 +24,22 @@
     },
     "http://www.eea.europa.eu/portal_types#dataProvider":{
        "type" : "string",
-       "copy_to" : "organisation"
+       "copy_to" : ["organisation", "searchable_organisation"]
      },
      "http://www.eea.europa.eu/portal_types#dataProcessor":{
        "type" : "string",
-       "copy_to" : "organisation"
+       "copy_to" : ["organisation", "searchable_organisation"]
      },
     "organisation" : {
       "type" : "string",
       "analyzer" : "none",
-      "copy_to" : ["did_you_mean"]
+      "copy_to" : ["did_you_mean", "searchable_organisation"]
     },
     "http://www.eea.europa.eu/portal_types#topic" : {
       "type" : "string",
       "null_value" : "Various other issues",
       "analyzer" : "none",
-      "copy_to" : ["did_you_mean", "merged_topics"]
+      "copy_to" : ["did_you_mean", "searchable_topics"]
     },
     "http://www.w3.org/1999/02/22-rdf-syntax-ns#type" : {
       "type" : "string",
@@ -48,17 +50,17 @@
       "type" : "string",
       "null_value" : "Other",
       "analyzer" : "none",
-      "copy_to" : ["did_you_mean", "merged_objectProvides"]
+      "copy_to" : ["did_you_mean", "searchable_objectProvides"]
     },
     "http://purl.org/dc/terms/spatial" : {
       "type" : "string",
       "analyzer" : "none",
-      "copy_to" : ["did_you_mean", "merged_spatial"]
+      "copy_to" : ["did_you_mean", "searchable_spatial"]
     },
     "places" : {
       "type" : "string",
       "analyzer" : "none",
-      "copy_to" : ["did_you_mean", "merged_places"]
+      "copy_to" : ["did_you_mean", "searchable_places"]
     },
     "http://purl.org/dc/terms/creator" : {
       "type" : "string",
@@ -85,7 +87,8 @@
     },
     "time_coverage" : {
       "type" : "integer",
-      "analyzer" : "date2year"
+      "analyzer" : "date2year",
+      "copy_to" : ["searchable_time_coverage"]
     },
     "http://purl.org/dc/terms/format": {
       "type" : "string",

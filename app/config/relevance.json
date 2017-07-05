@@ -4,10 +4,12 @@
             "http://purl.org/dc/terms/title^2",
             "http://purl.org/dc/terms/subject^1.5",
             "http://purl.org/dc/terms/description^1.5",
-            "merged_spatial^1.2",
-            "merged_places^1.2",
-            "merged_objectProvides^1.4",
-            "merged_topics^1.2",
+            "searchable_spatial^1.2",
+            "searchable_places^1.2",
+            "searchable_objectProvides^1.4",
+            "searchable_topics^1.2",
+            "searchable_time_coverage^10",
+            "searchable_organisation^2",
             "_all"
         ]
     },
