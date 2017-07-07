@@ -193,6 +193,14 @@ function reIndex(settings) {
     createIndex(settings);
 }
 
+function reIndexCluster(settings, clusters) {
+  if (!clusters.length){
+    return console.log("Usage: reindex_cluster <clusterid_1> <clusterid_2> <clusterid_3>");
+  }
+
+  console.log(clusters);
+}
+
 function showHelp() {
     console.log('List of available commands:');
     console.log(' runserver: Run the app web server');
@@ -205,6 +213,8 @@ function showHelp() {
     console.log('');
     console.log(' reindex: Remove river and data, recrate the index on the elastic_host and start harvesting');
     console.log('');
+    console.log(' reindex_cluster <clusterid_1> <clusterid_2> <clusterid_3>: Reindex only specified clusters');
+    console.log('');
     console.log(' help: Show this menu');
     console.log('');
 }
@@ -215,5 +225,6 @@ module.exports = {
     'remove_data': removeData,
     'create_index': createIndex,
     'reindex': reIndex,
+    'reindex_cluster': reIndexCluster,
     'help': showHelp
 }
