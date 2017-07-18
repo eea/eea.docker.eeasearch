@@ -139,141 +139,43 @@ function checkIfIndexing(settings) {
 
 
 
-
-function createIndex(settings) {
-  if (checkIfIndexing(settings)) {
-    console.log("Indexing already in progress, you have to wait until the indexing is done.");
-    return;
-  }
-
-  var esAPI = require('eea-searchserver').esAPI;
-  var elastic = require('nconf').get()['elastic'];
-  var river_configs = require('nconf').get()['river_configs'];
-
+function getLastUpdateDate(elastic){
 
   var request = require('sync-request');
-  var dateFormat = require('dateformat');
-
-
-
-  var default_startTime = "1970-01-01T00:00:00";
-  var startTimeJson = {}
-  var use_default_startTime = true
-
-  var esQuery = new esAPI(getOptions());
-  if (settings.remove_all) {
-    for (var i = 0; i < river_configs.configs.length; i++) {
-      var river_name = "_river/" + river_configs.configs[i].id;
-      esQuery.DELETE(river_name, callback('Deleting river! (if it exists)'));
-    }
-    esQuery.DELETE(elastic.index, callback('Deleting index! (if it exists)'))
-  } else {
-    var indexed_url = 'http://' + elastic.host + ':' + elastic.port + elastic.path + elastic.index + '/status/last_update';
-    try {
-      res = request('GET', indexed_url);
-      var res_json = JSON.parse(res.getBody('utf8'));
-      startTimeJson = res_json._source.updated_at;
-      use_default_startTime = false
-    } catch (e) {
-      console.log('Index is missing');
-    }
-  }
-
-  if (use_default_startTime) {
-    console.log('Index objects newer than:', default_startTime);
-  } else {
-    console.log('Last updated date found, using start time per cluser:', JSON.stringify(startTimeJson));
-  }
-
-
-  var river_creation_date = Date.now()
-  var river_last_update = {}
-  for (var i = 0; i < river_configs.configs.length; i++) {
-    var riverconfig = require(path.join(settings.app_dir, '/config/', river_configs.configs[i].config_file));
-    var config = getIndexFiles(settings, elastic, riverconfig, river_configs.configs[i].id, river_configs.configs[i].cluster_name);
-    config.syncReq.eeaRDF.startTime = default_startTime;
-
-    if (!use_default_startTime && startTimeJson[river_configs.configs[i].id]) {
-      var updated_date = new Date(startTimeJson[river_configs.configs[i].id]);
-      config.syncReq.eeaRDF.startTime = dateFormat(updated_date, "yyyy-mm-dd'T'HH:MM:ss");
-    }
-    var river_name = "_river/" + river_configs.configs[i].id;
-    var river_meta = river_name + "/_meta";
-    river_last_update[river_configs.configs[i].id] = river_creation_date
-    esQuery
-      .PUT(elastic.index, config.analyzers, callback('Setting up new index and analyzers'))
-      .DELETE(river_name, callback('Deleting river! (if it exists)'))
-      .PUT(river_meta, config.syncReq, callback('Adding river back'))
-  }
-  esQuery.PUT(elastic.index + '/status/last_update', {
-    'updated_at': river_last_update
-  }, callback('Rivers updated'));
-  esQuery.PUT(elastic.index + '/cache/cache', {}, function() {})
-    .execute();
-
-}
-
-
-function reCreateRivers(settings, clusters) {
-
-  if (checkIfIndexing(settings)) {
-    console.log("Indexing already in progress, you have to wait until the indexing is done.");
-    return;
-  }
-
-  var esAPI = require('eea-searchserver').esAPI;
-  var elastic = require('nconf').get()['elastic'];
-  var river_configs = require('nconf').get()['river_configs'];
-
-  var request = require('sync-request');
-  var dateFormat = require('dateformat');
-
-  var default_startTime = "1970-01-01T00:00:00";
-  var startTimeJson
-  var use_default_startTime = true
 
   var indexed_url = 'http://' + elastic.host + ':' + elastic.port + elastic.path + elastic.index + '/status/last_update';
   try {
     res = request('GET', indexed_url);
     var res_json = JSON.parse(res.getBody('utf8'));
-    startTimeJson = res_json._source.updated_at;
-    use_default_startTime = false
+    return res_json._source.updated_at;
+
   } catch (e) {
-    console.log('Index is missing');
+    console.log('Index is missing', e.message);
   }
+   return -1
+}
 
 
-  if (use_default_startTime) {
-    console.log('Index objects newer than:', default_startTime);
-  } else {
-    console.log('Last updated date found, using start time per cluser:', JSON.stringify(startTimeJson));
-  }
+function startCreatingRiverClusters(settings,elastic,use_default_startTime,default_startTime,startTimeJson,clusters){
 
 
-  var esQuery = new esAPI(getOptions());
-  var river_creation_date = Date.now()
-  var river_last_update = {}
+    var esAPI = require('eea-searchserver').esAPI;
+    var river_configs = require('nconf').get()['river_configs'];
+     var esQuery = new esAPI(getOptions());
+    var river_creation_date = Date.now()
+    var river_last_update = {}
+
   for (var i = 0; i < river_configs.configs.length; i++) {
     var cluster_id = river_configs.configs[i].id
     var riverconfig = require(path.join(settings.app_dir, '/config/', river_configs.configs[i].config_file));
     var config = getIndexFiles(settings, elastic, riverconfig, cluster_id, river_configs.configs[i].cluster_name);
     config.syncReq.eeaRDF.startTime = default_startTime;
 
-    if (clusters.indexOf(cluster_id) >= 0) {
-      //delete from index
-      console.log("Starting deleting data from ElasticSearch, cluster ", cluster_id)
-      var indexed_url = 'http://' + elastic.host + ':' + elastic.port + elastic.path + elastic.index + '/resource/_query?q=cluster_id:' + cluster_id;
-      try {
-        res = request('DELETE', indexed_url);
-        console.log("Deletion result", res.getBody('utf8'));
-        var res_json = JSON.parse(res.getBody('utf8'));
-        if (res_json._indices[elastic.index]._shards > 0) {
-          return console.log('Exiting, because ' + res_json._indices.elastic.index._shards.failed + ' shards failed ');
-        }
-      } catch (e) {
-        return console.log('Problems deleting ' + cluster_id + ' data from index ', e.message);
-      }
-
+    if ( clusters != null && clusters.indexOf(cluster_id) >= 0) {
+       if (deleteClusterData(elastic,cluster_id) != 0 ) {
+         //Exiting, error on deleting from index
+         return
+       }
     } else {
       if (!use_default_startTime && startTimeJson[cluster_id]) {
         var updated_date = new Date(startTimeJson[cluster_id]);
@@ -281,7 +183,7 @@ function reCreateRivers(settings, clusters) {
       }
     }
 
-    console.log('***Setting starttime for cluster ' + cluster_id + " " + config.syncReq.eeaRDF.startTime);
+    console.log('***Setting startTime for cluster ' + cluster_id + " " + config.syncReq.eeaRDF.startTime);
 
     var river_name = "_river/" + cluster_id;
     var river_meta = river_name + "/_meta";
@@ -298,8 +200,98 @@ function reCreateRivers(settings, clusters) {
   }, callback('Rivers updated'));
   esQuery.PUT(elastic.index + '/cache/cache', {}, function() {})
     .execute();
-
 }
+
+
+function createIndex(settings) {
+  if (checkIfIndexing(settings)) {
+    console.log("Indexing already in progress, you have to wait until the indexing is done.");
+    return;
+  }
+
+  var esAPI = require('eea-searchserver').esAPI;
+  var elastic = require('nconf').get()['elastic'];
+  var river_configs = require('nconf').get()['river_configs'];
+
+  var default_startTime = "1970-01-01T00:00:00";
+  var startTimeJson ;
+  var use_default_startTime = true;
+
+  var esQuery = new esAPI(getOptions());
+  if (settings.remove_all) {
+    for (var i = 0; i < river_configs.configs.length; i++) {
+      var river_name = "_river/" + river_configs.configs[i].id;
+      esQuery.DELETE(river_name, callback('Deleting river! (if it exists)'));
+    }
+    esQuery.DELETE(elastic.index, callback('Deleting index! (if it exists)'))
+    .execute();
+  } else {
+     startTimeJson = getLastUpdateDate(elastic)
+     if ( startTimeJson != -1 ) {
+       use_default_startTime = false
+     }
+  }
+
+  if (use_default_startTime) {
+    console.log('Index objects newer than:', default_startTime);
+  } else {
+    console.log('Last updated date found, using start time per cluser:', JSON.stringify(startTimeJson));
+  }
+
+  startCreatingRiverClusters(settings,elastic,use_default_startTime,default_startTime,startTimeJson,null)
+}
+
+
+function reCreateRivers(settings, clusters) {
+
+  if (checkIfIndexing(settings)) {
+    console.log("Indexing already in progress, you have to wait until the indexing is done.");
+    return;
+  }
+
+  var elastic = require('nconf').get()['elastic'];
+  var default_startTime = "1970-01-01T00:00:00";
+  var use_default_startTime = true;
+  var startTimeJson = getLastUpdateDate(elastic);
+
+  if ( startTimeJson != -1 ) {
+    use_default_startTime = false;
+  }
+
+  if (use_default_startTime) {
+    console.log('Index objects newer than:', default_startTime);
+  } else {
+    console.log('Last updated date found, using start time per cluser:', JSON.stringify(startTimeJson));
+  }
+
+
+  startCreatingRiverClusters(settings,elastic,use_default_startTime,default_startTime,startTimeJson,clusters)
+}
+
+function deleteClusterData(elastic,cluster_id){
+  var request = require('sync-request');
+
+  //delete from index
+  console.log("Starting deleting data from ElasticSearch, cluster ", cluster_id)
+  var indexed_url = 'http://' + elastic.host + ':' + elastic.port + elastic.path + elastic.index + '/resource/_query?q=cluster_id:' + cluster_id;
+  try {
+    res = request('DELETE', indexed_url);
+    console.log("Deletion result", res.getBody('utf8'));
+    var res_json = JSON.parse(res.getBody('utf8'));
+    if (res_json._indices[elastic.index]._shards > 0) {
+       console.log('Exiting, because ' + res_json._indices.elastic.index._shards.failed + ' shards failed ');
+       return -1;
+    }
+  } catch (e) {
+     console.log('Problems deleting ' + cluster_id + ' data from index ', e.message);
+     return -1;
+  }
+  return 0;
+}
+
+
+
+
 
 function reIndex(settings) {
   settings.remove_all = true;
