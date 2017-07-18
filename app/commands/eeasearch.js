@@ -173,11 +173,7 @@ function createIndex(settings) {
       try {
           res = request('GET', indexed_url);
           var res_json = JSON.parse(res.getBody('utf8'));
-
-          for ( var j = 0; j < res_json._source.updated_at.length; j++){
-            var creation_date = new Date(res_json._source.updated_at[j].date);
-            startTimeJson[res_json._source.updated_at[j].cluster_id] = dateFormat(creation_date, "yyyy-mm-dd'T'HH:MM:ss");
-          }
+          startTimeJson = res_json._source.updated_at;
           use_default_startTime = false
       } catch(e) {
           console.log('Index is missing');
@@ -219,6 +215,7 @@ function createIndex(settings) {
 
 
 function reCreateRivers(settings, clusters) {
+
     if (checkIfIndexing(settings)){
         console.log("Indexing already in progress. If you want to start it again, use the reindex command, or wait until the indexing is done.");
         return;
@@ -232,22 +229,19 @@ function reCreateRivers(settings, clusters) {
     var dateFormat = require('dateformat');
 
     var default_startTime = "1970-01-01T00:00:00";
-    var startTimeJson = {}
+    var startTimeJson
     var use_default_startTime = true
 
     var indexed_url = 'http://' + elastic.host + ':' + elastic.port + elastic.path + elastic.index + '/status/last_update';
     try {
         res = request('GET', indexed_url);
         var res_json = JSON.parse(res.getBody('utf8'));
-
         startTimeJson = res_json._source.updated_at;
-
         use_default_startTime = false
     } catch(e) {
         console.log('Index is missing');
     }
 
-    var esQuery = new esAPI(getOptions());
 
     if (use_default_startTime) {
       console.log('Index objects newer than:', default_startTime);
@@ -257,41 +251,44 @@ function reCreateRivers(settings, clusters) {
     }
 
 
+    var esQuery = new esAPI(getOptions());
     var river_creation_date = Date.now()
     var river_last_update = {}
     for (var i = 0; i < river_configs.configs.length; i++){
-
+      var cluster_id = river_configs.configs[i].id
+      var riverconfig = require(path.join(settings.app_dir, '/config/', river_configs.configs[i].config_file));
+      var config = getIndexFiles(settings, elastic, riverconfig, cluster_id, river_configs.configs[i].cluster_name);
       config.syncReq.eeaRDF.startTime = default_startTime;
 
-      if ( clusters.indexOf(river_configs.configs[i]) >=0 ) {
+      if ( clusters.indexOf(cluster_id) >=0 ) {
         //delete from indexOf
-       var indexed_url = 'http://' + elastic.host + ':' + elastic.port + elastic.path + elastic.index + '/resource/_query?q=cluster_id:'+river_configs.configs[i];
+       console.log("Starting deleting data from ElasticSearch, cluster ",cluster_id)
+       var indexed_url = 'http://' + elastic.host + ':' + elastic.port + elastic.path + elastic.index + '/resource/_query?q=cluster_id:'+cluster_id;
         try {
             res = request('DELETE', indexed_url);
+            console.log("Deletion result", res.getBody('utf8'));
             var res_json = JSON.parse(res.getBody('utf8'));
-
-             if ( res_json._indices.elastic.index._shards.failed > 0 ) {
+            if ( res_json._indices[elastic.index]._shards > 0 ) {
                return console.log( 'Exiting, because ' + res_json._indices.elastic.index._shards.failed + ' shards failed ');
               }
-
-        } catch(e) {
-            return console.log('Problems deleting from index');
-        }
-
+          } catch(e) {
+                return console.log('Problems deleting from index ',e.message);
+          }
 
        }
        else
        {
-         if ( ! use_default_startTime && startTimeJson[river_configs.configs[i].id] ) {
-                  var updated_date = new Date(startTimeJson[river_configs.configs[i].id]);
+         if ( ! use_default_startTime && startTimeJson[cluster_id] ) {
+                  var updated_date = new Date(startTimeJson[cluster_id]);
                   config.syncReq.eeaRDF.startTime = dateFormat(updated_date, "yyyy-mm-dd'T'HH:MM:ss");
                  }
        }
-        var riverconfig = require(path.join(settings.app_dir, '/config/', river_configs.configs[i].config_file));
-        var config = getIndexFiles(settings, elastic, riverconfig, river_configs.configs[i].id, river_configs.configs[i].cluster_name);
-        var river_name = "_river/" + river_configs.configs[i].id;
+
+        console.log('Setting starttime for cluser '+cluster_id+" "+config.syncReq.eeaRDF.startTime);
+
+        var river_name = "_river/" + cluster_id;
         var river_meta = river_name+"/_meta";
-        river_last_update[river_configs.configs[i].id]=river_creation_date
+        river_last_update[cluster_id]=river_creation_date
         esQuery
             .PUT(elastic.index, config.analyzers, callback('Setting up new index and analyzers'))
             .DELETE(river_name, callback('Deleting river! (if it exists)'))
@@ -317,12 +314,11 @@ function reIndexCluster(settings, clusters) {
     return console.log("Usage: reindex_cluster <clusterid_1> <clusterid_2> <clusterid_3>");
   }
 
-    //Validate clusters variable
+  //Validate clusters variable
   var river_configs = require('nconf').get()['river_configs'];
-
   for (var i = 0; i < clusters.length; i++) {
     var found = false;
-    for (var j = 0; j < river_configs.configs.length; i++) {
+    for (var j = 0; j < river_configs.configs.length; j++) {
       if ( river_configs.configs[j].id == clusters[i] ){
         found = true;
       }
@@ -332,8 +328,9 @@ function reIndexCluster(settings, clusters) {
     }
   }
 
+  console.log("Cluster list validated: ", clusters);
   reCreateRivers(settings, clusters);
-  console.log(clusters);
+
 }
 
 function showHelp() {
