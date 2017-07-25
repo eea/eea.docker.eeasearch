@@ -93,7 +93,6 @@ function removeRiver() {
       .DELETE(river_name, callback('Deleting river! (if it exists)'));
   }
   esQuery.execute();
-
 }
 
 function removeData(settings) {
@@ -279,15 +278,13 @@ function deleteClusterData(elastic,cluster_id){
 
   //delete from index
   console.log("Starting deleting data from ElasticSearch, cluster ", cluster_id)
-  var indexed_url = 'http://' + elastic.host + ':' + elastic.port + elastic.path + elastic.index + '/resource/_query?q=cluster_id:' + cluster_id;
+  var indexed_url = elastic.path + elastic.index + '/resource/_query?q=cluster_id:' + cluster_id;
+
+  var esAPI = require('eea-searchserver').esAPI;
+  var esQuery = new esAPI(getOptions());
   try {
-    res = request('DELETE', indexed_url);
-    console.log("Deletion result", res.getBody('utf8'));
-    var res_json = JSON.parse(res.getBody('utf8'));
-    if (res_json._indices[elastic.index]._shards > 0) {
-       console.log('Exiting, because ' + res_json._indices.elastic.index._shards.failed + ' shards failed ');
-       return -1;
-    }
+    esQuery.DELETE(indexed_url, callback('Deleting data! (if it exists)'))
+        .execute();
   } catch (e) {
       if (e.statusCode === 404){
         return 0;
