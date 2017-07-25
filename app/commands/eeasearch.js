@@ -171,7 +171,12 @@ function startCreatingRiverClusters(settings,elastic,use_default_startTime,defau
     var config = getIndexFiles(settings, elastic, riverconfig, cluster_id, river_configs.configs[i].cluster_name);
     config.syncReq.eeaRDF.startTime = default_startTime;
 
+    var shouldAdd = false;
+    if (clusters === null){
+      shouldAdd = true;
+    }
     if ( clusters != null && clusters.indexOf(cluster_id) >= 0) {
+       shouldAdd = true;
        if (deleteClusterData(elastic,cluster_id) != 0 ) {
          //Exiting, error on deleting from index
          return
@@ -182,17 +187,18 @@ function startCreatingRiverClusters(settings,elastic,use_default_startTime,defau
         config.syncReq.eeaRDF.startTime = dateFormat(updated_date, "yyyy-mm-dd'T'HH:MM:ss");
       }
     }
+    if (shouldAdd){
 
-    console.log('***Setting startTime for cluster ' + cluster_id + " " + config.syncReq.eeaRDF.startTime);
+      console.log('***Setting startTime for cluster ' + cluster_id + " " + config.syncReq.eeaRDF.startTime);
 
-    var river_name = "_river/" + cluster_id;
-    var river_meta = river_name + "/_meta";
-    river_last_update[cluster_id] = river_creation_date
-    esQuery
-      .PUT(elastic.index, config.analyzers, callback('Setting up new index and analyzers'))
-      .DELETE(river_name, callback('Deleting river! (if it exists)'))
-      .PUT(river_meta, config.syncReq, callback('Adding river back'))
-
+      var river_name = "_river/" + cluster_id;
+      var river_meta = river_name + "/_meta";
+      river_last_update[cluster_id] = river_creation_date
+      esQuery
+        .PUT(elastic.index, config.analyzers, callback('Setting up new index and analyzers'))
+        .DELETE(river_name, callback('Deleting river! (if it exists)'))
+        .PUT(river_meta, config.syncReq, callback('Adding river back'))
+    }
 
   }
   esQuery.PUT(elastic.index + '/status/last_update', {
@@ -283,8 +289,11 @@ function deleteClusterData(elastic,cluster_id){
        return -1;
     }
   } catch (e) {
-     console.log('Problems deleting ' + cluster_id + ' data from index ', e.message);
-     return -1;
+      if (e.statusCode === 404){
+        return 0;
+      }
+      console.log('Problems deleting ' + cluster_id + ' data from index ', e.message);
+      return -1;
   }
   return 0;
 }
