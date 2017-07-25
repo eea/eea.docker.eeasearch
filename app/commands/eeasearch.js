@@ -298,21 +298,12 @@ function deleteClusterData(elastic,cluster_id){
   return 0;
 }
 
-
-
-
-
 function reIndex(settings) {
   settings.remove_all = true;
   createIndex(settings);
 }
 
-function reIndexCluster(settings, clusters) {
-  if (!clusters.length) {
-    return console.log("Usage: reindex_cluster <clusterid_1> <clusterid_2> <clusterid_3>");
-  }
-
-  //Validate clusters variable
+function validateClusters(clusters){
   var river_configs = require('nconf').get()['river_configs'];
   for (var i = 0; i < clusters.length; i++) {
     var found = false;
@@ -322,13 +313,36 @@ function reIndexCluster(settings, clusters) {
       }
     }
     if (!found) {
-      return console.log("There is no cluster " + clusters[i] + "\nUsage: reindex_cluster <clusterid_1> <clusterid_2> <clusterid_3>");
+      console.log("There is no cluster " + clusters[i] + "\nUsage: reindex_cluster <clusterid_1> <clusterid_2> <clusterid_3>");
+      return -1;
     }
   }
-
   console.log("Cluster list validated: ", clusters);
-  reCreateRivers(settings, clusters);
+  return 0;
+}
 
+function reIndexCluster(settings, clusters) {
+  if (!clusters.length) {
+    console.log("Usage: reindex_cluster <clusterid_1> <clusterid_2> <clusterid_3>");
+    return -1;
+  }
+  //Validate clusters variable
+  if (validateClusters(clusters) === 0){
+    reCreateRivers(settings, clusters);
+  }
+}
+
+function removeCluster(settings, clusters) {
+  if (!clusters.length) {
+    console.log("Usage: remove_cluster <clusterid_1> <clusterid_2> <clusterid_3>");
+    return -1;
+  }
+  if (validateClusters(clusters) === 0){
+    var elastic = require('nconf').get()['elastic'];
+    for (var i = 0; i < clusters.length; i++){
+        deleteClusterData(elastic,clusters[i]);
+    }
+  }
 }
 
 function showHelp() {
@@ -356,5 +370,6 @@ module.exports = {
   'create_index': createIndex,
   'reindex': reIndex,
   'reindex_cluster': reIndexCluster,
+  'remove_cluster': removeCluster,
   'help': showHelp
 }
