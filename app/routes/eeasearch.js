@@ -9,7 +9,6 @@ var field_base = nconf.get("elastic:field_base");
 var layout_vars = nconf.get("layout_vars");
 
 function getLastUpdateDate(){
-console.log("XXXXXXXXXXXXXX");
     var elastic = nconf.get()['elastic'];
     var dateFormat = require('dateformat');
     var request = require('sync-request');
@@ -26,7 +25,6 @@ console.log("XXXXXXXXXXXXXX");
         var latest = Math.max.apply(null, dates);
         creation_date = new Date(latest);
         creation_date = dateFormat(creation_date, 'dd mmmm yyyy HH:MM TT');
-        console.log(creation_date);
     }
     catch (e) {
         console.log('Index is missing', e.message);
