@@ -18,13 +18,13 @@
         "css_resources": {
             "index_page": [
                 "landing.css",
-                "css/eeasearch.facetview.css"
+                "eeasearch.facetview.css"
             ]
         },
         "js_resources": {
             "index_page": [
                 "landing.js",
-                "javascripts/eeasearch.facetview.js"
+                "eeasearch.facetview.js"
             ]
         },
         "site_title": "Global search and catalogue <sup style='color:#fbaf33'>beta</sup>",
