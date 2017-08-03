@@ -229,6 +229,7 @@ function updateResult(element, result){
 
 jQuery(document).ready(function($) {
   var url = $(location).attr('href');
+
   var hide_expired = true;
   if (url.split("?source=").length === 2){
     var source_str = url.split("?source=")[1];
@@ -238,6 +239,9 @@ jQuery(document).ready(function($) {
         hide_expired = false;
     }
   }
+  var vfrom = url.indexOf('from');
+  var from_val = vfrom !== -1 ? window.parseInt(url.substring(vfrom + 10, vfrom + 12)) : 0;
+
 
   var today = getToday();
 
@@ -314,7 +318,7 @@ jQuery(document).ready(function($) {
     },
     linkify: false,
     paging: {
-      from: 0,
+      from: from_val,
       size: 20
     },
     display_images: false,
