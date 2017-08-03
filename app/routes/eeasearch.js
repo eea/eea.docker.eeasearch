@@ -8,23 +8,26 @@ var _ = require('underscore');
 var field_base = nconf.get("elastic:field_base");
 var layout_vars = nconf.get("layout_vars");
 
-function getIndexCreationDate() {
-    var request = require('sync-request');
-    var dateFormat = require('dateformat');
+function getLastUpdateDate(){
     var elastic = nconf.get()['elastic'];
-    var indexed_url = 'http://' + elastic.host + ':' + elastic.port + elastic.path + elastic.index + '/status/last_update';
-    console.log(indexed_url);
+    var dateFormat = require('dateformat');
+    var request = require('sync-request');
     var creation_date = 'unknown';
-    var res;
+
+    var indexed_url = 'http://' + elastic.host + ':' + elastic.port + elastic.path + elastic.index + '/status/last_update';
     try {
         res = request('GET', indexed_url);
         var res_json = JSON.parse(res.getBody('utf8'));
-        var creation_date_stamp = res_json._source.updated_at;
-        var creation_date = new Date(creation_date_stamp);
+        var dates = [];
+        Object.keys(res_json._source.updated_at).forEach(function(key){
+            dates.push(res_json._source.updated_at[key]);
+        });
+        var latest = Math.max.apply(null, dates);
+        creation_date = new Date(latest);
         creation_date = dateFormat(creation_date, 'dd mmmm yyyy HH:MM TT');
-        console.log('getIndexCreationDate for river', '-', creation_date);
-    } catch(e) {
-        console.log(e);
+    }
+    catch (e) {
+        console.log('Index is missing', e.message);
     }
     return creation_date;
 }
@@ -37,7 +40,7 @@ exports.index = function(req, res){
   var options = {title: 'search'};
 
   options = _.extend(options, layout_vars);
-  options.getIndexCreationDate = getIndexCreationDate;
+  options.getIndexCreationDate = getLastUpdateDate;
   searchServer.EEAFacetFramework.render(req, res, 'index', options);
 };
 

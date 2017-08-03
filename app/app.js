@@ -21,7 +21,7 @@ options = {
     managementCommands: managementCommands,
     extraAnalyzers: 'config/analyzers.json',
     filterAnalyzers: 'config/filters.json',
-    dataMapping: 'config/dataMapping.json',
+    dataMapping: 'config/mapping.json',
     endpoint: 'http://semantic.eea.europa.eu/sparql',
   },
   customResourcesPath: ['code/config/public']
@@ -40,5 +40,5 @@ exports.relevanceSettings = function(next){
 }
 
 exports.fieldsMapping = function(next){
-    next(require(path.join(__dirname, "/config/mapping.json")));
+    next(require(path.join(__dirname, "/config/facets.json")));
 }
