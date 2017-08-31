@@ -233,6 +233,9 @@ function createIndex(settings) {
         }
     }
 
+    Check for undeleted, duplicate data in elastic. Refs #86021
+    compareElasticSemnatic()
+
     if (use_default_startTime) {
         console.log('Index objects newer than:', default_startTime);
     }
@@ -335,11 +338,6 @@ function getSemanticData() {
 
     sparql += "} }";
 
-    // for testing purpouse
-    // sparql += "} \
-    //     filter (?resource != <http://www.eea.europa.eu/data-and-maps/data/waterbase-rivers-7>) \
-    // }";
-
     qs = {
         "query" : sparql
     };
@@ -379,7 +377,7 @@ function getElasticData() {
             "filtered": {
                 "filter": {
                     "type": {
-                        "value": "resource"
+                        "value": elastic.type
                     }
                 }
             }
@@ -436,33 +434,26 @@ function getElasticData() {
 
 }
 
-
 function deleteElasticDoc(id) {
     var request = require('sync-request');
     var elastic = require('nconf').get()['elastic'];
-    var docPath = 'http://' + elastic.host + ':' + elastic.port + elastic.path + '/' + elastic.index + '/resource/';
+    var docPath ='/' + elastic.index + '/resource/';
+    var esAPI = require('eea-searchserver').esAPI;
+    var esQuery = new esAPI(getOptions());
 
-    // Delete request for duplicate documents in elastic
     try {
-        res = request('DELETE', docPath + encodeURIComponent(id));
-        var res_json = JSON.parse(res.getBody('utf8'));
-        if(res_json.found) {
-            console.log("Deleted document with _id: " + id );
-        } else {
-            console.log("Document not found");
+        esQuery.DELETE(docPath + encodeURIComponent(id), callback('Deleting data! (if it exists)'))
+            .execute();
+    } catch (e) {
+        if (e.statusCode === 404){
+            return 0;
         }
-    }
-    catch (e) {
-        console.log("DELETE request failed");
+        console.log('Problems deleting ' + cluster_id + ' data from index ', e.message);
         return false;
     }
 }
 
 function reIndex(settings) {
-    // Check for undeleted, duplicate data in elastic. Refs #86021
-    compareElasticSemnatic()
-    return;
-
     settings.remove_all = true;
     createIndex(settings);
 }
