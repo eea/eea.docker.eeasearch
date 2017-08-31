@@ -289,7 +289,180 @@ function deleteClusterData(elastic,cluster_id){
     return 0;
 }
 
+function compareElasticSemnatic() {
+    var semanticData = getSemanticData();
+    var elasticData = getElasticData();
+
+    // Delete documents that are not found in semnatic data list
+    if(semanticData && elasticData) {
+        for (var i = 0; i < elasticData.length; i++) {
+            if(semanticData.indexOf(elasticData[i]) < 0) {
+                deleteElasticDoc(elasticData[i]);
+            }
+        }
+    } else {
+        console.log("There was and error retrieving elastic or semnatic data");
+    }
+}
+
+function getSemanticData() {
+    var request = require('sync-request');
+    var semanticHost = "http://semantic.eea.europa.eu/sparql";
+    var river_configs = require('nconf').get()['river_configs'];
+    var syncConditionsList = [];
+    var syncCondition = "";
+    var river_config = {};
+    var semanticList = [];
+
+    // Build the sparql query with the syncConditions from rivers
+    var sparql = " PREFIX xsd:<http://www.w3.org/2001/XMLSchema#> \
+                    SELECT DISTINCT ?resource WHERE { \
+                        GRAPH ?graph { ";
+
+    for (var i = 0; i < river_configs.configs.length; i++) {
+        river_config = require("../config/" + river_configs.configs[i].config_file);
+        for(var j = 0; j < river_config['syncConditions'].length; j++) {
+            syncCondition = river_config['syncConditions'][j].match(/{(.*)}/i)[0];
+            if(syncConditionsList.indexOf(syncCondition) < 0) {
+                if(syncConditionsList.length != 0 ) {
+                    sparql += " UNION ";
+                }
+                syncConditionsList.push(syncCondition);
+                sparql += " " + syncCondition + " ";
+            }
+        }
+    }
+
+    sparql += "} }";
+
+    // for testing purpouse
+    // sparql += "} \
+    //     filter (?resource != <http://www.eea.europa.eu/data-and-maps/data/waterbase-rivers-7>) \
+    // }";
+
+    qs = {
+        "query" : sparql
+    };
+
+    // Semnatic sparql request
+    try {
+        res = request('GET', semanticHost, {
+                "qs": qs,
+                "headers": {
+                    'accept': 'application/sparql-results+json',
+                    'content-type': 'application/json'
+                }
+            });
+        var res_json = JSON.parse(res.getBody('utf8'));
+
+        // Return only list of ids
+        for (var i = 0; i < res_json.results.bindings.length; i++) {
+            semanticList.push(res_json.results.bindings[i].resource.value);
+        }
+
+        return semanticList;
+    }
+    catch (e) {
+        console.log("Semantic request failed.");
+        return false;
+    }
+}
+
+function getElasticData() {
+    var request = require('sync-request');
+    var elastic = require('nconf').get()['elastic'];
+    var rdfSearch = 'http://' + elastic.host + ':' + elastic.port + elastic.path + '/' + elastic.index + '/_search';
+    var idList = [];
+
+    qs1 = {
+        "query": {
+            "filtered": {
+                "filter": {
+                    "type": {
+                        "value": "resource"
+                    }
+                }
+            }
+        },
+        "fields": ["_id"]
+    };
+
+    // Query elasticsearch for data count
+    var data_count = 0;
+    try {
+        res = request('POST', rdfSearch, {
+                "json": qs1
+            });
+        var res_json = JSON.parse(res.getBody('utf8'));
+        data_count = res_json.hits.total;
+    }
+    catch (e) {
+        console.log("Couldn't get the number of hits");
+        return false;
+    }
+
+    var qs2 = {
+        "query": {
+            "filtered": {
+                "filter": {
+                    "type": {
+                        "value": "resource"
+                    }
+                }
+            }
+        },
+        "fields": ["_id"],
+        "size": data_count,
+    };
+
+    // Query only for resource _type
+    try {
+        res2 = request('POST', rdfSearch, {
+                "json": qs2
+        });
+        var res_json2 = JSON.parse(res2.getBody('utf8'));
+
+        // Return only ids list
+        for (var i = 0; i < data_count; i++) {
+            idList.push(res_json2.hits.hits[i]._id);
+        }
+
+        return idList;
+    }
+    catch (e) {
+        console.log("Elastic query failed.");
+        return false;
+    }
+
+}
+
+
+function deleteElasticDoc(id) {
+    var request = require('sync-request');
+    var elastic = require('nconf').get()['elastic'];
+    var docPath = 'http://' + elastic.host + ':' + elastic.port + elastic.path + '/' + elastic.index + '/resource/';
+
+    // Delete request for duplicate documents in elastic
+    try {
+        res = request('DELETE', docPath + encodeURIComponent(id));
+        var res_json = JSON.parse(res.getBody('utf8'));
+        if(res_json.found) {
+            console.log("Deleted document with _id: " + id );
+        } else {
+            console.log("Document not found");
+        }
+    }
+    catch (e) {
+        console.log("DELETE request failed");
+        return false;
+    }
+}
+
 function reIndex(settings) {
+    // Check for undeleted, duplicate data in elastic. Refs #86021
+    compareElasticSemnatic()
+    return;
+
     settings.remove_all = true;
     createIndex(settings);
 }
