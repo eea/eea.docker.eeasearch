@@ -233,7 +233,7 @@ function createIndex(settings) {
         }
     }
 
-    Check for undeleted, duplicate data in elastic. Refs #86021
+    /* Check for undeleted, duplicate data in elastic. Refs #86021 */
     compareElasticSemnatic()
 
     if (use_default_startTime) {
