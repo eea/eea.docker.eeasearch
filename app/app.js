@@ -5,7 +5,7 @@
  */
 
 var path = require('path');
-var searchServer = require('eea-searchserver')
+var searchServer = require('eea-searchserver');
 var builtinRoutes = require('./routes/eeasearch');
 var managementCommands = require('./commands/eeasearch');
 var fs = require('fs');
@@ -22,11 +22,11 @@ options = {
     extraAnalyzers: 'config/analyzers.json',
     filterAnalyzers: 'config/filters.json',
     dataMapping: 'config/mapping.json',
-    endpoint: 'http://semantic.eea.europa.eu/sparql',
+    endpoint: 'http://semantic.eea.europa.eu/sparql'
   },
   customResourcesPath: ['code/config/public']
-}
-searchServer.Helpers.SimpleStart(options)
+};
+searchServer.Helpers.SimpleStart(options);
 
 
 exports.relevanceSettings = function(next){
@@ -37,8 +37,8 @@ exports.relevanceSettings = function(next){
     else{
         next({});
     }
-}
+};
 
 exports.fieldsMapping = function(next){
     next(require(path.join(__dirname, "/config/facets.json")));
-}
+};
