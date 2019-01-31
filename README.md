@@ -1,5 +1,7 @@
 # EEA Search Node.js application + Docker env
 
+__DEPRECATED__
+
 ## Development
 1. Change code
 2. If you:
